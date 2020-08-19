@@ -6,9 +6,46 @@
     <description>Recent content in Tags on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Tue, 18 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://lum8rjack.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>binwalk</title>
+      <link>https://lum8rjack.github.io/tags/binwalk/</link>
+      <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lum8rjack.github.io/tags/binwalk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ghidra</title>
+      <link>https://lum8rjack.github.io/tags/ghidra/</link>
+      <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lum8rjack.github.io/tags/ghidra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iot</title>
+      <link>https://lum8rjack.github.io/tags/iot/</link>
+      <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lum8rjack.github.io/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>router</title>
+      <link>https://lum8rjack.github.io/tags/router/</link>
+      <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lum8rjack.github.io/tags/router/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

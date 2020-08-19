@@ -3,6 +3,51 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://lum8rjack.github.io/tags/binwalk/</loc>
+    <lastmod>2020-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lum8rjack.github.io/categories/</loc>
+    <lastmod>2020-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lum8rjack.github.io/tags/ghidra/</loc>
+    <lastmod>2020-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lum8rjack.github.io/tags/iot/</loc>
+    <lastmod>2020-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lum8rjack.github.io/posts/</loc>
+    <lastmod>2020-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lum8rjack.github.io/posts/c3000z/</loc>
+    <lastmod>2020-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lum8rjack.github.io/categories/reverse-engineering/</loc>
+    <lastmod>2020-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lum8rjack.github.io/tags/router/</loc>
+    <lastmod>2020-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lum8rjack.github.io/tags/</loc>
+    <lastmod>2020-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lum8rjack.github.io/</loc>
     <lastmod>2020-08-17T00:00:00+00:00</lastmod>
   </url>
@@ -13,19 +58,7 @@
   </url>
   
   <url>
-    <loc>https://lum8rjack.github.io/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://lum8rjack.github.io/posts/</loc>
-  </url>
-  
-  <url>
     <loc>https://lum8rjack.github.io/portfolio/</loc>
-  </url>
-  
-  <url>
-    <loc>https://lum8rjack.github.io/tags/</loc>
   </url>
   
 </urlset>
