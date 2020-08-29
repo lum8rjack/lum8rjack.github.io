@@ -7,7 +7,7 @@ theme = "hyde-hyde"
 
 ## Hugo Built-in Features
 # disqusShortname = "your-disqus-shortname"
-# googleAnalytics = "your-google-analytics-id"
+googleAnalytics = "UA-176789551-1"
 # enableRobotsTXT = true
 
 # summarylength = 30

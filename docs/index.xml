@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>MOHarvester</title>
+      <link>https://lum8rjack.github.io/portfolio/moharvester/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lum8rjack.github.io/portfolio/moharvester/</guid>
+      <description>MOHarvester is a project to analyze the waterfowl data collected from the Missouri Department of Conservation. The data is colloected each day of the hunting season from each of the 15 different hunting zones.</description>
+    </item>
+    
+    <item>
       <title>Reverse Engineering C3000Z</title>
       <link>https://lum8rjack.github.io/posts/c3000z/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>

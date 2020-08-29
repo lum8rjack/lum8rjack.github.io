@@ -6,9 +6,19 @@
     <description>Recent content in Projects on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Sat, 29 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://lum8rjack.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MOHarvester</title>
+      <link>https://lum8rjack.github.io/portfolio/moharvester/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://lum8rjack.github.io/portfolio/moharvester/</guid>
+      <description>MOHarvester is a project to analyze the waterfowl data collected from the Missouri Department of Conservation. The data is colloected each day of the hunting season from each of the 15 different hunting zones.</description>
+    </item>
     
   </channel>
 </rss>

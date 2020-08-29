@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://lum8rjack.github.io/portfolio/moharvester/</loc>
+    <lastmod>2020-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lum8rjack.github.io/portfolio/</loc>
+    <lastmod>2020-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lum8rjack.github.io/tags/binwalk/</loc>
     <lastmod>2020-08-18T00:00:00+00:00</lastmod>
   </url>
@@ -55,10 +65,6 @@
   <url>
     <loc>https://lum8rjack.github.io/about/</loc>
     <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://lum8rjack.github.io/portfolio/</loc>
   </url>
   
 </urlset>
