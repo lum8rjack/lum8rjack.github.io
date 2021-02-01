@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Lum8rjack</title>
-    <link>https://lum8rjack.github.io/posts/</link>
-    <description>Recent content in Posts on Lum8rjack</description>
+    <title>dll injection on Lum8rjack</title>
+    <link>https://lum8rjack.github.io/tags/dll-injection/</link>
+    <description>Recent content in dll injection on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 31 Jan 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://lum8rjack.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://lum8rjack.github.io/tags/dll-injection/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,16 +18,6 @@
       
       <guid>https://lum8rjack.github.io/posts/function-hooking-part-1/</guid>
       <description>I have recently been spending time learning more about reverse engineering and patching applications including fixing older programs that I do not have the source code for. I&amp;rsquo;ve started looking into function hooking and identifying how it works and different scenarios I could use it. There are a ton of articles online but most of them do not provide simple examples for starters or are focused on Windows API. While Windows API hooking is useful, I am more interested in hooking higher level functions.</description>
-    </item>
-    
-    <item>
-      <title>Reverse Engineering C3000Z</title>
-      <link>https://lum8rjack.github.io/posts/c3000z/</link>
-      <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://lum8rjack.github.io/posts/c3000z/</guid>
-      <description>The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.
-I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP.</description>
     </item>
     
   </channel>

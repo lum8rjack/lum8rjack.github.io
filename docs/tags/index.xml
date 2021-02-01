@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 31 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://lum8rjack.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>dll injection</title>
+      <link>https://lum8rjack.github.io/tags/dll-injection/</link>
+      <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://lum8rjack.github.io/tags/dll-injection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ghidra</title>
+      <link>https://lum8rjack.github.io/tags/ghidra/</link>
+      <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://lum8rjack.github.io/tags/ghidra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://lum8rjack.github.io/tags/windows/</link>
+      <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://lum8rjack.github.io/tags/windows/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>binwalk</title>
@@ -17,15 +44,6 @@
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://lum8rjack.github.io/tags/binwalk/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ghidra</title>
-      <link>https://lum8rjack.github.io/tags/ghidra/</link>
-      <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://lum8rjack.github.io/tags/ghidra/</guid>
       <description></description>
     </item>
     
