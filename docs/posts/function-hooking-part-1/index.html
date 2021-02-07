@@ -227,7 +227,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <p>There are many other articles out there that can explain function hooking better than I can. One article you can checkout is <a href="http://kylehalladay.com/blog/2020/11/13/Hooking-By-Example.html">http://kylehalladay.com/blog/2020/11/13/Hooking-By-Example.html</a>.</p>
 <h2 id="overview">Overview</h2>
 <p>Now that you know what function hooking is, how can this be used? Let&rsquo;s start by creating an application that can hook a specific function. Having the source code will make it easier to reverse engineer in order to find and write a signature for the function compared to starting out with a larger, closed source application.</p>
-<p>While Windows API function hooking may be useful in different scenarios, there may also be times you would want to hook a custom function. If you have ever used API Monitor (<a href="http://www.rohitab.com/apimonitor">http://www.rohitab.com/apimonitor</a>) to view the API calls an application uses, you may find it overwhelming with the number of requests being made. This may also make it hard to focus in on the specific area of the application you are wanting to monitor or manipulate.</p>
+<p>While Windows API function hooking may be useful in different scenarios, there may also be times you would want to hook a custom function. If you have ever used <a href="http://www.rohitab.com/apimonitor">API Monitor</a> to view the API calls an application uses, you may find it overwhelming with the number of requests being made. This may also make it hard to focus in on the specific area of the application you are wanting to monitor or manipulate.</p>
 <p>Our example will create a simple console application that adds two numbers together and prints the result to the console. Using this program you will create a DLL, that when it&rsquo;s injected into the program, will alter the functionality of the function that adds the numbers.</p>
 <p>When initially searching for references around function hooking it was hard to find anything that wasn&rsquo;t specific to Windows API hooking. I was able to find <a href="https://github.com/Zer0Mem0ry/Detour">https://github.com/Zer0Mem0ry/Detour</a> which provides some code examples on function hooking. The repository does not have any documentation so I had to search through the code to figure out how to get the pieces to work. Most of the code and ideas in this post come from that repository.</p>
 <h2 id="writing-the-program">Writing The Program</h2>
@@ -267,7 +267,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <h2 id="conclusion">Conclusion</h2>
 <p>In this example I am only demonstrating one simple way to hook a function. While this example may not be useful in real life, it should provide an understanding of how function hooking works.</p>
 <p>In part 2, I will cover using these same concepts against a known application and how it could be used during a red team engagement.</p>
-<p>The example code can be found here: <a href="https://github.com/lum8rjack/FunctionHooking">https://github.com/lum8rjack/FunctionHooking</a></p>
+<p>Example code - <a href="https://github.com/lum8rjack/FunctionHooking">https://github.com/lum8rjack/FunctionHooking</a></p>
 <h2 id="acknowledgements">Acknowledgements</h2>
 <p>Below are a few additional resources and tools.</p>
 <ul>

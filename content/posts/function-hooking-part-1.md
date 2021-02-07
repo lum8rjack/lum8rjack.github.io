@@ -22,7 +22,7 @@ There are many other articles out there that can explain function hooking better
 ## Overview
 Now that you know what function hooking is, how can this be used? Let's start by creating an application that can hook a specific function. Having the source code will make it easier to reverse engineer in order to find and write a signature for the function compared to starting out with a larger, closed source application.
 
-While Windows API function hooking may be useful in different scenarios, there may also be times you would want to hook a custom function. If you have ever used API Monitor (http://www.rohitab.com/apimonitor) to view the API calls an application uses, you may find it overwhelming with the number of requests being made. This may also make it hard to focus in on the specific area of the application you are wanting to monitor or manipulate.
+While Windows API function hooking may be useful in different scenarios, there may also be times you would want to hook a custom function. If you have ever used [API Monitor](http://www.rohitab.com/apimonitor) to view the API calls an application uses, you may find it overwhelming with the number of requests being made. This may also make it hard to focus in on the specific area of the application you are wanting to monitor or manipulate.
 
 Our example will create a simple console application that adds two numbers together and prints the result to the console. Using this program you will create a DLL, that when it's injected into the program, will alter the functionality of the function that adds the numbers.
 
@@ -81,7 +81,7 @@ In this example I am only demonstrating one simple way to hook a function. While
 
 In part 2, I will cover using these same concepts against a known application and how it could be used during a red team engagement.
 
-The example code can be found here: https://github.com/lum8rjack/FunctionHooking
+Example code - https://github.com/lum8rjack/FunctionHooking
 
 ## Acknowledgements
 Below are a few additional resources and tools.
