@@ -1,0 +1,41 @@
+$orange: #d28445;
+$green: #355e3b;
+$brown: #8f5536;
+
+.badge-category,
+a.badge-category {
+  color: #fff !important;
+  background-color: $green;
+  &:hover, &:focus {
+    color: $green !important;
+    background: transparent;
+    background-color: transparent;
+    text-decoration: none;
+    border-bottom: none;
+  }
+}
+
+.badge-tag,
+a.badge-tag {
+  color: #fff !important;
+  background-color: $orange;
+  &:hover, &:focus {
+    color: $orange !important;
+    background: transparent;
+    background-color: transparent;
+    text-decoration: none;
+    border-bottom: none;
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
