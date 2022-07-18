@@ -1,3 +1,3 @@
-# lum8rjack.github.cio
+# lum8rjack.github.io
 
 Personal website
