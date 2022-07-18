@@ -11,20 +11,20 @@ In this post I will expand on the information from my first post, [Function Hook
 As you can image, password managers are valuable targets during red team engaments since they contain additional credentials for other services or computers. If the main password to open the database is known or obtained, then all of the other credentials in the database are compromised.
 
 ## What Is Password Safe?
-Password Safe is a free and open-source password manager. A password manager is "a computer program that allows users to store, generate, and manage their passwords for local applications and online services. A password manager assists in generating and retrieving complex passwords, storing such passwords in an encrypted database or calculating them on demand." (https://en.wikipedia.org/wiki/Password_manager).
+Password Safe is a free and open-source password manager. According to [Wikipedia](https://en.wikipedia.org/wiki/Password_manager), a password manager is "a computer program that allows users to store, generate, and manage their passwords for local applications and online services. A password manager assists in generating and retrieving complex passwords, storing such passwords in an encrypted database or calculating them on demand".
 
 Like many other password managers, Password Safe has functionality that includes:
-* Password management - Stores passwords securely and can be sectioned into groups
-* Import and export - Ability to export passwords to TXT or XML and also import passwords from TXT or CSV files
-* File encryption - Ability to encrypt files
-* Password generator - Built-in password generator
+- Password management - Stores passwords securely and can be sectioned into groups
+- Import and export - Ability to export passwords to TXT or XML and also import passwords from TXT or CSV files
+- File encryption - Ability to encrypt files
+- Password generator - Built-in password generator
 
 ![pwsafe_example](/img/FunctionHooking2/pwsafe_example.png)
 
 Other password managers include:
-* [KeePass](https://keepass.info/)
-* [Lastpass](https://www.lastpass.com/)
-* [1Password](https://1password.com/)
+- [KeePass](https://keepass.info/)
+- [Lastpass](https://www.lastpass.com/)
+- [1Password](https://1password.com/)
 
 ## Using Password Safe
 Before I begin finding signatures and writing code, it is important to understand how the application works. I have installed Password Safe version 3.54  with the pwsafe.exe file details below.
@@ -204,10 +204,13 @@ I also tested the application by entering in a wrong passkey. It shows the wrong
 ## Wrap-Up
 These same techniques can be applied to other password managers or any other application. It can be used to to intercept data or add additional functionality to an application.
 
-Example code - https://github.com/lum8rjack/FunctionHooking
+Example code [here](https://github.com/lum8rjack/FunctionHooking).
 
-## References
+## References / Acknowledgements
 
-* Password Safe - https://pwsafe.org/
-* Password Safe source code - https://github.com/pwsafe/pwsafe
+- https://pwsafe.org/
+- https://github.com/pwsafe/pwsafe
+- https://en.wikipedia.org/wiki/Password_manager
+- https://x64dbg.com/
+- https://github.com/lum8rjack/FunctionHooking
 

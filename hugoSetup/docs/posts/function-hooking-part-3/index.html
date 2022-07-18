@@ -359,14 +359,16 @@ Attached to PID: 6056
 </code></pre><p>You can see from the output above, that the JavaScript first finds the base address of the application and scans for the function. Once the function address is identified, it intercepts the argements and outputs them to the screen. Instead of outputing the results to the console, I could update the JavaScript code in order to send the results back to Python. This would allow me to easily save the details to a file or perform additional analysis.</p>
 <h2 id="wrap-up">Wrap-Up</h2>
 <p>While this method of using Frida may not be as stealthy to implement in a penetration test or red team engagement, it does make it easier to create quick POCs. I find it much quicker to write the logic in Python and use the Frida Javascript API instead of C++ when first analyzing an application. In the References section below, I included a few addtional links to blogs where others have used Frida for hacking games or fuzzing.</p>
-<p>Example code - <a href="https://github.com/lum8rjack/FunctionHooking">https://github.com/lum8rjack/FunctionHooking</a></p>
-<h2 id="references">References</h2>
+<p>Example code <a href="https://github.com/lum8rjack/FunctionHooking">here</a>.</p>
+<h2 id="references--acknowledgements">References / Acknowledgements</h2>
 <ul>
-<li>Frida - <a href="https://frida.re/">https://frida.re/</a></li>
-<li>Learn Frida - <a href="https://learnfrida.info/">https://learnfrida.info/</a></li>
-<li>Beginning Frida Book - <a href="https://www.amazon.com/Beginning-Frida-Learning-Android-JavaScript-ebook/dp/B094ZNR1MV/ref=sr_1_1?crid=21JQOO7K2D218&amp;keywords=frida+reverse+engineering+book&amp;qid=1643771486&amp;sprefix=frida+reverse+engineeringbook%2Caps%2C74&amp;sr=8-1">https://www.amazon.com/Beginning-Frida-Learning-Android-JavaScript-ebook/dp/B094ZNR1MV/ref=sr_1_1?crid=21JQOO7K2D218&amp;keywords=frida+reverse+engineering+book&amp;qid=1643771486&amp;sprefix=frida+reverse+engineeringbook%2Caps%2C74&amp;sr=8-1</a></li>
-<li>In-Process Fuzzing With Frida - <a href="https://bananamafia.dev/post/frida-fuzz/">https://bananamafia.dev/post/frida-fuzz/</a></li>
-<li>Hacking a game to learn FRIDA basics (Pwn Adventure 3) - <a href="https://x-c3ll.github.io/posts/Frida-Pwn-Adventure-3/">https://x-c3ll.github.io/posts/Frida-Pwn-Adventure-3/</a></li>
+<li><a href="https://frida.re/">https://frida.re/</a></li>
+<li><a href="https://learnfrida.info/">https://learnfrida.info/</a></li>
+<li><a href="https://www.amazon.com/Beginning-Frida-Learning-Android-JavaScript-ebook/dp/B094ZNR1MV/ref=sr_1_1?crid=21JQOO7K2D218&amp;keywords=frida+reverse+engineering+book&amp;qid=1643771486&amp;sprefix=frida+reverse+engineeringbook%2Caps%2C74&amp;sr=8-1">https://www.amazon.com/Beginning-Frida-Learning-Android-JavaScript-ebook/dp/B094ZNR1MV/ref=sr_1_1?crid=21JQOO7K2D218&amp;keywords=frida+reverse+engineering+book&amp;qid=1643771486&amp;sprefix=frida+reverse+engineeringbook%2Caps%2C74&amp;sr=8-1</a></li>
+<li><a href="https://bananamafia.dev/post/frida-fuzz/">https://bananamafia.dev/post/frida-fuzz/</a></li>
+<li><a href="https://x-c3ll.github.io/posts/Frida-Pwn-Adventure-3/">https://x-c3ll.github.io/posts/Frida-Pwn-Adventure-3/</a></li>
+<li><a href="https://github.com/lum8rjack/GhidraHelp">https://github.com/lum8rjack/GhidraHelp</a></li>
+<li><a href="https://github.com/lum8rjack/FunctionHooking">https://github.com/lum8rjack/FunctionHooking</a></li>
 </ul>
 
   </div>

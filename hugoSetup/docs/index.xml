@@ -12,6 +12,24 @@
     
     
     <item>
+      <title>Entropy Analysis</title>
+      <link>/posts/entropy/</link>
+      <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/entropy/</guid>
+      <description>While creating payload for different pen testing and red team projects, I would always run into having to bypass AV/EDRs. Once bypassed, the code and techniques would work for a few weeks or months before getting flagged as malicious. There has been a lot of research and blogs on different bypass techniques, but one that caught my eye mentioned file entropy. I have looked at the entropy of firmware before to help determine if it was encrypted or not, but I have never looked at entropy when it came to C2 payloads.</description>
+    </item>
+    
+    <item>
+      <title>car-trivia</title>
+      <link>/portfolio/car-trivia/</link>
+      <pubDate>Tue, 28 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/car-trivia/</guid>
+      <description>car-trivia is a simple web app that pulls trivia questions from Open Trivia DB. You can test the game by going to https://car-trivia.herokuapp.com/.</description>
+    </item>
+    
+    <item>
       <title>Function Hooking Part 3 - Frida</title>
       <link>/posts/function-hooking-part-3/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>

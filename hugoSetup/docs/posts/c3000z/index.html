@@ -193,7 +193,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
           in
           
           
-              <a class="badge badge-category" href="/categories/reverse-engineering">REVERSE-ENGINEERING</a>
+              <a class="badge badge-category" href="/categories/reverse-engineering">REVERSE ENGINEERING</a>
               
           
       
@@ -231,7 +231,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     <p>The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.</p>
 <p>I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP. I could see the username but the password was not visable. I was able to find an option to backup the settings to a configuration file hoping it would store the password in plain text, unfortunately the password was encrypted. Instead of calling the ISP to get the credentials, I figured I would first try to figure out a way to decrypt the password. This process not only helped teach me about reverse engineering, but also about testing IoT devices and what can be found in the firmware.</p>
 <h2 id="c3000z-details">C3000Z Details</h2>
-<p>The C3000Z modem/WiFi router is similar to many other devices in that it provides both 2.4GHz and 5GHz wireless capabilities and is easy to manage via the web interface. More details can be found through CenturyLink&rsquo;s website <a href="https://www.centurylink.com/home/help/internet/modems-and-routers/zyxel-c3000z.html">https://www.centurylink.com/home/help/internet/modems-and-routers/zyxel-c3000z.html</a>.</p>
+<p>The C3000Z modem/WiFi router is similar to many other devices in that it provides both 2.4GHz and 5GHz wireless capabilities and is easy to manage via the web interface. More details can be found through CenturyLink&rsquo;s <a href="https://www.centurylink.com/home/help/internet/modems-and-routers/zyxel-c3000z.html">website</a>.</p>
 <p>At the time of writing this, the firmware that was tested was version CZD005-4.16.011.0.</p>
 <h2 id="configuration-backup">Configuration Backup</h2>
 <p>To start, I went to http://192.168.0.1 and logged into the device using the admin credentials that were provided with the device.</p>
@@ -246,15 +246,15 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <h2 id="obtaining-the-firmware">Obtaining the Firmware</h2>
 <p>I downloaded the firmware while I was logged into the device by going to Utilities -&gt; Upgrade Firmware. The page showed the current firmware version and provides a button to download the firmware.</p>
 <p><img src="/img/c3000z/firmware-download.png" alt="Firmware-Download"></p>
-<p>The firmware can also be downloaded from CenturyLink&rsquo;s website: <a href="http://internethelp.centurylink.com/internethelp/modems/c3000z/firmware/CZD005-4.16.011.0.bin">http://internethelp.centurylink.com/internethelp/modems/c3000z/firmware/CZD005-4.16.011.0.bin</a></p>
+<p>The firmware can also be downloaded from CenturyLink&rsquo;s <a href="http://internethelp.centurylink.com/internethelp/modems/c3000z/firmware/CZD005-4.16.011.0.bin">website</a>.</p>
 <h2 id="extracting-the-filesystem">Extracting the Filesystem</h2>
 <p>I needed to extract the filesytem from the firmware in order to view the different binaries. There are multiple ways this can be done but one of the easiest is to install and use binwalk. Binwalk can be a little bit of a pain to install based on all of the dependencies it needs so I have created a docker image that makes it easy to build and extract the firmware.</p>
-<pre><code>git clone https://github.com/lum8rjack/binwalk_docker.git
-cd binwalk_docker
-./build
-docker run --rm -v $(pwd):/root/extracted/ binwalk CZD005-4.16.011.0.bin
-</code></pre><p><img src="/img/c3000z/binwalk.png" alt="Binwalk"></p>
-<p>Another method is using the Firmware Analysis and Comparison Tool (<a href="https://github.com/fkie-cad/FACT_core">https://github.com/fkie-cad/FACT_core</a>) to not only extract the firmware but also automate analyzing multiple other aspects of the firmware image.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/lum8rjack/binwalk_docker.git
+$ cd binwalk_docker
+$ ./build
+$ docker run --rm -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>:/root/extracted/ binwalk CZD005-4.16.011.0.bin
+</code></pre></div><p><img src="/img/c3000z/binwalk.png" alt="Binwalk"></p>
+<p>Another method is using the Firmware Analysis and Comparison Tool (<a href="https://github.com/fkie-cad/FACT_core">FACT</a>) to not only extract the firmware but also automate analyzing multiple other aspects of the firmware image.</p>
 <p><img src="/img/c3000z/fact.png" alt="FACT"></p>
 <h2 id="identify-the-binary">Identify the Binary</h2>
 <p>My next step was to figure out which binary encrypts the passwords. I figured I would start looking through the file system for any config files or scripts that the web application would call. The filesystem directory structure is similar to most linux systems.</p>
@@ -289,11 +289,11 @@ docker run --rm -v $(pwd):/root/extracted/ binwalk CZD005-4.16.011.0.bin
 <p><img src="/img/c3000z/openssl_decode.png" alt="Openssl"></p>
 <h2 id="decoding-the-password">Decoding the Password</h2>
 <p>Using the same openssl command I tried decrypting a few of the passwords from the configuration file but was getting the error &ldquo;bad decrypt&rdquo;. I did more Googling and found references mentioning a need to provide a message digest to openssl. I remember seeing references using MD5 in other areas of the binaries and updated the command below. To my surprise it worked!</p>
-<pre><code>openssl des -in encoded_password.txt -d -k &quot;C1000Z_1234&quot; -a -md md5
-</code></pre><h2 id="decode-script">Decode Script</h2>
-<p>Now that I know how to decode the passwords, I decided to create a Python script that would parse the configuration file to provide all of the credentials. The script can be found on my Github page <a href="https://github.com/lum8rjack/C3000Z">https://github.com/lum8rjack/C3000Z</a>.</p>
-<h2 id="references">References</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ openssl des -in encoded_password.txt -d -k <span style="color:#e6db74">&#34;C1000Z_1234&#34;</span> -a -md md5
+</code></pre></div><h2 id="wrap-up">Wrap-Up</h2>
+<p>Now that I know how to decode the passwords, I decided to create a Python script that would parse the configuration file to provide all of the credentials. The script can be found on my <a href="https://github.com/lum8rjack/C3000Z">Github page</a>.</p>
 <p>This research was nothing ground breaking but was a challenge without having a background in reverse engineering or IoT. Below are a few of the resources and tools that got me interested in learning reverse engineering and the skills needed.</p>
+<h2 id="references--acknowledgements">References / Acknowledgements</h2>
 <ul>
 <li><a href="https://github.com/lum8rjack/binwalk_docker">https://github.com/lum8rjack/binwalk_docker</a></li>
 <li><a href="https://github.com/fkie-cad/FACT_core">https://github.com/fkie-cad/FACT_core</a></li>

@@ -4,12 +4,12 @@ baseurl = "/"
 languageCode = "en"
 publishDir = "docs"
 title = "Lum8rjack"
-theme = "hyde-hyde"
+theme = "hyde-hyde-copied"
 
 ## Hugo Built-in Features
 # disqusShortname = "your-disqus-shortname"
 googleAnalytics = "UA-176789551-1"
-# enableRobotsTXT = true
+enableRobotsTXT = true
 
 # summarylength = 30
 

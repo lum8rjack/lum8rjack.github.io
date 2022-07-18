@@ -228,11 +228,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <h2 id="what-is-function-hooking">What Is Function Hooking?</h2>
 <p>Function hooking is a technique that allows the user to intercept and redirect the execution of a function in a running application. This can be combined with DLL injection to patch a program that cannot be recompiled (i.e. the user doesn&rsquo;t have the source code) or to add new functionality (i.e. adding a new feature to a game). Some reasons to use function hooking on red team engagements include:</p>
 <ul>
-<li>Intercepting and/or manipulating data before it is processed or sent somewhere
-<ul>
-<li><a href="https://www.ired.team/offensive-security/code-injection-process-injection/api-monitoring-and-hooking-for-offensive-tooling">https://www.ired.team/offensive-security/code-injection-process-injection/api-monitoring-and-hooking-for-offensive-tooling</a></li>
-</ul>
-</li>
+<li>Intercepting and/or manipulating data before it is processed or sent somewhere</li>
 <li>Disabling functionality</li>
 </ul>
 <p>There are many other articles out there that can explain function hooking better than I can. One article you can checkout is <a href="http://kylehalladay.com/blog/2020/11/13/Hooking-By-Example.html">http://kylehalladay.com/blog/2020/11/13/Hooking-By-Example.html</a>.</p>
@@ -240,9 +236,9 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <p>Now that you know what function hooking is, how can this be used? Let&rsquo;s start by creating an application that can hook a specific function. Having the source code will make it easier to reverse engineer in order to find and write a signature for the function compared to starting out with a larger, closed source application.</p>
 <p>While Windows API function hooking may be useful in different scenarios, there may also be times you would want to hook a custom function. If you have ever used <a href="http://www.rohitab.com/apimonitor">API Monitor</a> to view the API calls an application uses, you may find it overwhelming with the number of requests being made. This may also make it hard to focus in on the specific area of the application you are wanting to monitor or manipulate.</p>
 <p>Our example will create a simple console application that adds two numbers together and prints the result to the console. Using this program you will create a DLL, that when it&rsquo;s injected into the program, will alter the functionality of the function that adds the numbers.</p>
-<p>When initially searching for references around function hooking it was hard to find anything that wasn&rsquo;t specific to Windows API hooking. I was able to find <a href="https://github.com/Zer0Mem0ry/Detour">https://github.com/Zer0Mem0ry/Detour</a> which provides some code examples on function hooking. The repository does not have any documentation so I had to search through the code to figure out how to get the pieces to work. Most of the code and ideas in this post come from that repository.</p>
+<p>When initially searching for references around function hooking it was hard to find anything that wasn&rsquo;t specific to Windows API hooking. I was able to find <a href="https://github.com/Zer0Mem0ry/Detour">Zer0Mem0ry&rsquo;s</a> Gihub repo which provides some code examples on function hooking. The repository does not have any documentation so I had to search through the code to figure out how to get the pieces to work. Most of the code and ideas in this post come from that repository.</p>
 <h2 id="writing-the-program">Writing The Program</h2>
-<p>I started by creating my own application. As mentioned previously, I based most of my code and ideas from <a href="https://github.com/Zer0Mem0ry/Detour">https://github.com/Zer0Mem0ry/Detour</a>. I created a similar test application that outputs the sum of two numbers.</p>
+<p>I started by creating my own application. As mentioned previously, I based most of my code and ideas from <a href="https://github.com/Zer0Mem0ry/Detour">Zer0Mem0ry</a>. I created a similar test application that outputs the sum of two numbers.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -303,7 +299,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <p><img src="/img/FunctionHooking1/findSignature3.png" alt="xxd"></p>
 <p>As seen in the image above, the 9 bytes I selected were only identified once in the program. The next step was to create the DLL that will scan for this function and perform the hooking.</p>
 <h2 id="writing-the-dll">Writing The DLL</h2>
-<p>The DLL will utilize Microsoft Detours to intercept and re-write the in-memory code for the target function. A more detailed overview of what Detours is can be found here: <a href="https://www.microsoft.com/en-us/research/project/detours/">https://www.microsoft.com/en-us/research/project/detours/</a>. In addition to Detours, I utilized the signature scanner code from Zer0Mem0ry (<a href="https://github.com/Zer0Mem0ry/Detour/blob/master/dll/sigscan.h">https://github.com/Zer0Mem0ry/Detour/blob/master/dll/sigscan.h</a>) in order to find the function in memory.</p>
+<p>The DLL will utilize Microsoft Detours to intercept and re-write the in-memory code for the target function. A more detailed overview of what Detours is can be found here on Microsoft&rsquo;s <a href="https://www.microsoft.com/en-us/research/project/detours/">website</a>. In addition to Detours, I utilized the signature scanner code from <a href="https://github.com/Zer0Mem0ry/Detour/blob/master/dll/sigscan.h">Zer0Mem0ry</a> in order to find the function in memory.</p>
 <p>I created a new C++ DLL project in Visual Studio and imported Detours via the Nuget Package manager (Project -&gt; Manage NuGet Packages&hellip; -&gt; Browse -&gt; Detours -&gt; install). I also included the &ldquo;sigscan.h&rdquo; header to the project. Once all that was completed, the code below was added to the project and compiled to a DLL.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -432,15 +428,16 @@ BOOL APIENTRY <span style="color:#a6e22e">DllMain</span>(HMODULE hModule, DWORD 
 <h2 id="wrap-up">Wrap-Up</h2>
 <p>In this example I am only demonstrating one simple way to hook a function. While this example may not be useful in real life, it should provide an understanding of how function hooking works.</p>
 <p>In part 2, I will cover using these same concepts against a known application and how it could be used during a red team engagement.</p>
-<p>Example code - <a href="https://github.com/lum8rjack/FunctionHooking">https://github.com/lum8rjack/FunctionHooking</a></p>
-<h2 id="acknowledgements">Acknowledgements</h2>
-<p>Below are a few additional resources and tools.</p>
+<p>Example code <a href="https://github.com/lum8rjack/FunctionHooking">here</a>.</p>
+<h2 id="references--acknowledgements">References / Acknowledgements</h2>
 <ul>
-<li>Concepts of function hooking - <a href="https://github.com/Zer0Mem0ry/Detour">https://github.com/Zer0Mem0ry/Detour</a></li>
-<li>Signature scanner used in the example - <a href="https://github.com/Zer0Mem0ry/SignatureScanner">https://github.com/Zer0Mem0ry/SignatureScanner</a></li>
-<li>Microsoft Detours library - <a href="https://github.com/microsoft/Detours">https://github.com/microsoft/Detours</a></li>
-<li>Hooking example - <a href="http://kylehalladay.com/blog/2020/11/13/Hooking-By-Example.html">http://kylehalladay.com/blog/2020/11/13/Hooking-By-Example.html</a></li>
-<li>Hooking tutorial - <a href="https://www.codeproject.com/Articles/29527/Reverse-Engineering-and-Function-Calling-by-Addres">https://www.codeproject.com/Articles/29527/Reverse-Engineering-and-Function-Calling-by-Addres</a></li>
+<li><a href="https://github.com/Zer0Mem0ry/Detour">https://github.com/Zer0Mem0ry/Detour</a></li>
+<li><a href="https://github.com/Zer0Mem0ry/SignatureScanner">https://github.com/Zer0Mem0ry/SignatureScanner</a></li>
+<li><a href="https://github.com/microsoft/Detours">https://github.com/microsoft/Detours</a></li>
+<li><a href="https://www.ired.team/offensive-security/code-injection-process-injection/api-monitoring-and-hooking-for-offensive-tooling">https://www.ired.team/offensive-security/code-injection-process-injection/api-monitoring-and-hooking-for-offensive-tooling</a></li>
+<li><a href="http://kylehalladay.com/blog/2020/11/13/Hooking-By-Example.html">http://kylehalladay.com/blog/2020/11/13/Hooking-By-Example.html</a></li>
+<li><a href="https://www.codeproject.com/Articles/29527/Reverse-Engineering-and-Function-Calling-by-Addres">https://www.codeproject.com/Articles/29527/Reverse-Engineering-and-Function-Calling-by-Addres</a></li>
+<li><a href="https://github.com/lum8rjack/FunctionHooking">https://github.com/lum8rjack/FunctionHooking</a></li>
 </ul>
 
   </div>

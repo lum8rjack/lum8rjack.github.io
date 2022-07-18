@@ -231,7 +231,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     <p>In this post I will expand on the information from my first post, <a href="/posts/function-hooking-part-1/">Function Hooking Part 1 - Test Program</a>. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager <a href="https://pwsafe.org/">Password Safe</a>.</p>
 <p>As you can image, password managers are valuable targets during red team engaments since they contain additional credentials for other services or computers. If the main password to open the database is known or obtained, then all of the other credentials in the database are compromised.</p>
 <h2 id="what-is-password-safe">What Is Password Safe?</h2>
-<p>Password Safe is a free and open-source password manager. A password manager is &ldquo;a computer program that allows users to store, generate, and manage their passwords for local applications and online services. A password manager assists in generating and retrieving complex passwords, storing such passwords in an encrypted database or calculating them on demand.&rdquo; (<a href="https://en.wikipedia.org/wiki/Password_manager)">https://en.wikipedia.org/wiki/Password_manager)</a>.</p>
+<p>Password Safe is a free and open-source password manager. According to <a href="https://en.wikipedia.org/wiki/Password_manager">Wikipedia</a>, a password manager is &ldquo;a computer program that allows users to store, generate, and manage their passwords for local applications and online services. A password manager assists in generating and retrieving complex passwords, storing such passwords in an encrypted database or calculating them on demand&rdquo;.</p>
 <p>Like many other password managers, Password Safe has functionality that includes:</p>
 <ul>
 <li>Password management - Stores passwords securely and can be sectioned into groups</li>
@@ -370,11 +370,14 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <p><img src="/img/FunctionHooking2/injected_wrong_passkey.png" alt="injected_wrong_passkey"></p>
 <h2 id="wrap-up">Wrap-Up</h2>
 <p>These same techniques can be applied to other password managers or any other application. It can be used to to intercept data or add additional functionality to an application.</p>
-<p>Example code - <a href="https://github.com/lum8rjack/FunctionHooking">https://github.com/lum8rjack/FunctionHooking</a></p>
-<h2 id="references">References</h2>
+<p>Example code <a href="https://github.com/lum8rjack/FunctionHooking">here</a>.</p>
+<h2 id="references--acknowledgements">References / Acknowledgements</h2>
 <ul>
-<li>Password Safe - <a href="https://pwsafe.org/">https://pwsafe.org/</a></li>
-<li>Password Safe source code - <a href="https://github.com/pwsafe/pwsafe">https://github.com/pwsafe/pwsafe</a></li>
+<li><a href="https://pwsafe.org/">https://pwsafe.org/</a></li>
+<li><a href="https://github.com/pwsafe/pwsafe">https://github.com/pwsafe/pwsafe</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Password_manager">https://en.wikipedia.org/wiki/Password_manager</a></li>
+<li><a href="https://x64dbg.com/">https://x64dbg.com/</a></li>
+<li><a href="https://github.com/lum8rjack/FunctionHooking">https://github.com/lum8rjack/FunctionHooking</a></li>
 </ul>
 
   </div>

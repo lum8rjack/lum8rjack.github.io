@@ -1,11 +1,11 @@
 {
 	"version": 3,
 	"file": "print.css",
-	"sourceRoot": "/home/clint/ownCloud/Research/lum8rjack.github.io/hugoSetup",
+	"sourceRoot": "/home/clint/Documents/Github/lum8rjack.github.io/hugoSetup",
 	"sources": [
-		"themes/hyde-hyde/assets/scss/print.scss",
-		"themes/hyde-hyde/assets/scss/hyde-hyde/_variables.scss",
-		"themes/hyde-hyde/assets/scss/hyde-hyde/_print.scss"
+		"themes/hyde-hyde-copied/assets/scss/print.scss",
+		"themes/hyde-hyde-copied/assets/scss/hyde-hyde/_variables.scss",
+		"themes/hyde-hyde-copied/assets/scss/hyde-hyde/_print.scss"
 	],
 	"sourcesContent": [
 		"@import \"hyde-hyde/variables\";\n@import 'hyde-hyde/print';\n",
