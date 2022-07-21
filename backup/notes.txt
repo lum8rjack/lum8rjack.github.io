@@ -1,3 +1,0 @@
-The scss files that were changed from the default theme are saved here in the backup.
-Originially from themes/hyde-hyde/assets/scss/hyde-hyde/
-

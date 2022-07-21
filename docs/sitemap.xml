@@ -3,41 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2022-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/entropy/</loc>
-    <lastmod>2022-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/evasion/</loc>
-    <lastmod>2022-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/malware/</loc>
-    <lastmod>2022-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/offsec/</loc>
-    <lastmod>2022-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2022-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2022-07-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/portfolio/car-trivia/</loc>
     <lastmod>2022-06-28T00:00:00+00:00</lastmod>
   </url>
@@ -45,6 +10,11 @@
   <url>
     <loc>/portfolio/</loc>
     <lastmod>2022-06-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -69,6 +39,16 @@
   
   <url>
     <loc>/tags/password-manager/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
     <lastmod>2022-02-06T00:00:00+00:00</lastmod>
   </url>
   
