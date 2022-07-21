@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "hyde-hyde.css",
-	"sourceRoot": "/home/clint/Documents/Github/lum8rjack.github.io/hugoSetup",
+	"sourceRoot": "/home/clint/Documents/Github/lum8rjack.github.io",
 	"sources": [
 		"themes/hyde-hyde-copied/assets/scss/hyde-hyde.scss",
 		"themes/hyde-hyde-copied/assets/scss/hyde-hyde/_variables.scss",
