@@ -6,20 +6,7 @@
     <description>Recent content in Projects on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 28 Jun 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/portfolio/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>car-trivia</title>
-      <link>/portfolio/car-trivia/</link>
-      <pubDate>Tue, 28 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/portfolio/car-trivia/</guid>
-      <description>car-trivia is a simple web app that pulls trivia questions from Open Trivia DB. You can test the game by going to https://car-trivia.herokuapp.com/.</description>
-    </item>
-    
+    <lastBuildDate>Sat, 29 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MOHarvester</title>
       <link>/portfolio/moharvester/</link>
@@ -27,6 +14,15 @@
       
       <guid>/portfolio/moharvester/</guid>
       <description>MOHarvester is a project to analyze the waterfowl data collected from the Missouri Department of Conservation. The data is collected each day of the hunting season from each of the 15 different hunting zones.</description>
+    </item>
+    
+    <item>
+      <title>car-trivia</title>
+      <link>/portfolio/car-trivia/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/car-trivia/</guid>
+      <description>car-trivia is a simple web app that pulls trivia questions from Open Trivia DB. You can test the game by going to https://car-trivia.lum8rjack.com/.</description>
     </item>
     
   </channel>

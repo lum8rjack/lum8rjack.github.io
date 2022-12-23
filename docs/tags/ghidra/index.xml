@@ -6,11 +6,7 @@
     <description>Recent content in ghidra on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 06 Feb 2021 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/ghidra/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 06 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ghidra/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Function Hooking Part 2 - Password Safe</title>
       <link>/posts/function-hooking-part-2/</link>

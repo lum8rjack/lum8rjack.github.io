@@ -6,11 +6,7 @@
     <description>Recent content in reverse engineering on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 18 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/reverse-engineering/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 18 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/reverse-engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reverse Engineering C3000Z</title>
       <link>/posts/c3000z/</link>

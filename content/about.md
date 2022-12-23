@@ -1,6 +1,6 @@
 +++
 title = "Whoami"
-date = "2022-02-06"
+date = "2022-12-23"
 +++
 
 
@@ -12,3 +12,7 @@ Certifications:
 - GIAC Exploit Researcher and Advanced Penetration Tester (GXPN)
 - Microsoft Certified: Azure Fundamentals (AZ-900)
 - Offensive Security Experienced Penetration Tester (OSEP)
+- Certified Information Systems Security Professional (CISSP)
+
+Additional Blogs:
+- [How to Use Entropy Analysis in Penetration Testing](https://www.schellman.com/blog/how-to-use-entropy-in-penetration-testing)

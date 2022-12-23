@@ -13,7 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.109.0">
 
     
     
@@ -31,7 +31,7 @@ I recently switched internet providers and was given a new modem/router. When th
 <meta property="og:description" content="The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.
 I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/c3000z/" />
+<meta property="og:url" content="/posts/c3000z/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-08-18T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-08-18T00:00:00+00:00" /><meta property="og:site_name" content="Lum8rjack" />
 
@@ -249,11 +249,11 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <p>The firmware can also be downloaded from CenturyLink&rsquo;s <a href="http://internethelp.centurylink.com/internethelp/modems/c3000z/firmware/CZD005-4.16.011.0.bin">website</a>.</p>
 <h2 id="extracting-the-filesystem">Extracting the Filesystem</h2>
 <p>I needed to extract the filesytem from the firmware in order to view the different binaries. There are multiple ways this can be done but one of the easiest is to install and use binwalk. Binwalk can be a little bit of a pain to install based on all of the dependencies it needs so I have created a docker image that makes it easy to build and extract the firmware.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone https://github.com/lum8rjack/binwalk_docker.git
-$ cd binwalk_docker
-$ ./build
-$ docker run --rm -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>:/root/extracted/ binwalk CZD005-4.16.011.0.bin
-</code></pre></div><p><img src="/img/c3000z/binwalk.png" alt="Binwalk"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git clone https://github.com/lum8rjack/binwalk_docker.git
+</span></span><span style="display:flex;"><span>$ cd binwalk_docker
+</span></span><span style="display:flex;"><span>$ ./build
+</span></span><span style="display:flex;"><span>$ docker run --rm -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>:/root/extracted/ binwalk CZD005-4.16.011.0.bin
+</span></span></code></pre></div><p><img src="/img/c3000z/binwalk.png" alt="Binwalk"></p>
 <p>Another method is using the Firmware Analysis and Comparison Tool (<a href="https://github.com/fkie-cad/FACT_core">FACT</a>) to not only extract the firmware but also automate analyzing multiple other aspects of the firmware image.</p>
 <p><img src="/img/c3000z/fact.png" alt="FACT"></p>
 <h2 id="identify-the-binary">Identify the Binary</h2>
@@ -274,7 +274,7 @@ $ docker run --rm -v <span style="color:#66d9ef">$(</span>pwd<span style="color:
 <p><img src="/img/c3000z/core_search_decode.png" alt="DecodeSearch"></p>
 <p>I decided to start with the &ldquo;Failed to decode support console&hellip;&rdquo; result hoping it would show what leads into the decoding. After loading the references, I right clicked and went to References -&gt; Show References to Address.</p>
 <p><img src="/img/c3000z/failToDecode_reference.png" alt="FailedDecode"></p>
-<p>This brought up a window showing all references to &ldquo;Failed to decode support console&hellip;&quot;. I clicked on the only one reference to load the function so I could view it in the decompiler window.</p>
+<p>This brought up a window showing all references to &ldquo;Failed to decode support console&hellip;&rdquo;. I clicked on the only one reference to load the function so I could view it in the decompiler window.</p>
 <p><img src="/img/c3000z/referencesTo_failedToDecode.png" alt="References"></p>
 <p>Looking through the decompiler window, I was able to find the &ldquo;Failed to decode support console&rdquo; string and the &ldquo;desDecode&rdquo; function right before it.</p>
 <p><img src="/img/c3000z/desDecode_defaultString.png" alt="DefaultString"></p>
@@ -289,8 +289,8 @@ $ docker run --rm -v <span style="color:#66d9ef">$(</span>pwd<span style="color:
 <p><img src="/img/c3000z/openssl_decode.png" alt="Openssl"></p>
 <h2 id="decoding-the-password">Decoding the Password</h2>
 <p>Using the same openssl command I tried decrypting a few of the passwords from the configuration file but was getting the error &ldquo;bad decrypt&rdquo;. I did more Googling and found references mentioning a need to provide a message digest to openssl. I remember seeing references using MD5 in other areas of the binaries and updated the command below. To my surprise it worked!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ openssl des -in encoded_password.txt -d -k <span style="color:#e6db74">&#34;C1000Z_1234&#34;</span> -a -md md5
-</code></pre></div><h2 id="wrap-up">Wrap-Up</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ openssl des -in encoded_password.txt -d -k <span style="color:#e6db74">&#34;C1000Z_1234&#34;</span> -a -md md5
+</span></span></code></pre></div><h2 id="wrap-up">Wrap-Up</h2>
 <p>Now that I know how to decode the passwords, I decided to create a Python script that would parse the configuration file to provide all of the credentials. The script can be found on my <a href="https://github.com/lum8rjack/C3000Z">Github page</a>.</p>
 <p>This research was nothing ground breaking but was a challenge without having a background in reverse engineering or IoT. Below are a few of the resources and tools that got me interested in learning reverse engineering and the skills needed.</p>
 <h2 id="references--acknowledgements">References / Acknowledgements</h2>

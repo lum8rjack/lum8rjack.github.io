@@ -13,7 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- Enable responsiveness on mobile devices -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
+<meta name="generator" content="Hugo 0.109.0">
 
     
     
@@ -25,13 +25,13 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Function Hooking Part 3 - Frida"/>
 <meta name="twitter:description" content="This post will wrap up the function hooking series. You can view the previous posts here:
- Function Hooking Part 1 - Test Program Function Hooking Part 2 - Password Safe  In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C&#43;&#43;, I will be using a tool called Frida that allows you to do the same with Python and JavaScript."/>
+Function Hooking Part 1 - Test Program Function Hooking Part 2 - Password Safe In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C&#43;&#43;, I will be using a tool called Frida that allows you to do the same with Python and JavaScript."/>
 
 <meta property="og:title" content="Function Hooking Part 3 - Frida" />
 <meta property="og:description" content="This post will wrap up the function hooking series. You can view the previous posts here:
- Function Hooking Part 1 - Test Program Function Hooking Part 2 - Password Safe  In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C&#43;&#43;, I will be using a tool called Frida that allows you to do the same with Python and JavaScript." />
+Function Hooking Part 1 - Test Program Function Hooking Part 2 - Password Safe In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C&#43;&#43;, I will be using a tool called Frida that allows you to do the same with Python and JavaScript." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/function-hooking-part-3/" />
+<meta property="og:url" content="/posts/function-hooking-part-3/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-02-06T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-02-06T00:00:00+00:00" /><meta property="og:site_name" content="Lum8rjack" />
 
@@ -236,8 +236,8 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 <h2 id="revisiting-password-safe">Revisiting Password Safe</h2>
 <p>If you remember from the previous post, I identified the Password Safe function that checks if the provided password is correct in order to unlock the safe. A function signature was created and added to the C++ code to compile a DLL that could intercept the password when it was submitted.</p>
 <p>Since then, I created a Ghidra script called <a href="https://github.com/lum8rjack/GhidraHelp">CreateFunctionSignature.py</a> that takes the function name and creates the signature for you. The output provides multiple formats of the bytes to be used with different tools or programing languages. The example below uses the script to identify the same signature for the CheckPassKey function in pwsafe.</p>
-<pre><code>CreateFunctionSignature.py&gt; Running...
-The currently loaded program is: 'pwsafe.exe'
+<pre tabindex="0"><code>CreateFunctionSignature.py&gt; Running...
+The currently loaded program is: &#39;pwsafe.exe&#39;
 Creating signature for the function: CheckPassKey
 Function: CheckPassKey @ 0x00746cb0
 Signature length: 28
@@ -249,93 +249,93 @@ Mask: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
 CreateFunctionSignature.py&gt; Finished!
 </code></pre><h2 id="frida-js">Frida JS</h2>
 <p>The JavaScript code below is similar to the DLL we previously created. The code will be injected into the application and will intercept the CheckPassKey function based on the function signature. The code will store the passkey the user submitted, along with the path to the database, and then output the results to the console if the passkey was correct.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Find the module for the program itself, always at index 0:
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">m</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Process</span>.<span style="color:#a6e22e">enumerateModules</span>()[<span style="color:#ae81ff">0</span>];
-
-<span style="color:#75715e">// The pattern that you are interested in:
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pattern</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;55 8b ec 83 ec 10 b8 cc cc cc cc 89 45 f0 89 45 f4 89 45 f8 89 45 fc 8b 45 0c 8b 48&#39;</span>;
-
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;[+] Scanning started&#34;</span>);
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;[+] Base address: &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">base</span>);
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;[+] Module size:  &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">size</span>);
-
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">doit</span>(<span style="color:#a6e22e">pointer</span>) {
-	<span style="color:#a6e22e">Interceptor</span>.<span style="color:#a6e22e">attach</span>(<span style="color:#a6e22e">pointer</span>,
-	{
-		<span style="color:#75715e">// Arguments we know from the source code of the application
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//args: (const StringX &amp;filename, const StringX &amp;passkey, VERSION &amp;version)
-</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">onEnter</span>(<span style="color:#a6e22e">args</span>) {
-			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">arg0</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Memory</span>.<span style="color:#a6e22e">readUtf16String</span>(<span style="color:#a6e22e">args</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">readPointer</span>()); <span style="color:#75715e">// stores the path to the database
-</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">arg1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Memory</span>.<span style="color:#a6e22e">readUtf16String</span>(<span style="color:#a6e22e">args</span>[<span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">readPointer</span>()); <span style="color:#75715e">// stores the password
-</span><span style="color:#75715e"></span>		},
-
-		<span style="color:#75715e">//returns an int: 0 correct and 5 is incorrect passkey
-</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">onLeave</span>(<span style="color:#a6e22e">retval</span>) {
-			<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">retval</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
-				<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;[+] Database:  &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">arg0</span>);
-				<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;[+] Password:  &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">arg1</span>);
-			}
-		}
-	});
-}
-  
-<span style="color:#a6e22e">Memory</span>.<span style="color:#a6e22e">scan</span>(<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">base</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">size</span>, <span style="color:#a6e22e">pattern</span>, {
-  <span style="color:#a6e22e">onMatch</span>(<span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">size</span>) {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;[+] Memory.scan() found match at&#39;</span>, <span style="color:#a6e22e">address</span>, <span style="color:#e6db74">&#39;with size&#39;</span>, <span style="color:#a6e22e">size</span>);
-	<span style="color:#a6e22e">doit</span>(<span style="color:#a6e22e">address</span>);
-    <span style="color:#75715e">// Optionally stop scanning early:
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;stop&#39;</span>;
-  },
-  <span style="color:#a6e22e">onComplete</span>() {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;[+] Memory.scan() complete&#39;</span>);
-  }
-});
-</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Find the module for the program itself, always at index 0:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">m</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Process</span>.<span style="color:#a6e22e">enumerateModules</span>()[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// The pattern that you are interested in:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">pattern</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;55 8b ec 83 ec 10 b8 cc cc cc cc 89 45 f0 89 45 f4 89 45 f8 89 45 fc 8b 45 0c 8b 48&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;[+] Scanning started&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;[+] Base address: &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">base</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;[+] Module size:  &#34;</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">size</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">doit</span>(<span style="color:#a6e22e">pointer</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Interceptor</span>.<span style="color:#a6e22e">attach</span>(<span style="color:#a6e22e">pointer</span>,
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Arguments we know from the source code of the application
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">//args: (const StringX &amp;filename, const StringX &amp;passkey, VERSION &amp;version)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">onEnter</span>(<span style="color:#a6e22e">args</span>) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">arg0</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Memory</span>.<span style="color:#a6e22e">readUtf16String</span>(<span style="color:#a6e22e">args</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">readPointer</span>()); <span style="color:#75715e">// stores the path to the database
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">arg1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Memory</span>.<span style="color:#a6e22e">readUtf16String</span>(<span style="color:#a6e22e">args</span>[<span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">readPointer</span>()); <span style="color:#75715e">// stores the password
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		},
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">//returns an int: 0 correct and 5 is incorrect passkey
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">onLeave</span>(<span style="color:#a6e22e">retval</span>) {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">retval</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;[+] Database:  &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">arg0</span>);
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;[+] Password:  &#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">arg1</span>);
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	});
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Memory</span>.<span style="color:#a6e22e">scan</span>(<span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">base</span>, <span style="color:#a6e22e">m</span>.<span style="color:#a6e22e">size</span>, <span style="color:#a6e22e">pattern</span>, {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onMatch</span>(<span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">size</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;[+] Memory.scan() found match at&#39;</span>, <span style="color:#a6e22e">address</span>, <span style="color:#e6db74">&#39;with size&#39;</span>, <span style="color:#a6e22e">size</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">doit</span>(<span style="color:#a6e22e">address</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Optionally stop scanning early:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;stop&#39;</span>;
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">onComplete</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;[+] Memory.scan() complete&#39;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>I won&rsquo;t explain every line of the JavaScript code, but below details a few of the main focus areas:</p>
 <ul>
@@ -347,7 +347,7 @@ CreateFunctionSignature.py&gt; Finished!
 </ul>
 <h2 id="execution">Execution</h2>
 <p>The Python code is similar to the injector I created in the first post and is used to load and invoke Frida. Frida will take the JavaScript code and inject it into the application. The Python <a href="https://github.com/lum8rjack/FunctionHooking/blob/main/Part3/fridaStart.py">script</a> is pretty simple and can be used for other projects as well. It takes two arguments, the JavaScript code to inject and the PID or name of the application we will be injecting into.</p>
-<pre><code>&gt; python fridaStart.py --script CheckPassKey.js --pid 6056
+<pre tabindex="0"><code>&gt; python fridaStart.py --script CheckPassKey.js --pid 6056
 Attached to PID: 6056
 [+] Scanning started
 [+] Base address:  0xb10000

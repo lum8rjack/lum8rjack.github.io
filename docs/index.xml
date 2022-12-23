@@ -6,18 +6,16 @@
     <description>Recent content on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>car-trivia</title>
-      <link>/portfolio/car-trivia/</link>
-      <pubDate>Tue, 28 Jun 2022 00:00:00 +0000</pubDate>
+      <title>Whoami</title>
+      <link>/about/</link>
+      <pubDate>Fri, 23 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>/portfolio/car-trivia/</guid>
-      <description>car-trivia is a simple web app that pulls trivia questions from Open Trivia DB. You can test the game by going to https://car-trivia.herokuapp.com/.</description>
+      <guid>/about/</guid>
+      <description>I have been in cyber security for about 8 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out.
+Certifications:
+Offensive Security Certified Professional (OSCP) Web Application Penetration Tester Extreme (eWPTX) GIAC Exploit Researcher and Advanced Penetration Tester (GXPN) Microsoft Certified: Azure Fundamentals (AZ-900) Offensive Security Experienced Penetration Tester (OSEP) Certified Information Systems Security Professional (CISSP) Additional Blogs:</description>
     </item>
     
     <item>
@@ -27,18 +25,7 @@
       
       <guid>/posts/function-hooking-part-3/</guid>
       <description>This post will wrap up the function hooking series. You can view the previous posts here:
- Function Hooking Part 1 - Test Program Function Hooking Part 2 - Password Safe  In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C++, I will be using a tool called Frida that allows you to do the same with Python and JavaScript.</description>
-    </item>
-    
-    <item>
-      <title>Whoami</title>
-      <link>/about/</link>
-      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>I have been in cyber security for about 8 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out.
-Certifications:
- Offensive Security Certified Professional (OSCP) Web Application Penetration Tester Extreme (eWPTX) GIAC Exploit Researcher and Advanced Penetration Tester (GXPN) Microsoft Certified: Azure Fundamentals (AZ-900) Offensive Security Experienced Penetration Tester (OSEP)  </description>
+Function Hooking Part 1 - Test Program Function Hooking Part 2 - Password Safe In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C++, I will be using a tool called Frida that allows you to do the same with Python and JavaScript.</description>
     </item>
     
     <item>
@@ -77,6 +64,15 @@ As you can image, password managers are valuable targets during red team engamen
       <guid>/posts/c3000z/</guid>
       <description>The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.
 I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP.</description>
+    </item>
+    
+    <item>
+      <title>car-trivia</title>
+      <link>/portfolio/car-trivia/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/car-trivia/</guid>
+      <description>car-trivia is a simple web app that pulls trivia questions from Open Trivia DB. You can test the game by going to https://car-trivia.lum8rjack.com/.</description>
     </item>
     
   </channel>

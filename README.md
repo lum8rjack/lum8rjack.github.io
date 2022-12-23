@@ -7,6 +7,9 @@ Personal website created using [Hugo](https://gohugo.io/) and the [hyde-hyde](ht
 Basic commands to remember when building
 
 ```bash
+# Make a new post
+hugo new content/posts/<blog name>.md
+
 # Run hugo server
 hugo server -D
 
