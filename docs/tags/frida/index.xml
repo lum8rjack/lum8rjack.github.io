@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>frida on Lum8rjack</title>
+    <link>/tags/frida/</link>
+    <description>Recent content in frida on Lum8rjack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/frida/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Function Hooking Part 3 - Frida</title>
+      <link>/posts/function-hooking-part-3/</link>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/function-hooking-part-3/</guid>
+      <description>This post will wrap up the function hooking series. You can view the previous posts here:
+Function Hooking Part 1 - Test Program Function Hooking Part 2 - Password Safe In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C++, I will be using a tool called Frida that allows you to do the same with Python and JavaScript.</description>
+    </item>
+    
+  </channel>
+</rss>

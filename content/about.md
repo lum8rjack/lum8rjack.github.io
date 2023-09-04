@@ -1,12 +1,12 @@
 +++
 title = "Whoami"
-date = "2022-12-23"
+date = "2023-09-04"
 +++
 
 
-I have been in cyber security for about 8 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out. 
+I have been in cyber security for about 9 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out. 
 
-Certifications:
+## Certifications
 - Offensive Security Certified Professional (OSCP)
 - Web Application Penetration Tester Extreme (eWPTX)
 - GIAC Exploit Researcher and Advanced Penetration Tester (GXPN)
@@ -14,5 +14,5 @@ Certifications:
 - Offensive Security Experienced Penetration Tester (OSEP)
 - Certified Information Systems Security Professional (CISSP)
 
-Additional Blogs:
+## Additional Blogs
 - [How to Use Entropy Analysis in Penetration Testing](https://www.schellman.com/blog/how-to-use-entropy-in-penetration-testing)
