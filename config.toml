@@ -1,78 +1,91 @@
-## Basic Configuration
-#baseurl = "https://lum8rjack.github.io/"
-baseurl = "/"
-languageCode = "en"
-publishDir = "docs"
 title = "Lum8rjack"
-theme = "hyde-hyde-copied"
+baseURL = '/'
+publishDir = "docs"
 
-## Hugo Built-in Features
-# disqusShortname = "your-disqus-shortname"
-googleAnalytics = "UA-176789551-1"
-enableRobotsTXT = true
+# This is what goes in <html lang="">
+languageCode = 'en-us'
 
-# summarylength = 30
+theme = "hugo-blog-awesome"
 
-#paginate = 5
+# This defines how dates are formatted
+defaultContentLanguage = "en-us"
 
-## Site Settings
+googleAnalytics = 'UA-176789551-1'
+
+# Enable emojis globally
+enableEmoji = true
+ignoreErrors = ["additional-script-loading-error"] # ignore error of loading additional scripts.
+
+# set markup.highlight.noClasses=false to enable code highlight
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+	[markup.tableOfContents]
+		startLevel = 2 # ToC starts from H2
+		endLevel = 4 # ToC ends at H4
+		ordered = false # generates <ul> instead of <ol>
+
+[menu]
+  [[menu.main]]
+    # The page reference (pageRef) is useful for menu highlighting
+    # When pageRef is set, setting `url` is optional; it will be used as a fallback if the page is not found.
+    pageRef="/"
+    name = 'Home'
+    url = '/'
+    weight = 10
+  [[menu.main]]
+    pageRef="posts"
+    name = 'Posts'
+    url = '/posts/'
+    weight = 20
+  [[menu.main]]
+    pageRef="about"
+    name = 'About'
+    url = '/about/'
+    weight = 30
+
 [params]
-    author = "Clint"
-    title = "Lum8rjack"
-    description = "red teamer and infosec researcher"
-    authorimage = "/img/tree.png"
-    dateformat = "Jan 2, 2006"
-    mainSections = ["posts"]
+  sitename = "Lum8rjack Blog"
+  defaultColor = "auto" # set color mode: dark, light, auto
+  description = "Minimal Hugo blog theme with light and dark mode support"
+  mainSections = ['posts']
+  toc = true # set to false to disable table of contents 'globally'
+  goToTop = true # set to false to disable 'go to top' button
 
-    # sidebar, copyright & license
-    #copyright = "lum8rjack"
-    #since = 2020
-    #license = "CC BY-SA 4.0"
-    #licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
-    showBuiltWith = true
+[params.author]
+  avatar = "tree.png" # put the file in assets folder; also ensure that image has same height and width
+  intro = "Lum8rjack"
+  name = "Lum8rjack"
+  description = "red teamer and infosec researcher"
 
-    # https://highlightjs.org
-    highlightjs = true
-    highlightjsstyle = "github"
-    
-    # please choose either GraphComment or Disqus or Utterances
-    #GraphCommentId = "..."
-    #UtterancesRepo = "..." # https://utteranc.es/
-    #UtterancesIssueTerm = "..." # pathname, url, title, og:title
-    #UtterancesTheme = "..." # github-light or github-dark
+# Allow to override webmanifest options
+[params.webmanifest]
+  name = "sitename" # will use "params.sitename" or "title" by default
+  short_name = "sitename" # same as name
+  start_url = "/" # will use homepage url by default
+  theme_color = "#434648" # default is "#434648" (base color of text). Also will override html `<meta name="theme-color" />`
+  background_color = "#fff" # by default depend on "params.defaultColor" for "light" or "auto" will be set to "#fff" for dark will be "#131418" (color of dark mode background)
+  display = "standalone"
 
-    # Table of contents
-    #toc = none, "hugo", or "tocbot"
+# Allow to override `browserconfig.xml` params (configuration for windows embeded browsers)
+[params.browserconfig]
+  TileColor = "#2d89ef" # default windows 10 blue tile color
 
-    postNavigation = false
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/lum8rjack"
 
-## Social Accounts
-[params.social]
-    github = "lum8rjack"
-    # instagram = "<username>"
-    # xing = "<username>"
-    linkedin = "muellerclint"
-    twitter = "lum8rjack"
-    # facebook = "<username>"
-    # stackoverflow = "<username>"
-    # telegram = "<username>"
-    # orcid = "<xxxx-xxxx-xxxx-xxxx>"
-    # email = "your-email@example.com"
-    # gravatar = "your-email@example.com"
+[[params.socialIcons]]
+name = "twitter"
+url = "https://twitter.com/lum8rjack"
 
-## Main Menu
-[[menu.main]]
-    name = "About"
-    identifier = "about"
-    weight = 100
-    url = "/about/"
-[[menu.main]]
-    name = "Posts"
-    weight = 200
-    identifier = "posts"
-    url = "/posts/"
-[[menu.main]]
-    name = "Projects"
-    identifier = "projects"
-    weight = 300
-    url = "/portfolio/"
+[[params.socialIcons]]
+name = "x"
+url = "https://x.com/lum8rjack"
+
+[[params.socialIcons]]
+name = "Rss"
+url = "index.xml"
+
