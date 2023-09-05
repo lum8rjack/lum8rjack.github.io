@@ -14,5 +14,3 @@ I have been in cyber security for about 9 years performing a variety of technica
 - Offensive Security Experienced Penetration Tester (OSEP)
 - Certified Information Systems Security Professional (CISSP)
 
-## Additional Blogs
-- [How to Use Entropy Analysis in Penetration Testing](https://www.schellman.com/blog/how-to-use-entropy-in-penetration-testing)

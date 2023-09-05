@@ -86,6 +86,9 @@ name = "x"
 url = "https://x.com/lum8rjack"
 
 [[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/muellerclint"
+
+[[params.socialIcons]]
 name = "Rss"
 url = "index.xml"
-

@@ -6,7 +6,7 @@
     <description>Recent content on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Whoami</title>
       <link>/about/</link>
@@ -14,7 +14,16 @@
       
       <guid>/about/</guid>
       <description>I have been in cyber security for about 9 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out.
-Certifications Offensive Security Certified Professional (OSCP) Web Application Penetration Tester Extreme (eWPTX) GIAC Exploit Researcher and Advanced Penetration Tester (GXPN) Microsoft Certified: Azure Fundamentals (AZ-900) Offensive Security Experienced Penetration Tester (OSEP) Certified Information Systems Security Professional (CISSP) Additional Blogs How to Use Entropy Analysis in Penetration Testing </description>
+Certifications Offensive Security Certified Professional (OSCP) Web Application Penetration Tester Extreme (eWPTX) GIAC Exploit Researcher and Advanced Penetration Tester (GXPN) Microsoft Certified: Azure Fundamentals (AZ-900) Offensive Security Experienced Penetration Tester (OSEP) Certified Information Systems Security Professional (CISSP) </description>
+    </item>
+    
+    <item>
+      <title>How to Use Entropy in Penetration Testing</title>
+      <link>/posts/entropy-analysis/</link>
+      <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/entropy-analysis/</guid>
+      <description>How to Use Entropy in Penetration Testing Blog post here: https://www.schellman.com/blog/cybersecurity/penetration-testing-methods-entropy</description>
     </item>
     
     <item>
@@ -47,15 +56,6 @@ As you can image, password managers are valuable targets during red team engamen
     </item>
     
     <item>
-      <title>MOHarvester</title>
-      <link>/portfolio/moharvester/</link>
-      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/portfolio/moharvester/</guid>
-      <description>MOHarvester is a project to analyze the waterfowl data collected from the Missouri Department of Conservation. The data is collected each day of the hunting season from each of the 15 different hunting zones.</description>
-    </item>
-    
-    <item>
       <title>Reverse Engineering C3000Z</title>
       <link>/posts/c3000z/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
@@ -63,15 +63,6 @@ As you can image, password managers are valuable targets during red team engamen
       <guid>/posts/c3000z/</guid>
       <description>The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.
 I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP.</description>
-    </item>
-    
-    <item>
-      <title>car-trivia</title>
-      <link>/portfolio/car-trivia/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/portfolio/car-trivia/</guid>
-      <description>car-trivia is a simple web app that pulls trivia questions from Open Trivia DB. You can test the game by going to https://car-trivia.lum8rjack.com/.</description>
     </item>
     
   </channel>

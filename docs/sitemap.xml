@@ -6,7 +6,28 @@
     <lastmod>2023-09-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
-    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/entropy/</loc>
+    <lastmod>2022-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/entropy-analysis/</loc>
+    <lastmod>2022-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/payloads/</loc>
+    <lastmod>2022-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/payloads/</loc>
+    <lastmod>2022-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2022-10-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-10-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/frida/</loc>
     <lastmod>2022-02-06T00:00:00+00:00</lastmod>
@@ -17,16 +38,7 @@
     <loc>/categories/function-hooking/</loc>
     <lastmod>2022-02-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/password-manager/</loc>
-    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2022-02-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2022-02-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/windows/</loc>
@@ -44,12 +56,6 @@
     <loc>/posts/function-hooking-part-1/</loc>
     <lastmod>2021-01-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/portfolio/moharvester/</loc>
-    <lastmod>2020-08-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/portfolio/</loc>
-    <lastmod>2020-08-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/binwalk/</loc>
     <lastmod>2020-08-18T00:00:00+00:00</lastmod>
   </url><url>
@@ -64,7 +70,5 @@
   </url><url>
     <loc>/tags/router/</loc>
     <lastmod>2020-08-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/portfolio/car-trivia/</loc>
   </url>
 </urlset>
