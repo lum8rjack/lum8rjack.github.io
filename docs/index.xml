@@ -6,64 +6,56 @@
     <description>Recent content on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Protect Infrastructure During Penetration Testing</title>
+      <link>/posts/protect-infrastructure/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>/posts/protect-infrastructure/</guid>
+      <description>How to Protect Infrastructure During Penetration Testing Blog post here: https://www.schellman.com/blog/cybersecurity/how-to-protect-infrastructure-during-pen-testing</description>
+    </item>
     <item>
       <title>Whoami</title>
       <link>/about/</link>
       <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
-      
       <guid>/about/</guid>
-      <description>I have been in cyber security for about 9 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out.
-Certifications Offensive Security Certified Professional (OSCP) Web Application Penetration Tester Extreme (eWPTX) GIAC Exploit Researcher and Advanced Penetration Tester (GXPN) Microsoft Certified: Azure Fundamentals (AZ-900) Offensive Security Experienced Penetration Tester (OSEP) Certified Information Systems Security Professional (CISSP) </description>
+      <description>I have been in cyber security for about 9 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out.&#xA;Certifications Offensive Security Certified Professional (OSCP) Web Application Penetration Tester Extreme (eWPTX) GIAC Exploit Researcher and Advanced Penetration Tester (GXPN) Microsoft Certified: Azure Fundamentals (AZ-900) Offensive Security Experienced Penetration Tester (OSEP) Certified Information Systems Security Professional (CISSP) </description>
     </item>
-    
     <item>
       <title>How to Use Entropy in Penetration Testing</title>
       <link>/posts/entropy-analysis/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>/posts/entropy-analysis/</guid>
       <description>How to Use Entropy in Penetration Testing Blog post here: https://www.schellman.com/blog/cybersecurity/penetration-testing-methods-entropy</description>
     </item>
-    
     <item>
       <title>Function Hooking Part 3 - Frida</title>
       <link>/posts/function-hooking-part-3/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>/posts/function-hooking-part-3/</guid>
-      <description>This post will wrap up the function hooking series. You can view the previous posts here:
-Function Hooking Part 1 - Test Program Function Hooking Part 2 - Password Safe In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C++, I will be using a tool called Frida that allows you to do the same with Python and JavaScript.</description>
+      <description>This post will wrap up the function hooking series. You can view the previous posts here:&#xA;Function Hooking Part 1 - Test Program Function Hooking Part 2 - Password Safe In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C++, I will be using a tool called Frida that allows you to do the same with Python and JavaScript.</description>
     </item>
-    
     <item>
       <title>Function Hooking Part 2 - Password Safe</title>
       <link>/posts/function-hooking-part-2/</link>
       <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>/posts/function-hooking-part-2/</guid>
-      <description>In this post I will expand on the information from my first post, Function Hooking Part 1 - Test Program. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager Password Safe.
-As you can image, password managers are valuable targets during red team engaments since they contain additional credentials for other services or computers. If the main password to open the database is known or obtained, then all of the other credentials in the database are compromised.</description>
+      <description>In this post I will expand on the information from my first post, Function Hooking Part 1 - Test Program. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager Password Safe.&#xA;As you can image, password managers are valuable targets during red team engaments since they contain additional credentials for other services or computers. If the main password to open the database is known or obtained, then all of the other credentials in the database are compromised.</description>
     </item>
-    
     <item>
       <title>Function Hooking Part 1 - Test Program</title>
       <link>/posts/function-hooking-part-1/</link>
       <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
-      
       <guid>/posts/function-hooking-part-1/</guid>
       <description>I have recently been spending time learning more about reverse engineering and patching applications including fixing older programs that I do not have the source code for. I&amp;rsquo;ve started looking into function hooking and identifying how it works and different scenarios I could use it. There are a ton of articles online but most of them do not provide simple examples for starters or are focused on Windows API. While Windows API hooking is useful, I am more interested in hooking higher level functions.</description>
     </item>
-    
     <item>
       <title>Reverse Engineering C3000Z</title>
       <link>/posts/c3000z/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>/posts/c3000z/</guid>
-      <description>The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.
-I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP.</description>
+      <description>The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.&#xA;I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP.</description>
     </item>
-    
   </channel>
 </rss>

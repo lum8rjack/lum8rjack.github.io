@@ -6,33 +6,35 @@
     <description>Recent content in Categories on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>infrastructure</title>
+      <link>/categories/infrastructure/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>/categories/infrastructure/</guid>
+      <description></description>
+    </item>
     <item>
       <title>payloads</title>
       <link>/categories/payloads/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>/categories/payloads/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>function-hooking</title>
       <link>/categories/function-hooking/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      
       <guid>/categories/function-hooking/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>reverse engineering</title>
       <link>/categories/reverse-engineering/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>/categories/reverse-engineering/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

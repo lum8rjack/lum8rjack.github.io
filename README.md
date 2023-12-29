@@ -1,6 +1,6 @@
 # lum8rjack.github.io
 
-Personal website created using [Hugo](https://gohugo.io/) and the [hyde-hyde](https://themes.gohugo.io/themes/hyde-hyde/) theme.
+Personal website created using [Hugo](https://gohugo.io/) and the [hugo-blog-awesome](https://github.com/hugo-sid/hugo-blog-awesome) theme.
 
 ## Hugo
 
