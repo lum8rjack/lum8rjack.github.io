@@ -6,8 +6,15 @@
     <description>Recent content on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Okta Phishing Detection</title>
+      <link>/posts/okta-phishing-detection/</link>
+      <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>/posts/okta-phishing-detection/</guid>
+      <description>Phishing is still one of the common methods threat actors utilize to breach companies. Most phishing attacks try tricking the victim into revealing sensitive information or downloading and executing malicious attachments and files.&#xA;During many of the phishing engagements I have performed, I tend to target organization’s identity and access management services. Okta is one common service that is widely used across the industry and, if compromised, can provide access to many other services in the organization.</description>
+    </item>
     <item>
       <title>How to Protect Infrastructure During Penetration Testing</title>
       <link>/posts/protect-infrastructure/</link>

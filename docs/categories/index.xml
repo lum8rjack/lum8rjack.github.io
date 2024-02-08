@@ -6,8 +6,15 @@
     <description>Recent content in Categories on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>phishing</title>
+      <link>/categories/phishing/</link>
+      <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>/categories/phishing/</guid>
+      <description></description>
+    </item>
     <item>
       <title>infrastructure</title>
       <link>/categories/infrastructure/</link>

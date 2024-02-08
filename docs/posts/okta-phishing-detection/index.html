@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">How to Use Entropy in Penetration Testing | Lum8rjack</title>
-<meta property="og:title" content="How to Use Entropy in Penetration Testing | Lum8rjack" />
-<meta name="twitter:title" content="How to Use Entropy in Penetration Testing | Lum8rjack" />
-<meta itemprop="name" content="How to Use Entropy in Penetration Testing | Lum8rjack" />
-<meta name="application-name" content="How to Use Entropy in Penetration Testing | Lum8rjack" />
+<title itemprop="name">Okta Phishing Detection | Lum8rjack</title>
+<meta property="og:title" content="Okta Phishing Detection | Lum8rjack" />
+<meta name="twitter:title" content="Okta Phishing Detection | Lum8rjack" />
+<meta itemprop="name" content="Okta Phishing Detection | Lum8rjack" />
+<meta name="application-name" content="Okta Phishing Detection | Lum8rjack" />
 <meta property="og:site_name" content="Lum8rjack Blog" />
 
 <meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
@@ -34,8 +34,8 @@
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content=2022-10-27T00:00:00Z />
-    <meta property="article:published_time" content=2022-10-27T00:00:00Z />
+    <meta property="og:article:published_time" content=2024-02-07T00:00:00Z />
+    <meta property="article:published_time" content=2024-02-07T00:00:00Z />
 
     
 
@@ -45,16 +45,16 @@
     {
         "@context": "http://schema.org",
         "@type": "Article",
-        "headline": "How to Use Entropy in Penetration Testing",
+        "headline": "Okta Phishing Detection",
         "author": {
         "@type": "Person",
         "name": ""
         },
-        "datePublished": "2022-10-27",
+        "datePublished": "2024-02-07",
         "description": "",
-        "wordCount":  11 ,
+        "wordCount":  1031 ,
         "mainEntityOfPage": "True",
-        "dateModified": "2022-10-27",
+        "dateModified": "2024-02-07",
         "image": {
         "@type": "imageObject",
         "url": ""
@@ -71,7 +71,7 @@
 
     
 
-    <link rel="canonical" href="/posts/entropy-analysis/">
+    <link rel="canonical" href="/posts/okta-phishing-detection/">
     <link href="/style.min.9bd04d0fad85388343088ec85e9afd787ea003e72914d7f57df39c17ab2e7173.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -173,11 +173,11 @@ stroke-linejoin="round" class="feather feather-home">
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title">How to Use Entropy in Penetration Testing</h1>
+                <h1 class="header-title">Okta Phishing Detection</h1>
                 
                 
                 <div class="post-meta">
-                    <time datetime="2022-10-27T00:00:00&#43;00:00" itemprop="datePublished"> Oct 27, 2022 </time>
+                    <time datetime="2024-02-07T00:00:00&#43;00:00" itemprop="datePublished"> Feb 7, 2024 </time>
                 </div>
                 
             </header>
@@ -185,12 +185,62 @@ stroke-linejoin="round" class="feather feather-home">
                 <summary><b>Table of Contents</b></summary>
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#how-to-use-entropy-in-penetration-testing">How to Use Entropy in Penetration Testing</a></li>
+    <li><a href="#phishing-for-sessions">Phishing For Sessions</a></li>
+    <li><a href="#okta-phishing-detection">Okta Phishing Detection</a></li>
+    <li><a href="#using-the-browser-extension">Using the Browser Extension</a></li>
+    <li><a href="#additional-phishing-protections">Additional Phishing Protections</a></li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
             </details><div class="page-content">
-                <h2 id="how-to-use-entropy-in-penetration-testing">How to Use Entropy in Penetration Testing</h2>
-<p>Blog post here: <a href="https://www.schellman.com/blog/cybersecurity/penetration-testing-methods-entropy">https://www.schellman.com/blog/cybersecurity/penetration-testing-methods-entropy</a></p>
+                <p>Phishing is still one of the common methods threat actors utilize to breach companies. Most phishing attacks try tricking the victim into revealing sensitive information or downloading and executing malicious attachments and files.</p>
+<p>During many of the phishing engagements I have performed, I tend to target organization’s identity and access management services. Okta is one common service that is widely used across the industry and, if compromised, can provide access to many other services in the organization. While Okta and other
+services tend to have multifactor authentication (MFA) enabled, users can still be compromised despite this protection.</p>
+<p>How does this phishing technique work and what controls can help prevent this? I’m going to walk through one method that uses a custom browser extension to help improve user awareness, specifically related to Okta.</p>
+<h2 id="phishing-for-sessions">Phishing For Sessions</h2>
+<p>Historically, threat actors would replicate the target website and subsequently send the victim a phishing email. The intention is to persuade them to log in to the fraudulent website. Although this method remains effective, it only enables the attacker to obtain the victim&rsquo;s login credentials, preventing the attack from gaining access if MFA is enabled.</p>
+<p>There are tools designed to not only capture credentials during phishing but also bypass MFA by acting as a proxy between the victim and the legitimate website. <a href="https://github.com/kgretzky/evilginx2">Evilginx2</a>, one of the tools used describes itself as a “standalone man-in-the-middle attack framework used for phishing login credentials along with session cookies, allowing for the bypass of 2-factor authentication.” I won’t walk through installing and configuring evilginx2, as there are already other blogs that provide those details, but I will provide a simple example.</p>
+<p>Imagine a user receives a convincing e-mail stating they have access to a new application through their Okta account. The e-mail contains a link that would direct the victim to the phishing website that is a proxy to the legitimate Okta login page. After the user logs in, the attacker would have successfully captured the victim’s credentials and sessions cookies. The session cookies could then be imported into the attacker’s browser and provide them access the victim’s Okta applications.</p>
+<p><img src="/img/OktaPhishingDetection/phishing.png" alt="diagram"></p>
+<h2 id="okta-phishing-detection">Okta Phishing Detection</h2>
+<p>A browser extension is a software program that adds additional features and functionality to your web browser. These extensions can be used for a wide variety of purposes, including adding additional features, managing cookies, blocking adds, and customizing web pages. Browser extensions can greatly enhance your web browsing experience by adding features and functionality that aren&rsquo;t available in your browser by default.</p>
+<p>A few common recommendations against proxy related phishing attacks are to provide security and awareness training to all employees, and consider implementing Universal Second Factor (U2F) MFA to help defend against One-Time Password (OTP) interception attacks. While both can be effective preventative measures, I wanted to research additional ways that could reduce the likelihood of users falling victim to this type of phishing.</p>
+<p>I thought of how some clients configure a warning banner on the top of all e-mails that arrive outside of their organization. While it is a simple notification banner for the user, I have found that campaigns are much less effective against clients that have the notification configured.</p>
+<p>Some employees receive e-mails every day from 3rd party services and the warning notification would not be as effective against a well-crafted phishing e-mail intended to look like it was sent from a 3rd party service. This made me think, is there a way I could provide another warning to the user once they have clicked a malicious link but have not yet entered their credentials or sensitive information? Thus, the idea for a browser extension that could inform the user that they are currently viewing is a potentially malicious website that is not the legitimate site they thought they were visiting was created.</p>
+<p>I ended up creating a Google Chrome extension that displays a banner on Okta login pages to help the user determine if it&rsquo;s a valid login page. Once the extension is loaded, it will display a banner on pages it identifies as Okta login pages. It does this in two ways:</p>
+<ol>
+<li>Identifies valid login pages based on if the domain is a subdomain of “okta.com”, and has a copyright footer containing “Powered by Okta”</li>
+<li>Invalid or fake login pages are identified by domains that are not subdomains of “okta.com”, but still having the same copyright footer.</li>
+</ol>
+<p>Installing the browser extension is as simple as downloading it from the Google Web Store. The code is also hosted on GitHub if anyone would like to review or customize it for their specific needs.</p>
+<h2 id="using-the-browser-extension">Using the Browser Extension</h2>
+<p>Once the extension is installed and enabled, it automatically starts analyzing each website you visit. The banner text can be changed by clicking on the browser icon.</p>
+<p><img src="/img/OktaPhishingDetection/extension.png" alt="extension"></p>
+<p>The settings allow users to change the title and add a custom icon for the valid banner. The custom icon is in case an attacker can adjust their proxy webpage to mimic the extension, it would still need to guess the end user’s icon that was set. When visiting a legitimate Okta login page, a blue banner is added to the top of the page, verifying it’s valid.</p>
+<p><img src="/img/OktaPhishingDetection/valid.png" alt="valid"></p>
+<p>Visiting a fake Okta login page will add a red banner to the top of the page, informing the user that the website is not actually an Okta login page.</p>
+<p><img src="/img/OktaPhishingDetection/fake.png" alt="fake"></p>
+<p>While the browser extension is a simple concept, it can be a great tool to improve user awareness and reduce the likelihood of users successfully being socially engineered. If you would like to test or use the browser extension, it can be installed from the <a href="https://chromewebstore.google.com/detail/okta-phishing-detection/nfgacdcbhlnhengjkgmaicngehehndga">Chrome Web Store</a>, or from <a href="https://github.com/lum8rjack/Okta-Phishing-Detection">GitHub</a>.</p>
+<h2 id="additional-phishing-protections">Additional Phishing Protections</h2>
+<p>Developers could add additional protections to their websites without requiring users to install a separate browser extension. The two references below provide a great explanation of additional protections.</p>
+<ul>
+<li><a href="https://twitter.com/mrgretzky">@mrgretzky</a> explains how web developers can help protect against phishing by implementing client side JavaScript detections.
+<ul>
+<li><a href="https://www.youtube.com/watch?v=C-Fh4sIdY8c&amp;list=WL&amp;index=51">How Much Is The Phish? Evolving Defences Against Evilginx Reverse Proxy Phishing by Kuba Gretzky</a></li>
+</ul>
+</li>
+<li>Using honeytokens to detect adversary in the middle (AiTM) phishing attacks.
+<ul>
+<li><a href="https://zolder.io/using-honeytokens-to-detect-aitm-phishing-attacks-on-your-microsoft-365-tenant/">Using honeytokens to detect (AiTM) phishing attacks on your Microsoft 365 tenant</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/okta-phishing-detection/nfgacdcbhlnhengjkgmaicngehehndga">https://chrome.google.com/webstore/detail/okta-phishing-detection/nfgacdcbhlnhengjkgmaicngehehndga</a></li>
+<li><a href="https://github.com/lum8rjack/Okta-Phishing-Detection">https://github.com/lum8rjack/Okta-Phishing-Detection</a></li>
+<li><a href="https://github.com/kgretzky/evilginx2">https://github.com/kgretzky/evilginx2</a></li>
+</ul>
 
             </div>
         </article></main>

@@ -48,7 +48,7 @@ ignoreErrors = ["additional-script-loading-error"] # ignore error of loading add
 
 [params]
   sitename = "Lum8rjack Blog"
-  defaultColor = "auto" # set color mode: dark, light, auto
+  defaultColor = "dark" # set color mode: dark, light, auto
   description = "Minimal Hugo blog theme with light and dark mode support"
   mainSections = ['posts']
   toc = true # set to false to disable table of contents 'globally'
