@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">C2 Redirectors Made Easy | Lum8rjack</title>
+<meta property="og:title" content="C2 Redirectors Made Easy | Lum8rjack" />
+<meta name="twitter:title" content="C2 Redirectors Made Easy | Lum8rjack" />
+<meta itemprop="name" content="C2 Redirectors Made Easy | Lum8rjack" />
+<meta name="application-name" content="C2 Redirectors Made Easy | Lum8rjack" />
+<meta property="og:site_name" content="Lum8rjack Blog" />
+
+<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
+<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+
+
+  <meta itemprop="image" content="/" />
+  <meta property="og:image" content="/" />
+  <meta name="twitter:image" content="/" />
+  <meta name="twitter:image:src" content="/" />
+
+
+
+
+    
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-02-18T00:00:00Z />
+    <meta property="article:published_time" content=2024-02-18T00:00:00Z />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "C2 Redirectors Made Easy",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-02-18",
+        "description": "",
+        "wordCount":  1316 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-02-18",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Lum8rjack"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.122.0">
+
+    
+
+    <link rel="canonical" href="/posts/caddy-c2/">
+    <link href="/style.min.9bd04d0fad85388343088ec85e9afd787ea003e72914d7f57df39c17ab2e7173.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-176789551-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script></head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">C2 Redirectors Made Easy</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-02-18T00:00:00&#43;00:00" itemprop="datePublished"> Feb 18, 2024 </time>
+                </div>
+                
+            </header>
+            <details class="toc">
+                <summary><b>Table of Contents</b></summary>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#caddy">Caddy</a></li>
+    <li><a href="#normal-proxy">Normal Proxy</a></li>
+    <li><a href="#caddy-c2">Caddy-C2</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+            </details><div class="page-content">
+                <p>In penetration testing and red teaming campaigns, Command-and-Control (C2) servers are used to simulate the control infrastructure that an attacker might use. These servers facilitate communication between the simulated malicious actors and the compromised systems. Using a proxy server, also known as a redirector, in front of a C2 server serves several important purposes:</p>
+<ul>
+<li>Obscure the actual location of the C2 server.</li>
+<li>Allow only legitimate C2 traffic to reach the C2 server.</li>
+<li>If the traffic is detected and blocked, the proxy can easily be destroyed and a new one deployed in it&rsquo;s place. This is easier than re-deploying the C2 server.</li>
+</ul>
+<p>While deploying a redirector is relatively easy, one of the slow aspects is configuring the proxy rules to only allow legitimate C2 traffic to the C2 server. This involves reviewing the C2 profile and adding redirect rules to the proxy configuration file based on the User-Agent and each of the http endpoints. Any time the C2 profile updates any of the routes, you would also need to manually update the proxy configuration.</p>
+<p>With this in mind, I decided to develop a Caddy module, called <a href="https://github.com/lum8rjack/caddy-c2">caddy-c2</a>, which easily parses the C2 profile and proxies the C2 traffic without needing to manually add the routes.</p>
+<h2 id="caddy">Caddy</h2>
+<p>If you don&rsquo;t alread know, <a href="https://caddyserver.com/">Caddy</a> is a modern, open-source web server written in Go. It&rsquo;s designed to be easy to use, efficient, and extensible. A few aspects of Caddy that stand out include:</p>
+<ol>
+<li><strong>Automatic HTTPS:</strong> Caddy automatically manages SSL/TLS certificates for your sites using Let&rsquo;s Encrypt, making it incredibly easy to set up secure connections without any manual configuration.</li>
+<li><strong>Configuration:</strong> Caddy&rsquo;s configuration is a single-file that is simple and human-readable.</li>
+<li><strong>Built-in Middleware:</strong> Caddy comes with a rich set of built-in middleware, enabling features like gzip compression, CORS, rate limiting, and more without the need for third-party modules or plugins.</li>
+<li><strong>Extensibility:</strong> While Caddy comes with many features out of the box, it also supports plugins for extending its functionality further. This allows users to add custom features or integrate with other systems as needed.</li>
+</ol>
+<h2 id="normal-proxy">Normal Proxy</h2>
+<p>Whichever proxy you decide to use (Caddy, Apache, Nginx, etc.), you would have to review the C2 profile, identify what to base the proxy rules on, and then update the configuration appropriately. Below contains part of a Cobalt Strike profile that show the User-Agent and URIs that could be used for proxying.</p>
+<pre tabindex="0"><code>set sleeptime &#34;37500&#34;;
+set jitter    &#34;33&#34;;
+set useragent &#34;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/587.38 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36&#34;;  
+set data_jitter &#34;50&#34;;
+...
+http-get {
+    set uri &#34;/login /config /admin&#34;;
+    ...
+}
+...
+http-post {
+    set uri &#34;/Login /Config /Admin&#34;;
+    ...
+}
+...
+http-stager {
+    set uri_x86 &#34;/Console&#34;;
+    set uri_x64 &#34;/console64&#34;;
+    ...
+}
+</code></pre><p>Using this profile, you would need to manually add the URIs, User-Agent, and any other checks in your configuration file to redirect traffic appropriately. Below is one example of a Caddyfile that could be used with Caddy to proxy the C2 traffic. The main areas to focus on include: the blocks containing the method, path, and header.</p>
+<pre tabindex="0"><code>{
+    admin off
+    debug
+}
+
+(c2) {
+    reverse_proxy https://localhost:8080 {
+        tls
+        tls_insecure_skip_verify
+    }
+}
+
+http://127.0.0.1:3333 {
+    # Check the GET URIs
+    @geturis {
+        method GET
+        path /login /config /admin /Console /console64
+        header User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/587.38 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36  
+    }
+
+    # Check the POST URIs
+    @posturis {
+        method POST
+        path /Login /Config /Admin
+        header User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/587.38 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36  
+    }
+
+    # Handle GET
+    handle @geturis {
+        import c2
+    }
+
+    # Handle POST
+    handle @posturis {
+        import c2
+    }
+
+    # Return 504 for all other traffic
+    handle /* {
+        respond 503
+    }
+}
+</code></pre><p>The configuration file is pretty straight forward, but any time you want to adjust the C2 profile you would also need to update the Caddyfile.</p>
+<h2 id="caddy-c2">Caddy-C2</h2>
+<p>I decided it would be easier to build a Caddy module to automatically route traffic based on the C2 profile without needing to adjust anything in the Caddyfile. Caddy provides great documentation on how to create new modules.</p>
+<ul>
+<li><a href="https://caddyserver.com/docs/extending-caddy">Extending Caddy</a></li>
+<li><a href="https://caddyserver.com/docs/extending-caddy/namespaces">Modules namespaces</a></li>
+</ul>
+<p>What I found the most useful was looking at how current <a href="https://caddyserver.com/docs/modules/">modules</a> were developed and using that information to make my own module. The <a href="https://github.com/lum8rjack/caddy-c2">caddy-c2</a> I made uses the <code>http.matchers</code> namespace and performs the following actions:</p>
+<ul>
+<li>Parses the C2 profile when Caddy starts (thanks to <a href="https://github.com/D00Movenok/goMalleable">goMalleable</a>) to get the following details
+<ul>
+<li>User-Agent</li>
+<li>All the GET URIs</li>
+<li>All the POST URIs</li>
+</ul>
+</li>
+<li>Checks all incoming traffic against the parsed data</li>
+</ul>
+<p>To install a new module, you must have Go installed to build a new version of Caddy. Caddy has a tool call <code>xcaddy</code> that makes it simple to build Caddy with plugins. The first command installs xcaddy, and the second command builds Caddy with the caddy-c2 module.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
+</span></span><span class="line"><span class="cl">xcaddy build --with github.com/lum8rjack/caddy-c2
+</span></span></code></pre></div><p>Once Caddy is built, you can confirm the module was added by running the following command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">caddy list-modules
+</span></span></code></pre></div><p>The output should include the <code>http.matchers.c2_profile</code> non-standard module.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tls.stek.distributed
+</span></span><span class="line"><span class="cl">tls.stek.standard
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Standard modules: <span class="m">106</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">http.matchers.c2_profile
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Non-standard modules: <span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Unknown modules: <span class="m">0</span>
+</span></span></code></pre></div><p>Using the same Cobalt Strike profile shown above, the Caddyfile can be simplified by including the <code>c2_profile</code> module. This module requires you to specify the C2 profile and the C2 framework you will use. The module currently only supports Cobalt Strike for the C2 framework, but will hopefully be updated to include other C2 frameworks in the future.</p>
+<pre tabindex="0"><code>{
+    admin off
+    debug
+}
+
+(c2) {
+    reverse_proxy https://localhost:8080 {
+        tls
+        tls_insecure_skip_verify
+    }
+}
+
+http://127.0.0.1:3333 {
+    # Setup the c2_profile to match on the network traffic
+    @profile {
+        c2_profile {
+            profile &#34;/tmp/cobaltstrike.profile&#34;
+            framework &#34;cobaltstrike&#34;
+        }
+    }
+
+    # Handle anything related to the C2 profile
+    handle @profile {
+        import c2
+    }
+
+    # Return 503 for all other traffic
+    handle /* {
+        respond 503
+    }
+}
+</code></pre><p>For a basic test, the following Caddyfile was used to manually check that the URI paths and User-Agent work correctly.</p>
+<pre tabindex="0"><code>{
+    admin off
+    debug
+}
+
+http://127.0.0.1:3333 {
+    @c2 {
+        c2_profile {
+            profile &#34;/tmp/cobaltstrike.profile&#34;
+            framework &#34;cobaltstrike&#34;
+        }
+    }
+
+    handle @c2 {
+        respond &#34;redirecting to C2&#34;
+    }
+
+    handle /* {
+        respond &#34;bad request&#34;
+    }
+}
+</code></pre><p>Caddy is started using the provided Caddyfile.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./caddy run -c Caddyfile
+</span></span></code></pre></div><p>The <code>curl</code> command was then used to manually send requests and validate what is redirected to the C2. The output from each of the curl requests is shown below, confirming the module is working correctly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">root@ubuntu:/# curl http://127.0.0.1:3333/testing
+</span></span><span class="line"><span class="cl">bad request
+</span></span><span class="line"><span class="cl">root@ubuntu:/# curl -A <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/587.38 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36&#34;</span> http://127.0.0.1:3333/testing
+</span></span><span class="line"><span class="cl">bad request
+</span></span><span class="line"><span class="cl">root@ubuntu:/# curl -A <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/587.38 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36&#34;</span> http://127.0.0.1:3333/config
+</span></span><span class="line"><span class="cl">redirecting to C2
+</span></span><span class="line"><span class="cl">root@ubuntu:/# curl -A <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/587.38 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36&#34;</span> http://127.0.0.1:3333/admin
+</span></span><span class="line"><span class="cl">redirecting to C2
+</span></span><span class="line"><span class="cl">root@ubuntu:/# curl -A <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/587.38 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36&#34;</span> http://127.0.0.1:3333/admin?file<span class="o">=</span>testing123
+</span></span><span class="line"><span class="cl">redirecting to C2
+</span></span><span class="line"><span class="cl">root@ubuntu:/# curl -A <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/587.38 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36&#34;</span> -X POST -d <span class="s2">&#34;key1=value1&#34;</span> http://127.0.0.1:3333/data
+</span></span><span class="line"><span class="cl">bad request
+</span></span><span class="line"><span class="cl">root@ubuntu:/# curl -A <span class="s2">&#34;Mozilla/5.0 (Windows NT 6.1) AppleWebKit/587.38 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36&#34;</span> -X POST -d <span class="s2">&#34;key1=value1&#34;</span> http://127.0.0.1:3333/Admin
+</span></span><span class="line"><span class="cl">redirecting to C2
+</span></span></code></pre></div><p>Since the Caddyfile set logging to <code>debug</code> mode, Caddy outputs additional information related to the C2 module and whether the traffic matched the C2 profile.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">2024/02/18 22:44:44.718 DEBUG   http.matchers.c2_profile        failed User-Agent check <span class="o">{</span><span class="s2">&#34;ip&#34;</span>: <span class="s2">&#34;127.0.0.1:52110&#34;</span>, <span class="s2">&#34;method&#34;</span>: <span class="s2">&#34;GET&#34;</span>, <span class="s2">&#34;uri&#34;</span>: <span class="s2">&#34;/testing&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">2024/02/18 22:45:22.961 DEBUG   http.matchers.c2_profile        failed GET check        <span class="o">{</span><span class="s2">&#34;ip&#34;</span>: <span class="s2">&#34;127.0.0.1:51702&#34;</span>, <span class="s2">&#34;method&#34;</span>: <span class="s2">&#34;GET&#34;</span>, <span class="s2">&#34;uri&#34;</span>: <span class="s2">&#34;/testing&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">2024/02/18 22:45:28.406 DEBUG   http.matchers.c2_profile        passed all checks       <span class="o">{</span><span class="s2">&#34;ip&#34;</span>: <span class="s2">&#34;127.0.0.1:34426&#34;</span>, <span class="s2">&#34;method&#34;</span>: <span class="s2">&#34;GET&#34;</span>, <span class="s2">&#34;uri&#34;</span>: <span class="s2">&#34;/config&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">2024/02/18 22:45:35.632 DEBUG   http.matchers.c2_profile        passed all checks       <span class="o">{</span><span class="s2">&#34;ip&#34;</span>: <span class="s2">&#34;127.0.0.1:51446&#34;</span>, <span class="s2">&#34;method&#34;</span>: <span class="s2">&#34;GET&#34;</span>, <span class="s2">&#34;uri&#34;</span>: <span class="s2">&#34;/admin&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">2024/02/18 22:45:42.582 DEBUG   http.matchers.c2_profile        passed all checks       <span class="o">{</span><span class="s2">&#34;ip&#34;</span>: <span class="s2">&#34;127.0.0.1:51460&#34;</span>, <span class="s2">&#34;method&#34;</span>: <span class="s2">&#34;GET&#34;</span>, <span class="s2">&#34;uri&#34;</span>: <span class="s2">&#34;/admin?file=testing123&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">2024/02/18 22:47:59.545 DEBUG   http.matchers.c2_profile        failed POST check       <span class="o">{</span><span class="s2">&#34;ip&#34;</span>: <span class="s2">&#34;127.0.0.1:55222&#34;</span>, <span class="s2">&#34;method&#34;</span>: <span class="s2">&#34;POST&#34;</span>, <span class="s2">&#34;uri&#34;</span>: <span class="s2">&#34;/data&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">2024/02/18 22:48:07.217 DEBUG   http.matchers.c2_profile        passed all checks       <span class="o">{</span><span class="s2">&#34;ip&#34;</span>: <span class="s2">&#34;127.0.0.1:45598&#34;</span>, <span class="s2">&#34;method&#34;</span>: <span class="s2">&#34;POST&#34;</span>, <span class="s2">&#34;uri&#34;</span>: <span class="s2">&#34;/Admin&#34;</span><span class="o">}</span>
+</span></span></code></pre></div><p>This module removes the need to update the redirector rules every time the C2 profile is changed. Future improvements would be to include other C2 frameworks like <a href="https://github.com/its-a-feature/Mythic">Mythic</a> and <a href="https://github.com/HavocFramework/Havoc">Havoc</a>.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/lum8rjack/caddy-c2">https://github.com/lum8rjack/caddy-c2</a></li>
+<li><a href="https://github.com/caddyserver/xcaddy">https://github.com/caddyserver/xcaddy</a></li>
+<li><a href="https://github.com/D00Movenok/goMalleable">https://github.com/D00Movenok/goMalleable</a></li>
+</ul>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/lum8rjack" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/lum8rjack" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://x.com/lum8rjack" target="_blank" rel="noopener noreferrer me"
+    title="X">
+    <svg viewBox="0 0 1200 1227" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/muellerclint" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 Lum8rjack.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
+        theme on
+        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

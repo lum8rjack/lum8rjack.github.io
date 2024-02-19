@@ -6,8 +6,29 @@
     <description>Recent content in Tags on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C2</title>
+      <link>/tags/c2/</link>
+      <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/c2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>caddy</title>
+      <link>/tags/caddy/</link>
+      <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/caddy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>proxy</title>
+      <link>/tags/proxy/</link>
+      <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>/tags/proxy/</guid>
+      <description></description>
+    </item>
     <item>
       <title>browser extension</title>
       <link>/tags/browser-extension/</link>
@@ -27,13 +48,6 @@
       <link>/tags/prevention/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
       <guid>/tags/prevention/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>caddy</title>
-      <link>/tags/caddy/</link>
-      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>/tags/caddy/</guid>
       <description></description>
     </item>
     <item>
