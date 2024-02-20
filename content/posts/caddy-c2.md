@@ -91,7 +91,7 @@ http://127.0.0.1:3333 {
         import c2
     }
 
-    # Return 504 for all other traffic
+    # Return 503 for all other traffic
     handle /* {
         respond 503
     }
