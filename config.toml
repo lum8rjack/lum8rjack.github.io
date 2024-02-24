@@ -10,7 +10,7 @@ theme = "hugo-blog-awesome"
 # This defines how dates are formatted
 defaultContentLanguage = "en-us"
 
-googleAnalytics = 'UA-176789551-1'
+googleAnalytics = 'G-DLFPYYTDTZ'
 
 # Enable emojis globally
 enableEmoji = true
