@@ -2,46 +2,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Lum8rjack</title>
-    <link>/categories/</link>
+    <link>https://blog.lum8rjack.com/categories/</link>
     <description>Recent content in Categories on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate>
-    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate><atom:link href="https://blog.lum8rjack.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>infrastructure</title>
-      <link>/categories/infrastructure/</link>
+      <title>Infrastructure</title>
+      <link>https://blog.lum8rjack.com/categories/infrastructure/</link>
       <pubDate>Sun, 07 Apr 2024 12:00:28 -0500</pubDate>
-      <guid>/categories/infrastructure/</guid>
+      
+      <guid>https://blog.lum8rjack.com/categories/infrastructure/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>phishing</title>
-      <link>/categories/phishing/</link>
+      <title>Phishing</title>
+      <link>https://blog.lum8rjack.com/categories/phishing/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>/categories/phishing/</guid>
+      
+      <guid>https://blog.lum8rjack.com/categories/phishing/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>payloads</title>
-      <link>/categories/payloads/</link>
+      <title>Payloads</title>
+      <link>https://blog.lum8rjack.com/categories/payloads/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>/categories/payloads/</guid>
+      
+      <guid>https://blog.lum8rjack.com/categories/payloads/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>function-hooking</title>
-      <link>/categories/function-hooking/</link>
+      <title>Function-Hooking</title>
+      <link>https://blog.lum8rjack.com/categories/function-hooking/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>/categories/function-hooking/</guid>
+      
+      <guid>https://blog.lum8rjack.com/categories/function-hooking/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>reverse engineering</title>
-      <link>/categories/reverse-engineering/</link>
+      <title>Reverse Engineering</title>
+      <link>https://blog.lum8rjack.com/categories/reverse-engineering/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>/categories/reverse-engineering/</guid>
+      
+      <guid>https://blog.lum8rjack.com/categories/reverse-engineering/</guid>
+      
       <description></description>
+      
     </item>
+    
   </channel>
 </rss>

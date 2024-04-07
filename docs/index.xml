@@ -2,81 +2,126 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lum8rjack</title>
-    <link>/</link>
+    <link>https://blog.lum8rjack.com/</link>
     <description>Recent content on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate><atom:link href="https://blog.lum8rjack.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kasm for Red Teams</title>
-      <link>/posts/kasm-for-red-teams/</link>
+      <link>https://blog.lum8rjack.com/posts/kasm-for-red-teams/</link>
       <pubDate>Sun, 07 Apr 2024 12:00:28 -0500</pubDate>
-      <guid>/posts/kasm-for-red-teams/</guid>
+      
+      <guid>https://blog.lum8rjack.com/posts/kasm-for-red-teams/</guid>
+      
       <description>Have you ever successfully phished a target during a red team engagement and received access to one of their online accounts? There are times you need to keep your browser session active after bypassing MFA so you aren&amp;rsquo;t logged out. You might have to leave your computer on for multiple days or if you are using a VPN, hope that it doesn&amp;rsquo;t disconnect. If multiple team members are on the project, it also makes it difficult to distribute the work if everyone is working remote and on their own machines.</description>
+      
     </item>
+    
     <item>
       <title>C2 Redirectors Made Easy</title>
-      <link>/posts/caddy-c2/</link>
+      <link>https://blog.lum8rjack.com/posts/caddy-c2/</link>
       <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>/posts/caddy-c2/</guid>
-      <description>In penetration testing and red teaming campaigns, Command-and-Control (C2) servers are used to simulate the control infrastructure that an attacker might use. These servers facilitate communication between the simulated malicious actors and the compromised systems. Using a proxy server, also known as a redirector, in front of a C2 server serves several important purposes:&#xA;Obscure the actual location of the C2 server. Allow only legitimate C2 traffic to reach the C2 server.</description>
+      
+      <guid>https://blog.lum8rjack.com/posts/caddy-c2/</guid>
+      
+      <description>In penetration testing and red teaming campaigns, Command-and-Control (C2) servers are used to simulate the control infrastructure that an attacker might use. These servers facilitate communication between the simulated malicious actors and the compromised systems. Using a proxy server, also known as a redirector, in front of a C2 server serves several important purposes:
+Obscure the actual location of the C2 server. Allow only legitimate C2 traffic to reach the C2 server.</description>
+      
     </item>
+    
     <item>
       <title>Okta Phishing Detection</title>
-      <link>/posts/okta-phishing-detection/</link>
+      <link>https://blog.lum8rjack.com/posts/okta-phishing-detection/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>/posts/okta-phishing-detection/</guid>
-      <description>Phishing is still one of the common methods threat actors utilize to breach companies. Most phishing attacks try tricking the victim into revealing sensitive information or downloading and executing malicious attachments and files.&#xA;During many of the phishing engagements I have performed, I tend to target organization’s identity and access management services. Okta is one common service that is widely used across the industry and, if compromised, can provide access to many other services in the organization.</description>
+      
+      <guid>https://blog.lum8rjack.com/posts/okta-phishing-detection/</guid>
+      
+      <description>Phishing is still one of the common methods threat actors utilize to breach companies. Most phishing attacks try tricking the victim into revealing sensitive information or downloading and executing malicious attachments and files.
+During many of the phishing engagements I have performed, I tend to target organization’s identity and access management services. Okta is one common service that is widely used across the industry and, if compromised, can provide access to many other services in the organization.</description>
+      
     </item>
+    
     <item>
       <title>How to Protect Infrastructure During Penetration Testing</title>
-      <link>/posts/protect-infrastructure/</link>
+      <link>https://blog.lum8rjack.com/posts/protect-infrastructure/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>/posts/protect-infrastructure/</guid>
+      
+      <guid>https://blog.lum8rjack.com/posts/protect-infrastructure/</guid>
+      
       <description>How to Protect Infrastructure During Penetration Testing Blog post here: https://www.schellman.com/blog/cybersecurity/how-to-protect-infrastructure-during-pen-testing</description>
+      
     </item>
+    
     <item>
       <title>Whoami</title>
-      <link>/about/</link>
+      <link>https://blog.lum8rjack.com/about/</link>
       <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>/about/</guid>
-      <description>I have been in cyber security for about 9 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out.&#xA;Certifications Offensive Security Certified Professional (OSCP) Web Application Penetration Tester Extreme (eWPTX) GIAC Exploit Researcher and Advanced Penetration Tester (GXPN) Microsoft Certified: Azure Fundamentals (AZ-900) Offensive Security Experienced Penetration Tester (OSEP) Certified Information Systems Security Professional (CISSP) </description>
+      
+      <guid>https://blog.lum8rjack.com/about/</guid>
+      
+      <description>I have been in cyber security for about 9 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out.
+Certifications Offensive Security Certified Professional (OSCP) Web Application Penetration Tester Extreme (eWPTX) GIAC Exploit Researcher and Advanced Penetration Tester (GXPN) Microsoft Certified: Azure Fundamentals (AZ-900) Offensive Security Experienced Penetration Tester (OSEP) Certified Information Systems Security Professional (CISSP) </description>
+      
     </item>
+    
     <item>
       <title>How to Use Entropy in Penetration Testing</title>
-      <link>/posts/entropy-analysis/</link>
+      <link>https://blog.lum8rjack.com/posts/entropy-analysis/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>/posts/entropy-analysis/</guid>
+      
+      <guid>https://blog.lum8rjack.com/posts/entropy-analysis/</guid>
+      
       <description>How to Use Entropy in Penetration Testing Blog post here: https://www.schellman.com/blog/cybersecurity/penetration-testing-methods-entropy</description>
+      
     </item>
+    
     <item>
       <title>Function Hooking Part 3 - Frida</title>
-      <link>/posts/function-hooking-part-3/</link>
+      <link>https://blog.lum8rjack.com/posts/function-hooking-part-3/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>/posts/function-hooking-part-3/</guid>
-      <description>This post will wrap up the function hooking series. You can view the previous posts here:&#xA;Function Hooking Part 1 - Test Program Function Hooking Part 2 - Password Safe In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C++, I will be using a tool called Frida that allows you to do the same with Python and JavaScript.</description>
+      
+      <guid>https://blog.lum8rjack.com/posts/function-hooking-part-3/</guid>
+      
+      <description>This post will wrap up the function hooking series. You can view the previous posts here:
+Function Hooking Part 1 - Test Program Function Hooking Part 2 - Password Safe In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C++, I will be using a tool called Frida that allows you to do the same with Python and JavaScript.</description>
+      
     </item>
+    
     <item>
       <title>Function Hooking Part 2 - Password Safe</title>
-      <link>/posts/function-hooking-part-2/</link>
+      <link>https://blog.lum8rjack.com/posts/function-hooking-part-2/</link>
       <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>/posts/function-hooking-part-2/</guid>
-      <description>In this post I will expand on the information from my first post, Function Hooking Part 1 - Test Program. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager Password Safe.&#xA;As you can image, password managers are valuable targets during red team engaments since they contain additional credentials for other services or computers. If the main password to open the database is known or obtained, then all of the other credentials in the database are compromised.</description>
+      
+      <guid>https://blog.lum8rjack.com/posts/function-hooking-part-2/</guid>
+      
+      <description>In this post I will expand on the information from my first post, Function Hooking Part 1 - Test Program. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager Password Safe.
+As you can image, password managers are valuable targets during red team engaments since they contain additional credentials for other services or computers. If the main password to open the database is known or obtained, then all of the other credentials in the database are compromised.</description>
+      
     </item>
+    
     <item>
       <title>Function Hooking Part 1 - Test Program</title>
-      <link>/posts/function-hooking-part-1/</link>
+      <link>https://blog.lum8rjack.com/posts/function-hooking-part-1/</link>
       <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>/posts/function-hooking-part-1/</guid>
+      
+      <guid>https://blog.lum8rjack.com/posts/function-hooking-part-1/</guid>
+      
       <description>I have recently been spending time learning more about reverse engineering and patching applications including fixing older programs that I do not have the source code for. I&amp;rsquo;ve started looking into function hooking and identifying how it works and different scenarios I could use it. There are a ton of articles online but most of them do not provide simple examples for starters or are focused on Windows API. While Windows API hooking is useful, I am more interested in hooking higher level functions.</description>
+      
     </item>
+    
     <item>
       <title>Reverse Engineering C3000Z</title>
-      <link>/posts/c3000z/</link>
+      <link>https://blog.lum8rjack.com/posts/c3000z/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>/posts/c3000z/</guid>
-      <description>The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.&#xA;I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP.</description>
+      
+      <guid>https://blog.lum8rjack.com/posts/c3000z/</guid>
+      
+      <description>The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.
+I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP.</description>
+      
     </item>
+    
   </channel>
 </rss>

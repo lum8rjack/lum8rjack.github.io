@@ -1,5 +1,5 @@
 title = "Lum8rjack"
-baseURL = '/'
+baseURL = 'https://blog.lum8rjack.com/'
 publishDir = "docs"
 
 # This is what goes in <html lang="">

@@ -2,144 +2,219 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Lum8rjack</title>
-    <link>/tags/</link>
+    <link>https://blog.lum8rjack.com/tags/</link>
     <description>Recent content in Tags on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate>
-    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate><atom:link href="https://blog.lum8rjack.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>kasm</title>
-      <link>/tags/kasm/</link>
+      <title>Kasm</title>
+      <link>https://blog.lum8rjack.com/tags/kasm/</link>
       <pubDate>Sun, 07 Apr 2024 12:00:28 -0500</pubDate>
-      <guid>/tags/kasm/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/kasm/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>phishing</title>
-      <link>/tags/phishing/</link>
+      <title>Phishing</title>
+      <link>https://blog.lum8rjack.com/tags/phishing/</link>
       <pubDate>Sun, 07 Apr 2024 12:00:28 -0500</pubDate>
-      <guid>/tags/phishing/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/phishing/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
       <title>C2</title>
-      <link>/tags/c2/</link>
+      <link>https://blog.lum8rjack.com/tags/c2/</link>
       <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>/tags/c2/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/c2/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>caddy</title>
-      <link>/tags/caddy/</link>
+      <title>Caddy</title>
+      <link>https://blog.lum8rjack.com/tags/caddy/</link>
       <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>/tags/caddy/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/caddy/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>proxy</title>
-      <link>/tags/proxy/</link>
+      <title>Proxy</title>
+      <link>https://blog.lum8rjack.com/tags/proxy/</link>
       <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>/tags/proxy/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/proxy/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>browser extension</title>
-      <link>/tags/browser-extension/</link>
+      <title>Browser Extension</title>
+      <link>https://blog.lum8rjack.com/tags/browser-extension/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>/tags/browser-extension/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/browser-extension/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>okta</title>
-      <link>/tags/okta/</link>
+      <title>Okta</title>
+      <link>https://blog.lum8rjack.com/tags/okta/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>/tags/okta/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/okta/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>prevention</title>
-      <link>/tags/prevention/</link>
+      <title>Prevention</title>
+      <link>https://blog.lum8rjack.com/tags/prevention/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>/tags/prevention/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/prevention/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>honeypot</title>
-      <link>/tags/honeypot/</link>
+      <title>Honeypot</title>
+      <link>https://blog.lum8rjack.com/tags/honeypot/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>/tags/honeypot/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/honeypot/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>entropy</title>
-      <link>/tags/entropy/</link>
+      <title>Entropy</title>
+      <link>https://blog.lum8rjack.com/tags/entropy/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>/tags/entropy/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/entropy/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>payloads</title>
-      <link>/tags/payloads/</link>
+      <title>Payloads</title>
+      <link>https://blog.lum8rjack.com/tags/payloads/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>/tags/payloads/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/payloads/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>frida</title>
-      <link>/tags/frida/</link>
+      <title>Frida</title>
+      <link>https://blog.lum8rjack.com/tags/frida/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>/tags/frida/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/frida/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>password manager</title>
-      <link>/tags/password-manager/</link>
+      <title>Password Manager</title>
+      <link>https://blog.lum8rjack.com/tags/password-manager/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>/tags/password-manager/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/password-manager/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>windows</title>
-      <link>/tags/windows/</link>
+      <title>Windows</title>
+      <link>https://blog.lum8rjack.com/tags/windows/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
-      <guid>/tags/windows/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/windows/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>dll injection</title>
-      <link>/tags/dll-injection/</link>
+      <title>Dll Injection</title>
+      <link>https://blog.lum8rjack.com/tags/dll-injection/</link>
       <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>/tags/dll-injection/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/dll-injection/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>ghidra</title>
-      <link>/tags/ghidra/</link>
+      <title>Ghidra</title>
+      <link>https://blog.lum8rjack.com/tags/ghidra/</link>
       <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>/tags/ghidra/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/ghidra/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>binwalk</title>
-      <link>/tags/binwalk/</link>
+      <title>Binwalk</title>
+      <link>https://blog.lum8rjack.com/tags/binwalk/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/binwalk/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/binwalk/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>iot</title>
-      <link>/tags/iot/</link>
+      <title>Iot</title>
+      <link>https://blog.lum8rjack.com/tags/iot/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/iot/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/iot/</guid>
+      
       <description></description>
+      
     </item>
+    
     <item>
-      <title>router</title>
-      <link>/tags/router/</link>
+      <title>Router</title>
+      <link>https://blog.lum8rjack.com/tags/router/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>/tags/router/</guid>
+      
+      <guid>https://blog.lum8rjack.com/tags/router/</guid>
+      
       <description></description>
+      
     </item>
+    
   </channel>
 </rss>

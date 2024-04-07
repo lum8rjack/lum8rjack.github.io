@@ -18,17 +18,18 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-
-
-  <meta itemprop="image" content="/" />
-  <meta property="og:image" content="/" />
-  <meta name="twitter:image" content="/" />
-  <meta name="twitter:image:src" content="/" />
+  <link rel="alternate" hreflang="en-us" href="https://blog.lum8rjack.com/posts/function-hooking-part-2/" title="" />
 
 
 
+  <meta itemprop="image" content="https://blog.lum8rjack.com/" />
+  <meta property="og:image" content="https://blog.lum8rjack.com/" />
+  <meta name="twitter:image" content="https://blog.lum8rjack.com/" />
+  <meta name="twitter:image:src" content="https://blog.lum8rjack.com/" />
 
-    
+
+
+
     
     
     
@@ -67,12 +68,12 @@
     </script>
 
 
-<meta name="generator" content="Hugo 0.122.0">
+<meta name="generator" content="Hugo 0.124.1">
 
     
 
-    <link rel="canonical" href="/posts/function-hooking-part-2/">
-    <link href="/style.min.9bd04d0fad85388343088ec85e9afd787ea003e72914d7f57df39c17ab2e7173.css" rel="stylesheet">
+    <link rel="canonical" href="https://blog.lum8rjack.com/posts/function-hooking-part-2/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
     
@@ -85,7 +86,7 @@
 
 
 
-<link rel="manifest" href="/site.webmanifest">
+<link rel="manifest" href="https://blog.lum8rjack.com/site.webmanifest">
 
 <meta name="msapplication-config" content="/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -113,7 +114,7 @@ if (!doNotTrack) {
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="/" class="logo">
+        <a href="https://blog.lum8rjack.com/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -157,6 +158,8 @@ stroke-linejoin="round" class="feather feather-home">
                 <li class="menu-separator">
                     <span>|</span>
                 </li>
+                
+                
             </ul>
             <a id="mode" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
@@ -180,9 +183,11 @@ stroke-linejoin="round" class="feather feather-home">
                 </div>
                 
             </header>
-            <details class="toc">
-                <summary><b>Table of Contents</b></summary>
-                <nav id="TableOfContents">
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
   <ul>
     <li><a href="#what-is-password-safe">What Is Password Safe?</a></li>
     <li><a href="#using-password-safe">Using Password Safe</a></li>
@@ -193,8 +198,9 @@ stroke-linejoin="round" class="feather feather-home">
     <li><a href="#references--acknowledgements">References / Acknowledgements</a></li>
   </ul>
 </nav>
-            </details><div class="page-content">
-                <p>In this post I will expand on the information from my first post, <a href="/posts/function-hooking-part-1/">Function Hooking Part 1 - Test Program</a>. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager <a href="https://pwsafe.org/">Password Safe</a>.</p>
+    </details>
+            <div class="page-content">
+                <p>In this post I will expand on the information from my first post, <a href="https://blog.lum8rjack.com/posts/function-hooking-part-1/">Function Hooking Part 1 - Test Program</a>. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager <a href="https://pwsafe.org/">Password Safe</a>.</p>
 <p>As you can image, password managers are valuable targets during red team engaments since they contain additional credentials for other services or computers. If the main password to open the database is known or obtained, then all of the other credentials in the database are compromised.</p>
 <h2 id="what-is-password-safe">What Is Password Safe?</h2>
 <p>Password Safe is a free and open-source password manager. According to <a href="https://en.wikipedia.org/wiki/Password_manager">Wikipedia</a>, a password manager is &ldquo;a computer program that allows users to store, generate, and manage their passwords for local applications and online services. A password manager assists in generating and retrieving complex passwords, storing such passwords in an encrypted database or calculating them on demand&rdquo;.</p>
@@ -230,7 +236,7 @@ stroke-linejoin="round" class="feather feather-home">
 <p>You can see from the image above, I have added a few extra entries and grouped them by different categories.</p>
 <p>Now that the database is setup, the next step it figuring out how to gain access to the master passkey.</p>
 <h2 id="function-signature">Function Signature</h2>
-<p>Just like in <a href="/posts/function-hooking-part-1/">Part 1</a>, I first need to find the function to hook. From testing Password Safe, I know I want to hook the function that checks if the provided password to open the database is correct or not. Since Password Safe is open-sourced, I start by looking through the source code.</p>
+<p>Just like in <a href="https://blog.lum8rjack.com/posts/function-hooking-part-1/">Part 1</a>, I first need to find the function to hook. From testing Password Safe, I know I want to hook the function that checks if the provided password to open the database is correct or not. Since Password Safe is open-sourced, I start by looking through the source code.</p>
 <p><img src="/img/FunctionHooking2/github_pwsfile.png" alt="pwsafe"></p>
 <p>It looks like the &ldquo;CheckPasskey&rdquo; function arguments include the filename of the database, the passkey, and also the version of the database. Hooking this function will allow me to intercept the correct passkey and save it to a text file.</p>
 <p>Next, I load the pwsafe.exe binary into Ghidra and analyze the file. The file does not include debugging symbols like our test program from before, so it makes it harder to search for the function name. I first search for strings containing &ldquo;CheckPasskey&rdquo;.</p>
@@ -400,9 +406,7 @@ stroke-linejoin="round" class="feather feather-home">
 </div>
     <small class="footer_copyright">
         © 2024 Lum8rjack.
-        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
-        theme on
-        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
     </small>
 </footer><a href="#" title="Go to top" id="totop">
     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
@@ -420,7 +424,7 @@ stroke-linejoin="round" class="feather feather-home">
 
 
     
-    <script src="/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+    <script src="https://blog.lum8rjack.com/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
 
     
 

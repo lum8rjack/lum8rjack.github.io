@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>dll injection on Lum8rjack</title>
-    <link>/tags/dll-injection/</link>
-    <description>Recent content in dll injection on Lum8rjack</description>
+    <title>Dll Injection on Lum8rjack</title>
+    <link>https://blog.lum8rjack.com/tags/dll-injection/</link>
+    <description>Recent content in Dll Injection on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Feb 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/dll-injection/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.lum8rjack.com/tags/dll-injection/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Function Hooking Part 2 - Password Safe</title>
-      <link>/posts/function-hooking-part-2/</link>
+      <link>https://blog.lum8rjack.com/posts/function-hooking-part-2/</link>
       <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>/posts/function-hooking-part-2/</guid>
-      <description>In this post I will expand on the information from my first post, Function Hooking Part 1 - Test Program. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager Password Safe.&#xA;As you can image, password managers are valuable targets during red team engaments since they contain additional credentials for other services or computers. If the main password to open the database is known or obtained, then all of the other credentials in the database are compromised.</description>
+      
+      <guid>https://blog.lum8rjack.com/posts/function-hooking-part-2/</guid>
+      
+      <description>In this post I will expand on the information from my first post, Function Hooking Part 1 - Test Program. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager Password Safe.
+As you can image, password managers are valuable targets during red team engaments since they contain additional credentials for other services or computers. If the main password to open the database is known or obtained, then all of the other credentials in the database are compromised.</description>
+      
     </item>
+    
     <item>
       <title>Function Hooking Part 1 - Test Program</title>
-      <link>/posts/function-hooking-part-1/</link>
+      <link>https://blog.lum8rjack.com/posts/function-hooking-part-1/</link>
       <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>/posts/function-hooking-part-1/</guid>
+      
+      <guid>https://blog.lum8rjack.com/posts/function-hooking-part-1/</guid>
+      
       <description>I have recently been spending time learning more about reverse engineering and patching applications including fixing older programs that I do not have the source code for. I&amp;rsquo;ve started looking into function hooking and identifying how it works and different scenarios I could use it. There are a ton of articles online but most of them do not provide simple examples for starters or are focused on Windows API. While Windows API hooking is useful, I am more interested in hooking higher level functions.</description>
+      
     </item>
+    
   </channel>
 </rss>
