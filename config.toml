@@ -55,7 +55,7 @@ ignoreErrors = ["additional-script-loading-error"] # ignore error of loading add
   goToTop = true # set to false to disable 'go to top' button
 
 [params.author]
-  avatar = "tree.png" # put the file in assets folder; also ensure that image has same height and width
+  avatar = "tree.jpg" # put the file in assets folder; also ensure that image has same height and width
   intro = "Lum8rjack"
   name = "Lum8rjack"
   description = "red teamer and infosec researcher"
