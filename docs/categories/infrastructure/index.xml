@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>infrastructure on Lum8rjack</title>
+    <link>/categories/infrastructure/</link>
+    <description>Recent content in infrastructure on Lum8rjack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate>
+    <atom:link href="/categories/infrastructure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kasm for Red Teams</title>
+      <link>/posts/kasm-for-red-teams/</link>
+      <pubDate>Sun, 07 Apr 2024 12:00:28 -0500</pubDate>
+      <guid>/posts/kasm-for-red-teams/</guid>
+      <description>Have you ever successfully phished a target during a red team engagement and received access to one of their online accounts? There are times you need to keep your browser session active after bypassing MFA so you aren&amp;rsquo;t logged out. You might have to leave your computer on for multiple days or if you are using a VPN, hope that it doesn&amp;rsquo;t disconnect. If multiple team members are on the project, it also makes it difficult to distribute the work if everyone is working remote and on their own machines.</description>
+    </item>
+    <item>
+      <title>C2 Redirectors Made Easy</title>
+      <link>/posts/caddy-c2/</link>
+      <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>/posts/caddy-c2/</guid>
+      <description>In penetration testing and red teaming campaigns, Command-and-Control (C2) servers are used to simulate the control infrastructure that an attacker might use. These servers facilitate communication between the simulated malicious actors and the compromised systems. Using a proxy server, also known as a redirector, in front of a C2 server serves several important purposes:&#xA;Obscure the actual location of the C2 server. Allow only legitimate C2 traffic to reach the C2 server.</description>
+    </item>
+    <item>
+      <title>How to Protect Infrastructure During Penetration Testing</title>
+      <link>/posts/protect-infrastructure/</link>
+      <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>/posts/protect-infrastructure/</guid>
+      <description>How to Protect Infrastructure During Penetration Testing Blog post here: https://www.schellman.com/blog/cybersecurity/how-to-protect-infrastructure-during-pen-testing</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>router on Lum8rjack</title>
+    <link>/tags/router/</link>
+    <description>Recent content in router on Lum8rjack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/router/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reverse Engineering C3000Z</title>
+      <link>/posts/c3000z/</link>
+      <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>/posts/c3000z/</guid>
+      <description>The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.&#xA;I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP.</description>
+    </item>
+  </channel>
+</rss>
