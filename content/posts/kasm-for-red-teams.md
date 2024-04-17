@@ -55,7 +55,7 @@ The Kasm VNC settings also alow you to change the session to view only if a team
 
 ![read only](/img/Kasm/read-only.png)
 
-During the setup, you can also install any browser extensions that you would normally need (ex.[Container proxy](https://addons.mozilla.org/en-US/firefox/addon/container-proxy/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Cookie Manager](https://addons.mozilla.org/en-US/firefox/addon/a-cookie-manager/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Tab Reloader](https://addons.mozilla.org/en-US/firefox/addon/tab-reloader/)). Once you are done for the day, you can close your main browser and the Kasm Firefox session will stay active and ready to continue for the next person or the next day.
+During the setup, you can also install any browser extensions that you would normally need (ex.[Container proxy](https://addons.mozilla.org/en-US/firefox/addon/container-proxy/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search), [Cookie-Editor](https://addons.mozilla.org/en-US/firefox/addon/cookie-editor/), [Tab Reloader](https://addons.mozilla.org/en-US/firefox/addon/tab-reloader/)). Once you are done for the day, you can close your main browser and the Kasm Firefox session will stay active and ready to continue for the next person or the next day.
 
 
 ## References
