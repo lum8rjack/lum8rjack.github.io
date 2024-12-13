@@ -22,3 +22,15 @@ hugo -D
 # Build site and save to specific directory
 hugo -D -c docs/
 ```
+
+If you get an error similar to the following:
+
+```bash
+Check your Hugo installation; you need the extended version to build SCSS/SASS with transpiler set to 'libsass'.
+```
+
+Build Hugo using the following command:
+
+```bash
+CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
+```

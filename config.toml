@@ -77,9 +77,9 @@ ignoreErrors = ["additional-script-loading-error"] # ignore error of loading add
 name = "github"
 url = "https://github.com/lum8rjack"
 
-[[params.socialIcons]]
-name = "twitter"
-url = "https://twitter.com/lum8rjack"
+#[[params.socialIcons]]
+#name = "twitter"
+#url = "https://twitter.com/lum8rjack"
 
 [[params.socialIcons]]
 name = "x"
