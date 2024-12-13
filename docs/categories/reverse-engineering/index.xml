@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reverse Engineering on Lum8rjack</title>
-    <link>https://blog.lum8rjack.com/categories/reverse-engineering/</link>
+    <link>http://localhost:1313/categories/reverse-engineering/</link>
     <description>Recent content in Reverse Engineering on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.lum8rjack.com/categories/reverse-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/reverse-engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reverse Engineering C3000Z</title>
-      <link>https://blog.lum8rjack.com/posts/c3000z/</link>
+      <link>http://localhost:1313/posts/c3000z/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/posts/c3000z/</guid>
+      <guid>http://localhost:1313/posts/c3000z/</guid>
       
-      <description>The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.
-I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP.</description>
+      <description>&lt;p&gt;The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.&lt;/p&gt;
+&lt;p&gt;I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP. I could see the username but the password was not visable. I was able to find an option to backup the settings to a configuration file hoping it would store the password in plain text, unfortunately the password was encrypted. Instead of calling the ISP to get the credentials, I figured I would first try to figure out a way to decrypt the password. This process not only helped teach me about reverse engineering, but also about testing IoT devices and what can be found in the firmware.&lt;/p&gt;</description>
       
     </item>
     

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FedRAMP on Lum8rjack</title>
+    <link>http://localhost:1313/tags/fedramp/</link>
+    <description>Recent content in FedRAMP on Lum8rjack</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Dec 2024 07:00:10 -0600</lastBuildDate><atom:link href="http://localhost:1313/tags/fedramp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reflections on a Year of Fedramp Red Team Exercises</title>
+      <link>http://localhost:1313/posts/reflections-on-a-year-of-fedramp-red-team-exercises/</link>
+      <pubDate>Fri, 13 Dec 2024 07:00:10 -0600</pubDate>
+      
+      <guid>http://localhost:1313/posts/reflections-on-a-year-of-fedramp-red-team-exercises/</guid>
+      
+      <description>&lt;h2 id=&#34;reflections-on-a-year-of-fedramp-red-team-exercises&#34;&gt;Reflections on a Year of FedRAMP Red Team Exercises&lt;/h2&gt;
+&lt;p&gt;Blog post here: &lt;a href=&#34;https://www.schellman.com/blog/penetration-testing/reflections-on-a-year-of-fedramp-red-team-exercises&#34;&gt;https://www.schellman.com/blog/penetration-testing/reflections-on-a-year-of-fedramp-red-team-exercises&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

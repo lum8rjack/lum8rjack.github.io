@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Lum8rjack</title>
-    <link>https://blog.lum8rjack.com/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate><atom:link href="https://blog.lum8rjack.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Dec 2024 07:00:10 -0600</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Kasm</title>
-      <link>https://blog.lum8rjack.com/tags/kasm/</link>
-      <pubDate>Sun, 07 Apr 2024 12:00:28 -0500</pubDate>
+      <title>FedRAMP</title>
+      <link>http://localhost:1313/tags/fedramp/</link>
+      <pubDate>Fri, 13 Dec 2024 07:00:10 -0600</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/kasm/</guid>
+      <guid>http://localhost:1313/tags/fedramp/</guid>
       
       <description></description>
       
@@ -20,10 +20,32 @@
     
     <item>
       <title>Phishing</title>
-      <link>https://blog.lum8rjack.com/tags/phishing/</link>
+      <link>http://localhost:1313/tags/phishing/</link>
+      <pubDate>Fri, 13 Dec 2024 07:00:10 -0600</pubDate>
+      
+      <guid>http://localhost:1313/tags/phishing/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Schellman</title>
+      <link>http://localhost:1313/tags/schellman/</link>
+      <pubDate>Fri, 13 Dec 2024 07:00:10 -0600</pubDate>
+      
+      <guid>http://localhost:1313/tags/schellman/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Kasm</title>
+      <link>http://localhost:1313/tags/kasm/</link>
       <pubDate>Sun, 07 Apr 2024 12:00:28 -0500</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/phishing/</guid>
+      <guid>http://localhost:1313/tags/kasm/</guid>
       
       <description></description>
       
@@ -31,10 +53,10 @@
     
     <item>
       <title>C2</title>
-      <link>https://blog.lum8rjack.com/tags/c2/</link>
+      <link>http://localhost:1313/tags/c2/</link>
       <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/c2/</guid>
+      <guid>http://localhost:1313/tags/c2/</guid>
       
       <description></description>
       
@@ -42,10 +64,10 @@
     
     <item>
       <title>Caddy</title>
-      <link>https://blog.lum8rjack.com/tags/caddy/</link>
+      <link>http://localhost:1313/tags/caddy/</link>
       <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/caddy/</guid>
+      <guid>http://localhost:1313/tags/caddy/</guid>
       
       <description></description>
       
@@ -53,10 +75,10 @@
     
     <item>
       <title>Proxy</title>
-      <link>https://blog.lum8rjack.com/tags/proxy/</link>
+      <link>http://localhost:1313/tags/proxy/</link>
       <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/proxy/</guid>
+      <guid>http://localhost:1313/tags/proxy/</guid>
       
       <description></description>
       
@@ -64,10 +86,10 @@
     
     <item>
       <title>Browser Extension</title>
-      <link>https://blog.lum8rjack.com/tags/browser-extension/</link>
+      <link>http://localhost:1313/tags/browser-extension/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/browser-extension/</guid>
+      <guid>http://localhost:1313/tags/browser-extension/</guid>
       
       <description></description>
       
@@ -75,10 +97,10 @@
     
     <item>
       <title>Okta</title>
-      <link>https://blog.lum8rjack.com/tags/okta/</link>
+      <link>http://localhost:1313/tags/okta/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/okta/</guid>
+      <guid>http://localhost:1313/tags/okta/</guid>
       
       <description></description>
       
@@ -86,10 +108,10 @@
     
     <item>
       <title>Prevention</title>
-      <link>https://blog.lum8rjack.com/tags/prevention/</link>
+      <link>http://localhost:1313/tags/prevention/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/prevention/</guid>
+      <guid>http://localhost:1313/tags/prevention/</guid>
       
       <description></description>
       
@@ -97,10 +119,10 @@
     
     <item>
       <title>Honeypot</title>
-      <link>https://blog.lum8rjack.com/tags/honeypot/</link>
+      <link>http://localhost:1313/tags/honeypot/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/honeypot/</guid>
+      <guid>http://localhost:1313/tags/honeypot/</guid>
       
       <description></description>
       
@@ -108,10 +130,10 @@
     
     <item>
       <title>Entropy</title>
-      <link>https://blog.lum8rjack.com/tags/entropy/</link>
+      <link>http://localhost:1313/tags/entropy/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/entropy/</guid>
+      <guid>http://localhost:1313/tags/entropy/</guid>
       
       <description></description>
       
@@ -119,10 +141,10 @@
     
     <item>
       <title>Payloads</title>
-      <link>https://blog.lum8rjack.com/tags/payloads/</link>
+      <link>http://localhost:1313/tags/payloads/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/payloads/</guid>
+      <guid>http://localhost:1313/tags/payloads/</guid>
       
       <description></description>
       
@@ -130,10 +152,10 @@
     
     <item>
       <title>Frida</title>
-      <link>https://blog.lum8rjack.com/tags/frida/</link>
+      <link>http://localhost:1313/tags/frida/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/frida/</guid>
+      <guid>http://localhost:1313/tags/frida/</guid>
       
       <description></description>
       
@@ -141,10 +163,10 @@
     
     <item>
       <title>Password Manager</title>
-      <link>https://blog.lum8rjack.com/tags/password-manager/</link>
+      <link>http://localhost:1313/tags/password-manager/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/password-manager/</guid>
+      <guid>http://localhost:1313/tags/password-manager/</guid>
       
       <description></description>
       
@@ -152,10 +174,10 @@
     
     <item>
       <title>Windows</title>
-      <link>https://blog.lum8rjack.com/tags/windows/</link>
+      <link>http://localhost:1313/tags/windows/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/windows/</guid>
+      <guid>http://localhost:1313/tags/windows/</guid>
       
       <description></description>
       
@@ -163,10 +185,10 @@
     
     <item>
       <title>Dll Injection</title>
-      <link>https://blog.lum8rjack.com/tags/dll-injection/</link>
+      <link>http://localhost:1313/tags/dll-injection/</link>
       <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/dll-injection/</guid>
+      <guid>http://localhost:1313/tags/dll-injection/</guid>
       
       <description></description>
       
@@ -174,10 +196,10 @@
     
     <item>
       <title>Ghidra</title>
-      <link>https://blog.lum8rjack.com/tags/ghidra/</link>
+      <link>http://localhost:1313/tags/ghidra/</link>
       <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/ghidra/</guid>
+      <guid>http://localhost:1313/tags/ghidra/</guid>
       
       <description></description>
       
@@ -185,10 +207,10 @@
     
     <item>
       <title>Binwalk</title>
-      <link>https://blog.lum8rjack.com/tags/binwalk/</link>
+      <link>http://localhost:1313/tags/binwalk/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/binwalk/</guid>
+      <guid>http://localhost:1313/tags/binwalk/</guid>
       
       <description></description>
       
@@ -196,10 +218,10 @@
     
     <item>
       <title>Iot</title>
-      <link>https://blog.lum8rjack.com/tags/iot/</link>
+      <link>http://localhost:1313/tags/iot/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/iot/</guid>
+      <guid>http://localhost:1313/tags/iot/</guid>
       
       <description></description>
       
@@ -207,10 +229,10 @@
     
     <item>
       <title>Router</title>
-      <link>https://blog.lum8rjack.com/tags/router/</link>
+      <link>http://localhost:1313/tags/router/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/tags/router/</guid>
+      <guid>http://localhost:1313/tags/router/</guid>
       
       <description></description>
       

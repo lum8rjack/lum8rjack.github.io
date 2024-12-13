@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kasm on Lum8rjack</title>
-    <link>https://blog.lum8rjack.com/tags/kasm/</link>
+    <link>http://localhost:1313/tags/kasm/</link>
     <description>Recent content in Kasm on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate><atom:link href="https://blog.lum8rjack.com/tags/kasm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate><atom:link href="http://localhost:1313/tags/kasm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kasm for Red Teams</title>
-      <link>https://blog.lum8rjack.com/posts/kasm-for-red-teams/</link>
+      <link>http://localhost:1313/posts/kasm-for-red-teams/</link>
       <pubDate>Sun, 07 Apr 2024 12:00:28 -0500</pubDate>
       
-      <guid>https://blog.lum8rjack.com/posts/kasm-for-red-teams/</guid>
+      <guid>http://localhost:1313/posts/kasm-for-red-teams/</guid>
       
-      <description>Have you ever successfully phished a target during a red team engagement and received access to one of their online accounts? There are times you need to keep your browser session active after bypassing MFA so you aren&amp;rsquo;t logged out. You might have to leave your computer on for multiple days or if you are using a VPN, hope that it doesn&amp;rsquo;t disconnect. If multiple team members are on the project, it also makes it difficult to distribute the work if everyone is working remote and on their own machines.</description>
+      <description>&lt;p&gt;Have you ever successfully phished a target during a red team engagement and received access to one of their online accounts? There are times you need to keep your browser session active after bypassing MFA so you aren&amp;rsquo;t logged out. You might have to leave your computer on for multiple days or if you are using a VPN, hope that it doesn&amp;rsquo;t disconnect. If multiple team members are on the project, it also makes it difficult to distribute the work if everyone is working remote and on their own machines.&lt;/p&gt;</description>
       
     </item>
     

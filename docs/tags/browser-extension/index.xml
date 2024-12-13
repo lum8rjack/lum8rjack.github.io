@@ -2,20 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Browser Extension on Lum8rjack</title>
-    <link>https://blog.lum8rjack.com/tags/browser-extension/</link>
+    <link>http://localhost:1313/tags/browser-extension/</link>
     <description>Recent content in Browser Extension on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.lum8rjack.com/tags/browser-extension/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/browser-extension/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Okta Phishing Detection</title>
-      <link>https://blog.lum8rjack.com/posts/okta-phishing-detection/</link>
+      <link>http://localhost:1313/posts/okta-phishing-detection/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.lum8rjack.com/posts/okta-phishing-detection/</guid>
+      <guid>http://localhost:1313/posts/okta-phishing-detection/</guid>
       
-      <description>Phishing is still one of the common methods threat actors utilize to breach companies. Most phishing attacks try tricking the victim into revealing sensitive information or downloading and executing malicious attachments and files.
-During many of the phishing engagements I have performed, I tend to target organization’s identity and access management services. Okta is one common service that is widely used across the industry and, if compromised, can provide access to many other services in the organization.</description>
+      <description>&lt;p&gt;Phishing is still one of the common methods threat actors utilize to breach companies. Most phishing attacks try tricking the victim into revealing sensitive information or downloading and executing malicious attachments and files.&lt;/p&gt;
+&lt;p&gt;During many of the phishing engagements I have performed, I tend to target organization’s identity and access management services. Okta is one common service that is widely used across the industry and, if compromised, can provide access to many other services in the organization. While Okta and other
+services tend to have multifactor authentication (MFA) enabled, users can still be compromised despite this protection.&lt;/p&gt;</description>
       
     </item>
     
