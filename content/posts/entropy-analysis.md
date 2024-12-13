@@ -2,7 +2,7 @@
 title: "How to Use Entropy in Penetration Testing"
 date: 2022-10-27
 categories: [ "payloads" ]
-tags: ["entropy", "payloads"]
+tags: ["Schellman", "entropy", "payloads"]
 draft: false
 ---
 

@@ -1,10 +1,9 @@
 +++
 title = "Whoami"
-date = "2023-09-04"
 +++
 
 
-I have been in cyber security for about 9 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out. 
+I have been in cyber security for about 10 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out. 
 
 ## Certifications
 - Offensive Security Certified Professional (OSCP)

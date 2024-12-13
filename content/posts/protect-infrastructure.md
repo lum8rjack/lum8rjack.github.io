@@ -2,7 +2,7 @@
 title: "How to Protect Infrastructure During Penetration Testing"
 date: 2023-12-28
 categories: [ "infrastructure" ]
-tags: ["caddy", "honeypot"]
+tags: ["Schellman", "caddy", "honeypot"]
 draft: false
 ---
 
