@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Schellman on Lum8rjack</title>
-    <link>http://localhost:1313/tags/schellman/</link>
+    <link>https://blog.lum8rjack.com/tags/schellman/</link>
     <description>Recent content in Schellman on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Dec 2024 07:00:10 -0600</lastBuildDate><atom:link href="http://localhost:1313/tags/schellman/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Dec 2024 07:00:10 -0600</lastBuildDate><atom:link href="https://blog.lum8rjack.com/tags/schellman/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reflections on a Year of Fedramp Red Team Exercises</title>
-      <link>http://localhost:1313/posts/reflections-on-a-year-of-fedramp-red-team-exercises/</link>
+      <link>https://blog.lum8rjack.com/posts/reflections-on-a-year-of-fedramp-red-team-exercises/</link>
       <pubDate>Fri, 13 Dec 2024 07:00:10 -0600</pubDate>
       
-      <guid>http://localhost:1313/posts/reflections-on-a-year-of-fedramp-red-team-exercises/</guid>
+      <guid>https://blog.lum8rjack.com/posts/reflections-on-a-year-of-fedramp-red-team-exercises/</guid>
       
       <description>&lt;h2 id=&#34;reflections-on-a-year-of-fedramp-red-team-exercises&#34;&gt;Reflections on a Year of FedRAMP Red Team Exercises&lt;/h2&gt;
 &lt;p&gt;Blog post here: &lt;a href=&#34;https://www.schellman.com/blog/penetration-testing/reflections-on-a-year-of-fedramp-red-team-exercises&#34;&gt;https://www.schellman.com/blog/penetration-testing/reflections-on-a-year-of-fedramp-red-team-exercises&lt;/a&gt;&lt;/p&gt;</description>
@@ -21,10 +21,10 @@
     
     <item>
       <title>How to Protect Infrastructure During Penetration Testing</title>
-      <link>http://localhost:1313/posts/protect-infrastructure/</link>
+      <link>https://blog.lum8rjack.com/posts/protect-infrastructure/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/protect-infrastructure/</guid>
+      <guid>https://blog.lum8rjack.com/posts/protect-infrastructure/</guid>
       
       <description>&lt;h2 id=&#34;how-to-protect-infrastructure-during-penetration-testing&#34;&gt;How to Protect Infrastructure During Penetration Testing&lt;/h2&gt;
 &lt;p&gt;Blog post here: &lt;a href=&#34;https://www.schellman.com/blog/cybersecurity/how-to-protect-infrastructure-during-pen-testing&#34;&gt;https://www.schellman.com/blog/cybersecurity/how-to-protect-infrastructure-during-pen-testing&lt;/a&gt;&lt;/p&gt;</description>
@@ -33,10 +33,10 @@
     
     <item>
       <title>How to Use Entropy in Penetration Testing</title>
-      <link>http://localhost:1313/posts/entropy-analysis/</link>
+      <link>https://blog.lum8rjack.com/posts/entropy-analysis/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/entropy-analysis/</guid>
+      <guid>https://blog.lum8rjack.com/posts/entropy-analysis/</guid>
       
       <description>&lt;h2 id=&#34;how-to-use-entropy-in-penetration-testing&#34;&gt;How to Use Entropy in Penetration Testing&lt;/h2&gt;
 &lt;p&gt;Blog post here: &lt;a href=&#34;https://www.schellman.com/blog/cybersecurity/penetration-testing-methods-entropy&#34;&gt;https://www.schellman.com/blog/cybersecurity/penetration-testing-methods-entropy&lt;/a&gt;&lt;/p&gt;</description>

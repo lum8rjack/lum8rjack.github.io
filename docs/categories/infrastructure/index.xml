@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Infrastructure on Lum8rjack</title>
-    <link>http://localhost:1313/categories/infrastructure/</link>
+    <link>https://blog.lum8rjack.com/categories/infrastructure/</link>
     <description>Recent content in Infrastructure on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate><atom:link href="http://localhost:1313/categories/infrastructure/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Apr 2024 12:00:28 -0500</lastBuildDate><atom:link href="https://blog.lum8rjack.com/categories/infrastructure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kasm for Red Teams</title>
-      <link>http://localhost:1313/posts/kasm-for-red-teams/</link>
+      <link>https://blog.lum8rjack.com/posts/kasm-for-red-teams/</link>
       <pubDate>Sun, 07 Apr 2024 12:00:28 -0500</pubDate>
       
-      <guid>http://localhost:1313/posts/kasm-for-red-teams/</guid>
+      <guid>https://blog.lum8rjack.com/posts/kasm-for-red-teams/</guid>
       
       <description>&lt;p&gt;Have you ever successfully phished a target during a red team engagement and received access to one of their online accounts? There are times you need to keep your browser session active after bypassing MFA so you aren&amp;rsquo;t logged out. You might have to leave your computer on for multiple days or if you are using a VPN, hope that it doesn&amp;rsquo;t disconnect. If multiple team members are on the project, it also makes it difficult to distribute the work if everyone is working remote and on their own machines.&lt;/p&gt;</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>C2 Redirectors Made Easy</title>
-      <link>http://localhost:1313/posts/caddy-c2/</link>
+      <link>https://blog.lum8rjack.com/posts/caddy-c2/</link>
       <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/caddy-c2/</guid>
+      <guid>https://blog.lum8rjack.com/posts/caddy-c2/</guid>
       
       <description>&lt;p&gt;In penetration testing and red teaming campaigns, Command-and-Control (C2) servers are used to simulate the control infrastructure that an attacker might use. These servers facilitate communication between the simulated malicious actors and the compromised systems. Using a proxy server, also known as a redirector, in front of a C2 server serves several important purposes:&lt;/p&gt;
 &lt;ul&gt;
@@ -37,10 +37,10 @@
     
     <item>
       <title>How to Protect Infrastructure During Penetration Testing</title>
-      <link>http://localhost:1313/posts/protect-infrastructure/</link>
+      <link>https://blog.lum8rjack.com/posts/protect-infrastructure/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/protect-infrastructure/</guid>
+      <guid>https://blog.lum8rjack.com/posts/protect-infrastructure/</guid>
       
       <description>&lt;h2 id=&#34;how-to-protect-infrastructure-during-penetration-testing&#34;&gt;How to Protect Infrastructure During Penetration Testing&lt;/h2&gt;
 &lt;p&gt;Blog post here: &lt;a href=&#34;https://www.schellman.com/blog/cybersecurity/how-to-protect-infrastructure-during-pen-testing&#34;&gt;https://www.schellman.com/blog/cybersecurity/how-to-protect-infrastructure-during-pen-testing&lt;/a&gt;&lt;/p&gt;</description>

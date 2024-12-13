@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lum8rjack</title>
-    <link>http://localhost:1313/</link>
+    <link>https://blog.lum8rjack.com/</link>
     <description>Recent content on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Dec 2024 07:00:10 -0600</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Dec 2024 07:00:10 -0600</lastBuildDate><atom:link href="https://blog.lum8rjack.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reflections on a Year of Fedramp Red Team Exercises</title>
-      <link>http://localhost:1313/posts/reflections-on-a-year-of-fedramp-red-team-exercises/</link>
+      <link>https://blog.lum8rjack.com/posts/reflections-on-a-year-of-fedramp-red-team-exercises/</link>
       <pubDate>Fri, 13 Dec 2024 07:00:10 -0600</pubDate>
       
-      <guid>http://localhost:1313/posts/reflections-on-a-year-of-fedramp-red-team-exercises/</guid>
+      <guid>https://blog.lum8rjack.com/posts/reflections-on-a-year-of-fedramp-red-team-exercises/</guid>
       
       <description>&lt;h2 id=&#34;reflections-on-a-year-of-fedramp-red-team-exercises&#34;&gt;Reflections on a Year of FedRAMP Red Team Exercises&lt;/h2&gt;
 &lt;p&gt;Blog post here: &lt;a href=&#34;https://www.schellman.com/blog/penetration-testing/reflections-on-a-year-of-fedramp-red-team-exercises&#34;&gt;https://www.schellman.com/blog/penetration-testing/reflections-on-a-year-of-fedramp-red-team-exercises&lt;/a&gt;&lt;/p&gt;</description>
@@ -21,10 +21,10 @@
     
     <item>
       <title>Kasm for Red Teams</title>
-      <link>http://localhost:1313/posts/kasm-for-red-teams/</link>
+      <link>https://blog.lum8rjack.com/posts/kasm-for-red-teams/</link>
       <pubDate>Sun, 07 Apr 2024 12:00:28 -0500</pubDate>
       
-      <guid>http://localhost:1313/posts/kasm-for-red-teams/</guid>
+      <guid>https://blog.lum8rjack.com/posts/kasm-for-red-teams/</guid>
       
       <description>&lt;p&gt;Have you ever successfully phished a target during a red team engagement and received access to one of their online accounts? There are times you need to keep your browser session active after bypassing MFA so you aren&amp;rsquo;t logged out. You might have to leave your computer on for multiple days or if you are using a VPN, hope that it doesn&amp;rsquo;t disconnect. If multiple team members are on the project, it also makes it difficult to distribute the work if everyone is working remote and on their own machines.&lt;/p&gt;</description>
       
@@ -32,10 +32,10 @@
     
     <item>
       <title>C2 Redirectors Made Easy</title>
-      <link>http://localhost:1313/posts/caddy-c2/</link>
+      <link>https://blog.lum8rjack.com/posts/caddy-c2/</link>
       <pubDate>Sun, 18 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/caddy-c2/</guid>
+      <guid>https://blog.lum8rjack.com/posts/caddy-c2/</guid>
       
       <description>&lt;p&gt;In penetration testing and red teaming campaigns, Command-and-Control (C2) servers are used to simulate the control infrastructure that an attacker might use. These servers facilitate communication between the simulated malicious actors and the compromised systems. Using a proxy server, also known as a redirector, in front of a C2 server serves several important purposes:&lt;/p&gt;
 &lt;ul&gt;
@@ -49,10 +49,10 @@
     
     <item>
       <title>Okta Phishing Detection</title>
-      <link>http://localhost:1313/posts/okta-phishing-detection/</link>
+      <link>https://blog.lum8rjack.com/posts/okta-phishing-detection/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/okta-phishing-detection/</guid>
+      <guid>https://blog.lum8rjack.com/posts/okta-phishing-detection/</guid>
       
       <description>&lt;p&gt;Phishing is still one of the common methods threat actors utilize to breach companies. Most phishing attacks try tricking the victim into revealing sensitive information or downloading and executing malicious attachments and files.&lt;/p&gt;
 &lt;p&gt;During many of the phishing engagements I have performed, I tend to target organization’s identity and access management services. Okta is one common service that is widely used across the industry and, if compromised, can provide access to many other services in the organization. While Okta and other
@@ -62,10 +62,10 @@ services tend to have multifactor authentication (MFA) enabled, users can still 
     
     <item>
       <title>How to Protect Infrastructure During Penetration Testing</title>
-      <link>http://localhost:1313/posts/protect-infrastructure/</link>
+      <link>https://blog.lum8rjack.com/posts/protect-infrastructure/</link>
       <pubDate>Thu, 28 Dec 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/protect-infrastructure/</guid>
+      <guid>https://blog.lum8rjack.com/posts/protect-infrastructure/</guid>
       
       <description>&lt;h2 id=&#34;how-to-protect-infrastructure-during-penetration-testing&#34;&gt;How to Protect Infrastructure During Penetration Testing&lt;/h2&gt;
 &lt;p&gt;Blog post here: &lt;a href=&#34;https://www.schellman.com/blog/cybersecurity/how-to-protect-infrastructure-during-pen-testing&#34;&gt;https://www.schellman.com/blog/cybersecurity/how-to-protect-infrastructure-during-pen-testing&lt;/a&gt;&lt;/p&gt;</description>
@@ -74,10 +74,10 @@ services tend to have multifactor authentication (MFA) enabled, users can still 
     
     <item>
       <title>How to Use Entropy in Penetration Testing</title>
-      <link>http://localhost:1313/posts/entropy-analysis/</link>
+      <link>https://blog.lum8rjack.com/posts/entropy-analysis/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/entropy-analysis/</guid>
+      <guid>https://blog.lum8rjack.com/posts/entropy-analysis/</guid>
       
       <description>&lt;h2 id=&#34;how-to-use-entropy-in-penetration-testing&#34;&gt;How to Use Entropy in Penetration Testing&lt;/h2&gt;
 &lt;p&gt;Blog post here: &lt;a href=&#34;https://www.schellman.com/blog/cybersecurity/penetration-testing-methods-entropy&#34;&gt;https://www.schellman.com/blog/cybersecurity/penetration-testing-methods-entropy&lt;/a&gt;&lt;/p&gt;</description>
@@ -86,15 +86,15 @@ services tend to have multifactor authentication (MFA) enabled, users can still 
     
     <item>
       <title>Function Hooking Part 3 - Frida</title>
-      <link>http://localhost:1313/posts/function-hooking-part-3/</link>
+      <link>https://blog.lum8rjack.com/posts/function-hooking-part-3/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/function-hooking-part-3/</guid>
+      <guid>https://blog.lum8rjack.com/posts/function-hooking-part-3/</guid>
       
       <description>&lt;p&gt;This post will wrap up the function hooking series. You can view the previous posts here:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/function-hooking-part-1/&#34;&gt;Function Hooking Part 1 - Test Program&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/function-hooking-part-2/&#34;&gt;Function Hooking Part 2 - Password Safe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.lum8rjack.com/posts/function-hooking-part-1/&#34;&gt;Function Hooking Part 1 - Test Program&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.lum8rjack.com/posts/function-hooking-part-2/&#34;&gt;Function Hooking Part 2 - Password Safe&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In this post I will show another method you can use to hook functions. Instead of writing an injector and DLL in C++, I will be using a tool called Frida that allows you to do the same with Python and JavaScript.&lt;/p&gt;</description>
       
@@ -102,22 +102,22 @@ services tend to have multifactor authentication (MFA) enabled, users can still 
     
     <item>
       <title>Function Hooking Part 2 - Password Safe</title>
-      <link>http://localhost:1313/posts/function-hooking-part-2/</link>
+      <link>https://blog.lum8rjack.com/posts/function-hooking-part-2/</link>
       <pubDate>Sat, 06 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/function-hooking-part-2/</guid>
+      <guid>https://blog.lum8rjack.com/posts/function-hooking-part-2/</guid>
       
-      <description>&lt;p&gt;In this post I will expand on the information from my first post, &lt;a href=&#34;http://localhost:1313/posts/function-hooking-part-1/&#34;&gt;Function Hooking Part 1 - Test Program&lt;/a&gt;. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager &lt;a href=&#34;https://pwsafe.org/&#34;&gt;Password Safe&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;In this post I will expand on the information from my first post, &lt;a href=&#34;https://blog.lum8rjack.com/posts/function-hooking-part-1/&#34;&gt;Function Hooking Part 1 - Test Program&lt;/a&gt;. Previously, I discussed hooking a function from a custom application, in this post I will be hooking a function in the open-source password manager &lt;a href=&#34;https://pwsafe.org/&#34;&gt;Password Safe&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;As you can image, password managers are valuable targets during red team engaments since they contain additional credentials for other services or computers. If the main password to open the database is known or obtained, then all of the other credentials in the database are compromised.&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>Function Hooking Part 1 - Test Program</title>
-      <link>http://localhost:1313/posts/function-hooking-part-1/</link>
+      <link>https://blog.lum8rjack.com/posts/function-hooking-part-1/</link>
       <pubDate>Sun, 31 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/function-hooking-part-1/</guid>
+      <guid>https://blog.lum8rjack.com/posts/function-hooking-part-1/</guid>
       
       <description>&lt;p&gt;I have recently been spending time learning more about reverse engineering and patching applications including fixing older programs that I do not have the source code for. I&amp;rsquo;ve started looking into function hooking and identifying how it works and different scenarios I could use it. There are a ton of articles online but most of them do not provide simple examples for starters or are focused on Windows API. While Windows API hooking is useful, I am more interested in hooking higher level functions.&lt;/p&gt;</description>
       
@@ -125,10 +125,10 @@ services tend to have multifactor authentication (MFA) enabled, users can still 
     
     <item>
       <title>Reverse Engineering C3000Z</title>
-      <link>http://localhost:1313/posts/c3000z/</link>
+      <link>https://blog.lum8rjack.com/posts/c3000z/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/c3000z/</guid>
+      <guid>https://blog.lum8rjack.com/posts/c3000z/</guid>
       
       <description>&lt;p&gt;The following post goes through the steps I took to reverse engineer different binaries in routers with the goal of decrypting an encoded password.&lt;/p&gt;
 &lt;p&gt;I recently switched internet providers and was given a new modem/router. When the technician came to setup my service, the device was already configured and just needed plugged in. I was planning on switching out the device with my old router, since I already had firewall rules and static routes configured, however when I logged into the new device I noticed it was configured to use PPoE to connect to the ISP. I could see the username but the password was not visable. I was able to find an option to backup the settings to a configuration file hoping it would store the password in plain text, unfortunately the password was encrypted. Instead of calling the ISP to get the credentials, I figured I would first try to figure out a way to decrypt the password. This process not only helped teach me about reverse engineering, but also about testing IoT devices and what can be found in the firmware.&lt;/p&gt;</description>
@@ -137,10 +137,10 @@ services tend to have multifactor authentication (MFA) enabled, users can still 
     
     <item>
       <title>Whoami</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://blog.lum8rjack.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://blog.lum8rjack.com/about/</guid>
       
       <description>&lt;p&gt;I have been in cyber security for about 10 years performing a variety of technical assessments. These assements include penetration testing, web application testing, and performing red and purple team engagements. After reading countless blogs on different techniques and open source tools, I figured I would start posting research and scripts that I have created that have helped me out.&lt;/p&gt;
 &lt;h2 id=&#34;certifications&#34;&gt;Certifications&lt;/h2&gt;

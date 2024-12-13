@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Lum8rjack</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://blog.lum8rjack.com/categories/</link>
     <description>Recent content in Categories on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Dec 2024 07:00:10 -0600</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Dec 2024 07:00:10 -0600</lastBuildDate><atom:link href="https://blog.lum8rjack.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Red Team</title>
-      <link>http://localhost:1313/categories/red-team/</link>
+      <link>https://blog.lum8rjack.com/categories/red-team/</link>
       <pubDate>Fri, 13 Dec 2024 07:00:10 -0600</pubDate>
       
-      <guid>http://localhost:1313/categories/red-team/</guid>
+      <guid>https://blog.lum8rjack.com/categories/red-team/</guid>
       
       <description></description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Infrastructure</title>
-      <link>http://localhost:1313/categories/infrastructure/</link>
+      <link>https://blog.lum8rjack.com/categories/infrastructure/</link>
       <pubDate>Sun, 07 Apr 2024 12:00:28 -0500</pubDate>
       
-      <guid>http://localhost:1313/categories/infrastructure/</guid>
+      <guid>https://blog.lum8rjack.com/categories/infrastructure/</guid>
       
       <description></description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Phishing</title>
-      <link>http://localhost:1313/categories/phishing/</link>
+      <link>https://blog.lum8rjack.com/categories/phishing/</link>
       <pubDate>Wed, 07 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/phishing/</guid>
+      <guid>https://blog.lum8rjack.com/categories/phishing/</guid>
       
       <description></description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>Payloads</title>
-      <link>http://localhost:1313/categories/payloads/</link>
+      <link>https://blog.lum8rjack.com/categories/payloads/</link>
       <pubDate>Thu, 27 Oct 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/payloads/</guid>
+      <guid>https://blog.lum8rjack.com/categories/payloads/</guid>
       
       <description></description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>Function-Hooking</title>
-      <link>http://localhost:1313/categories/function-hooking/</link>
+      <link>https://blog.lum8rjack.com/categories/function-hooking/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/function-hooking/</guid>
+      <guid>https://blog.lum8rjack.com/categories/function-hooking/</guid>
       
       <description></description>
       
@@ -64,10 +64,10 @@
     
     <item>
       <title>Reverse Engineering</title>
-      <link>http://localhost:1313/categories/reverse-engineering/</link>
+      <link>https://blog.lum8rjack.com/categories/reverse-engineering/</link>
       <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/reverse-engineering/</guid>
+      <guid>https://blog.lum8rjack.com/categories/reverse-engineering/</guid>
       
       <description></description>
       
