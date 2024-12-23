@@ -2,19 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.lum8rjack.com/tags/automation/</loc>
+    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
+  </url><url>
     <loc>https://blog.lum8rjack.com/categories/</loc>
-    <lastmod>2024-12-13T07:00:10-06:00</lastmod>
+    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/</loc>
+    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/tags/n8n/</loc>
+    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/categories/news/</loc>
+    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/posts/</loc>
+    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/tags/rss/</loc>
+    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/posts/rss-automation-for-cybersecurity/</loc>
+    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/tags/</loc>
+    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
   </url><url>
     <loc>https://blog.lum8rjack.com/tags/fedramp/</loc>
     <lastmod>2024-12-13T07:00:10-06:00</lastmod>
   </url><url>
-    <loc>https://blog.lum8rjack.com/</loc>
-    <lastmod>2024-12-13T07:00:10-06:00</lastmod>
-  </url><url>
     <loc>https://blog.lum8rjack.com/tags/phishing/</loc>
-    <lastmod>2024-12-13T07:00:10-06:00</lastmod>
-  </url><url>
-    <loc>https://blog.lum8rjack.com/posts/</loc>
     <lastmod>2024-12-13T07:00:10-06:00</lastmod>
   </url><url>
     <loc>https://blog.lum8rjack.com/categories/red-team/</loc>
@@ -24,9 +42,6 @@
     <lastmod>2024-12-13T07:00:10-06:00</lastmod>
   </url><url>
     <loc>https://blog.lum8rjack.com/tags/schellman/</loc>
-    <lastmod>2024-12-13T07:00:10-06:00</lastmod>
-  </url><url>
-    <loc>https://blog.lum8rjack.com/tags/</loc>
     <lastmod>2024-12-13T07:00:10-06:00</lastmod>
   </url><url>
     <loc>https://blog.lum8rjack.com/categories/infrastructure/</loc>
