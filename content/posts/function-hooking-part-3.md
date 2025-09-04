@@ -1,7 +1,7 @@
 ---
 title: "Function Hooking Part 3 - Frida"
 date: 2022-02-06
-categories: [ "function-hooking" ]
+categories: [ "function hooking" ]
 tags: ["windows", "frida", "password manager"]
 draft: false
 ---

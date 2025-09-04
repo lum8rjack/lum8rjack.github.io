@@ -1,7 +1,7 @@
 ---
 title: "Function Hooking Part 1 - Test Program"
 date: 2021-01-31
-categories: [ "function-hooking" ]
+categories: [ "function hooking" ]
 tags: ["windows", "dll injection", "ghidra"]
 draft: false
 ---

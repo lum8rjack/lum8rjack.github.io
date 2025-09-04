@@ -1,7 +1,7 @@
 ---
 title: "Function Hooking Part 2 - Password Safe"
 date: 2021-02-06
-categories: [ "function-hooking" ]
+categories: [ "function hooking" ]
 tags: ["windows", "dll injection", "ghidra", "password manager"]
 draft: false
 ---

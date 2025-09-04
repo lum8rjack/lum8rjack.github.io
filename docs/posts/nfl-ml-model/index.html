@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Building an NFL Over/Under Prediction Model with Machine Learning | Lum8rjack</title>
+<meta property="og:title" content="Building an NFL Over/Under Prediction Model with Machine Learning | Lum8rjack" />
+<meta name="twitter:title" content="Building an NFL Over/Under Prediction Model with Machine Learning | Lum8rjack" />
+<meta itemprop="name" content="Building an NFL Over/Under Prediction Model with Machine Learning | Lum8rjack" />
+<meta name="application-name" content="Building an NFL Over/Under Prediction Model with Machine Learning | Lum8rjack" />
+<meta property="og:site_name" content="Lum8rjack Blog" />
+
+<meta name="description" content="Minimal Hugo blog theme with light and dark mode support">
+<meta itemprop="description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta property="og:description" content="Minimal Hugo blog theme with light and dark mode support" />
+<meta name="twitter:description" content="Minimal Hugo blog theme with light and dark mode support" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en-us" href="https://blog.lum8rjack.com/posts/nfl-ml-model/" title="" />
+
+
+
+  <meta itemprop="image" content="https://blog.lum8rjack.com/" />
+  <meta property="og:image" content="https://blog.lum8rjack.com/" />
+  <meta name="twitter:image" content="https://blog.lum8rjack.com/" />
+  <meta name="twitter:image:src" content="https://blog.lum8rjack.com/" />
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-09-04T18:25:59-0500 />
+    <meta property="article:published_time" content=2025-09-04T18:25:59-0500 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Building an NFL Over/Under Prediction Model with Machine Learning",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-09-04",
+        "description": "",
+        "wordCount":  2403 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-09-04",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Lum8rjack"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.149.0">
+
+    
+
+    <link rel="canonical" href="https://blog.lum8rjack.com/posts/nfl-ml-model/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://blog.lum8rjack.com/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLFPYYTDTZ"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-DLFPYYTDTZ');
+        }
+      </script></head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://blog.lum8rjack.com/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Building an NFL Over/Under Prediction Model with Machine Learning</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-09-04T18:25:59-05:00" itemprop="datePublished"> Sep 4, 2025 </time>
+                </div>
+                
+            </header>
+            
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#data-collection">Data Collection</a>
+      <ul>
+        <li><a href="#scraping-process">Scraping Process</a></li>
+        <li><a href="#data-cleaning">Data Cleaning</a></li>
+      </ul>
+    </li>
+    <li><a href="#initial-model-training">Initial Model Training</a>
+      <ul>
+        <li><a href="#feature-selection">Feature Selection</a></li>
+        <li><a href="#model-implementation">Model Implementation</a></li>
+      </ul>
+    </li>
+    <li><a href="#enhanced-data-collection">Enhanced Data Collection</a>
+      <ul>
+        <li><a href="#model-retraining">Model Retraining</a></li>
+      </ul>
+    </li>
+    <li><a href="#api-development">API Development</a></li>
+    <li><a href="#2025-week-1-predictions">2025 Week 1 Predictions</a></li>
+    <li><a href="#acknowledgment">Acknowledgment</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+    </details>
+            <div class="page-content">
+                <p>The NFL betting market is massive, with billions of dollars wagered annually on everything from game outcomes to point spreads. While professional sportsbooks employ teams of analysts and sophisticated models, the challenge of accurately predicting NFL spreads remains notoriously difficult.</p>
+<p>In this project, I set out to build my own machine learning model for predicting NFL point spreads, following along with a <a href="https://www.youtube.com/watch?v=03D-1HXcoIM&amp;list=WL&amp;index=18">Kerry Sports Analyst YouTube tutorial</a> as my starting point. What began as a simple replication exercise quickly evolved into a comprehensive data science project that involved web scraping, model generation, and API development.</p>
+<p>The goal wasn&rsquo;t just to build another prediction model, but to understand the entire pipeline from raw data collection to deployable predictions. Over the course of this project, I scraped 15 years of NFL game data (2009-2024), enhanced it with stadium-specific information, and created a simple API to make predictions accessible.</p>
+<p>While the model&rsquo;s accuracy is still being tweaked and adjusted, the process taught me valuable lessons about data science workflows, machine learning, and the challenges of sports prediction.</p>
+<h2 id="data-collection">Data Collection</h2>
+<p>The first challenge in building any machine learning model is obtaining quality data. For NFL spread prediction, I needed historical game data including scores, point spreads, and other relevant statistics. Following the <a href="https://www.youtube.com/watch?v=03D-1HXcoIM&amp;list=WL&amp;index=18">Kerry Sports Analyst tutorial</a>, I began by scraping NFL scores and spread data from <a href="https://www.pro-football-reference.com/">Pro-Football-Reference.com</a>. The site provides detailed game logs for every NFL season going back to 2009, including:</p>
+<ul>
+<li>Game scores</li>
+<li>Offensive and defensive team stats</li>
+<li>Point spreads and over/under totals</li>
+</ul>
+<h3 id="scraping-process">Scraping Process</h3>
+<p>I implemented a two-step approach to ensure data reliability and reproducibility:</p>
+<ol>
+<li>
+<p><strong>Raw HTML Collection</strong>: First, I created a script to systematically download and save the raw HTML from Pro-Football-Reference for each season from 2009-2024. This approach had several advantages:</p>
+<ul>
+<li><strong>Rate limiting compliance</strong>: Avoided overwhelming the server with rapid requests</li>
+<li><strong>Data preservation</strong>: Ensured I had a local copy of the data in case the site structure changed</li>
+<li><strong>Reproducibility</strong>: Could re-parse the data multiple times without re-scraping</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Parsing</strong>: Using a Jupyter notebook, I then parsed the saved HTML files to extract the relevant game data and generate a clean CSV file. This separation of concerns made the process more manageable and allowed for iterative improvements to the parsing logic.</p>
+</li>
+</ol>
+<p>The scraping covered approximately 15 years of NFL data (2009-2024), which was the full historical dataset available from Pro-Football-Reference. This resulted in thousands of games with comprehensive statistics, providing sufficient training data while focusing on the modern NFL era with consistent rules and playing styles.</p>
+<h3 id="data-cleaning">Data Cleaning</h3>
+<p>Once I had the raw HTML data, the next step was cleaning and preparing the data for machine learning. The initial dataset required several transformations to make it usable:</p>
+<p><strong>Field Renaming</strong>: After using BeautifulSoup to parse the HTML and loading the data into a pandas DataFrame, several columns had generic names like &lsquo;Unnamed: 0&rsquo; that needed to be renamed:</p>
+<ul>
+<li><code>Unnamed: 5</code> → <code>win</code> (game outcome)</li>
+<li><code>Unnamed: 8</code> → <code>away</code> (away team indicator)</li>
+<li>Similar renaming for other statistical columns to improve readability</li>
+</ul>
+<p><strong>Removing Bye Weeks</strong>: NFL teams have a bye week during the regular season where they don&rsquo;t play. These entries were filtered out since they don&rsquo;t represent actual games and would skew the model training.</p>
+<p><strong>Adding Temporal Features</strong>: To help the model identify potential patterns and trends, I added several time-based columns that could serve as predictive features:</p>
+<ul>
+<li><strong>Day of Week</strong>: Extracted from game dates to identify if games were played on Thursday, Sunday, or Monday</li>
+<li><strong>After Bye Week</strong>: Created a boolean column tracking whether each team was coming off a bye week, as teams often perform differently after rest periods</li>
+</ul>
+<p><strong>Data Merging</strong>: One of the more complex aspects of data preparation was merging the game statistics with Vegas betting lines. The initial scraping provided game scores and team stats, but I needed to combine this with historical point spreads and betting data. This required:</p>
+<ul>
+<li>Matching games by date and team names across different data sources</li>
+<li>Ensuring betting line data was available for the corresponding game dates</li>
+<li>Dealing with missing or incomplete betting data for certain games</li>
+</ul>
+<p>These cleaning steps transformed the raw scraped data into a structured dataset ready for feature engineering and model training. The process also involved handling missing values, standardizing team names across different seasons, and ensuring consistent data types for all columns. I then saved the data to a clean CSV file with the columns below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">RangeIndex: <span class="m">8690</span> entries, <span class="m">0</span> to <span class="m">8689</span>
+</span></span><span class="line"><span class="cl">Data columns <span class="o">(</span>total <span class="m">34</span> columns<span class="o">)</span>:
+</span></span><span class="line"><span class="cl"> <span class="c1">#   Column             Non-Null Count  Dtype  </span>
+</span></span><span class="line"><span class="cl">---  ------             --------------  -----  
+</span></span><span class="line"><span class="cl"> <span class="m">0</span>   Season             <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">1</span>   Team               <span class="m">8690</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">2</span>   Opp                <span class="m">8690</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">3</span>   Away               <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">4</span>   Week               <span class="m">8690</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">5</span>   AfterBye           <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">6</span>   Playoff            <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">7</span>   Day                <span class="m">8690</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">8</span>   DayOfWeek          <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">9</span>   Date               <span class="m">8690</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">10</span>  Month              <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">11</span>  Time               <span class="m">8690</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">12</span>  Win                <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">13</span>  OT                 <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">14</span>  Rec                <span class="m">8690</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">15</span>  PtsScored          <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">16</span>  PtsAllowed         <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">17</span>  Off1stD            <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">18</span>  OffTotYd           <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">19</span>  OffPassY           <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">20</span>  OffRushY           <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">21</span>  OffTO              <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">22</span>  Def1stD            <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">23</span>  DefTotYd           <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">24</span>  DefPassY           <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">25</span>  DefRushY           <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">26</span>  DefTO              <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">27</span>  ExpPoints_Offense  <span class="m">8690</span> non-null   float64
+</span></span><span class="line"><span class="cl"> <span class="m">28</span>  ExpPoints_Defense  <span class="m">8690</span> non-null   float64
+</span></span><span class="line"><span class="cl"> <span class="m">29</span>  G#                 <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">30</span>  Spread             <span class="m">8690</span> non-null   float64
+</span></span><span class="line"><span class="cl"> <span class="m">31</span>  OU                 <span class="m">8690</span> non-null   float64
+</span></span><span class="line"><span class="cl"> <span class="m">32</span>  SpreadWin          <span class="m">8690</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">33</span>  OUWin              <span class="m">8690</span> non-null   object
+</span></span></code></pre></div><h2 id="initial-model-training">Initial Model Training</h2>
+<p>With the cleaned dataset ready, I moved to the model training phase. I loaded the generated CSV file into a Jupyter Lab notebook using pandas and began the process of preparing the data for machine learning.</p>
+<h3 id="feature-selection">Feature Selection</h3>
+<p>I started by selecting only the columns I wanted to train on, focusing on the most relevant features for spread prediction:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">selected_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Season&#39;</span><span class="p">,</span> <span class="s1">&#39;Week&#39;</span><span class="p">,</span> <span class="s1">&#39;AfterBye&#39;</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;DayOfWeek&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                   <span class="s1">&#39;Tm_Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Tm_Pts&#39;</span><span class="p">,</span> <span class="s1">&#39;Away&#39;</span><span class="p">,</span> <span class="s1">&#39;Opp_Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Opp_Pts&#39;</span><span class="p">,</span> <span class="s1">&#39;Spread&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">]</span>
+</span></span></code></pre></div><p>I then performed several key data transformations:</p>
+<p><strong>Over/Under Classification</strong>: I added columns to track betting outcomes:</p>
+<ul>
+<li><strong>Over/Under Result</strong>: Created a column indicating whether the total points scored was over, under, or push (exactly equal to the total line)</li>
+</ul>
+<p><strong>Data Sorting</strong>: Sorted the data by season and then by week to ensure proper chronological order for time-series analysis.</p>
+<p><strong>Training Data Filtering</strong>: Applied specific filters to create the training dataset:</p>
+<ul>
+<li><strong>Time Period</strong>: Only games from 2018 onwards to focus on recent NFL trends</li>
+<li><strong>Away Games Only</strong>: Since each game appears twice in the dataset (once for each team), I filtered to only away games to avoid data duplication</li>
+<li><strong>Feature Set</strong>: Trained the model on three key features:
+<ul>
+<li><code>Spread</code>: The point spread for the game</li>
+<li><code>Total</code>: The over/under total points line</li>
+<li><code>AfterBye</code>: Whether the team was coming off a bye week</li>
+</ul>
+</li>
+<li><strong>Prediction Target</strong>: The model was trained to predict games for &ldquo;Under the total&rdquo; - identifying when the total points scored would be under the Vegas over/under line</li>
+</ul>
+<h3 id="model-implementation">Model Implementation</h3>
+<p>For the initial model, I used a K-Nearest Neighbors classifier with 7 neighbors:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>Results Validation</strong>: Following Kerry&rsquo;s approach, I generated a confusion matrix to visualize the model&rsquo;s performance and compared my results with what Kerry achieved in his tutorial. This validation step was crucial to ensure I had correctly implemented the same methodology.</p>
+<p><strong>Historical Comparison</strong>: Kerry&rsquo;s video only covered data up until 2023, so my 2024 predictions represented new territory not covered in the original tutorial. This provided an opportunity to test the model&rsquo;s performance on completely unseen data and compare the accuracy.</p>
+<p><strong>Prediction Accuracy Results</strong>: The model&rsquo;s performance for predicting &ldquo;Under the total&rdquo; across different years:</p>
+<ul>
+<li><strong>2021</strong>: 54% accurate</li>
+<li><strong>2022</strong>: 59% accurate</li>
+<li><strong>2023</strong>: 53% accurate</li>
+<li><strong>2024</strong>: 48% accurate</li>
+</ul>
+<p>The results show the model performed reasonably well in the 2021-2023 period, with 2022 being the strongest year at 59% accuracy. The 2024 performance dropped to 48%, highlighting the challenges of sports prediction and the importance of continuous model refinement.</p>
+<h2 id="enhanced-data-collection">Enhanced Data Collection</h2>
+<p>After validating the initial model, I decided to enhance the dataset with additional environmental and venue-specific information that could potentially improve prediction accuracy. I scraped additional data from <a href="https://nflweather.com/">NFLWeather</a> for each game including:</p>
+<ul>
+<li><strong>Weather conditions</strong>: Temperature, precipitation, wind speed, and other weather factors that could affect game outcomes</li>
+<li><strong>Stadium type</strong>: Whether the game was played in a dome (indoor) or open-air stadium</li>
+<li><strong>Grass type</strong>: Whether the playing surface was artificial turf or natural grass</li>
+<li><strong>Location</strong>: Whether games were played in the US or internationally (London, Mexico, etc.)</li>
+</ul>
+<p>Once I had collected this additional information, I combined it with the existing game stats data from the previous dataset. This integration required:</p>
+<ul>
+<li><strong>Matching games</strong>: Ensuring the weather and stadium data corresponded to the correct games in the original dataset</li>
+<li><strong>Data validation</strong>: Verifying that the additional information was accurate and complete</li>
+<li><strong>Feature engineering</strong>: Creating new columns to represent the environmental factors in a format suitable for machine learning</li>
+</ul>
+<p>The enhanced dataset now included both the original game statistics and the new environmental variables, providing a more comprehensive foundation for model training and potentially better prediction accuracy. The final dataset contained 4,158 entries with 53 columns, including the original game data plus the new stadium and weather information:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">RangeIndex: <span class="m">4158</span> entries, <span class="m">0</span> to <span class="m">4157</span>
+</span></span><span class="line"><span class="cl">Data columns <span class="o">(</span>total <span class="m">53</span> columns<span class="o">)</span>:
+</span></span><span class="line"><span class="cl"> <span class="c1">#   Column                    Non-Null Count  Dtype  </span>
+</span></span><span class="line"><span class="cl">---  ------                    --------------  -----  
+</span></span><span class="line"><span class="cl"> <span class="m">0</span>   Season                    <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">1</span>   Team                      <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">2</span>   Opp                       <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">3</span>   Away                      <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">4</span>   Week                      <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">5</span>   AfterBye                  <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">6</span>   Playoff                   <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">7</span>   Day                       <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">8</span>   DayOfWeek                 <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">9</span>   Date                      <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">10</span>  Month                     <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">11</span>  Time                      <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">12</span>  Win                       <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">13</span>  OT                        <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">14</span>  Rec                       <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">15</span>  PtsScored                 <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">16</span>  PtsAllowed                <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">17</span>  Off1stD                   <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">18</span>  OffTotYd                  <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">19</span>  OffPassY                  <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">20</span>  OffRushY                  <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">21</span>  OffTO                     <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">22</span>  Def1stD                   <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">23</span>  DefTotYd                  <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">24</span>  DefPassY                  <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">25</span>  DefRushY                  <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">26</span>  DefTO                     <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">27</span>  ExpPoints_Offense         <span class="m">4158</span> non-null   float64
+</span></span><span class="line"><span class="cl"> <span class="m">28</span>  ExpPoints_Defense         <span class="m">4158</span> non-null   float64
+</span></span><span class="line"><span class="cl"> <span class="m">29</span>  G#                        <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">30</span>  Spread                    <span class="m">4158</span> non-null   float64
+</span></span><span class="line"><span class="cl"> <span class="m">31</span>  OU                        <span class="m">4158</span> non-null   float64
+</span></span><span class="line"><span class="cl"> <span class="m">32</span>  SpreadWin                 <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">33</span>  OUWin                     <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">34</span>  Stadium                   <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">35</span>  City                      <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">36</span>  State                     <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">37</span>  International             <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">38</span>  Grass                     <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">39</span>  Dome                      <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">40</span>  Capacity                  <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">41</span>  Address                   <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">42</span>  Zipcode                   <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">43</span>  kickoffWeatherOverview    <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">44</span>  kickoffWeatherTemp        <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">45</span>  kickoffWeatherAirSpeed    <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">46</span>  kickoffWeatherAirGust     <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">47</span>  kickoffWeatherAirDir      <span class="m">4158</span> non-null   object 
+</span></span><span class="line"><span class="cl"> <span class="m">48</span>  kickoffWeatherPrec        <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">49</span>  kickoffWeatherCloudCover  <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">50</span>  kickoffWeatherHumidity    <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">51</span>  kickoffWeatherDewPoint    <span class="m">4158</span> non-null   int64  
+</span></span><span class="line"><span class="cl"> <span class="m">52</span>  kickoffWeatherVisability  <span class="m">4158</span> non-null   int64
+</span></span></code></pre></div><h3 id="model-retraining">Model Retraining</h3>
+<p>With the enhanced dataset now including environmental and venue information, I retrained the model using the same K-Nearest Neighbors technique but with an expanded feature set. The new model incorporated the following features:</p>
+<ul>
+<li><code>Spread</code>: The point spread for the game</li>
+<li><code>Total</code>: The over/under total points line</li>
+<li><code>AfterBye</code>: Whether the team was coming off a bye week</li>
+<li><code>Dome</code>: Whether the game was played in a dome (indoor) stadium</li>
+</ul>
+<p><strong>Enhanced Model Results</strong>: The retrained model&rsquo;s performance for predicting &ldquo;Under the total&rdquo; across different years:</p>
+<ul>
+<li><strong>2021</strong>: 56% accurate</li>
+<li><strong>2022</strong>: 57% accurate</li>
+<li><strong>2023</strong>: 50% accurate</li>
+<li><strong>2024</strong>: 47% accurate</li>
+</ul>
+<p>The addition of the dome feature provided modest improvements in 2021 and 2022, with accuracy increasing by 2% and maintaining the 57% level respectively. However, the model still struggled with 2023 and 2024 predictions, with 2024 dropping to 47% accuracy - well below the profitable threshold. This suggests that while environmental factors can provide some predictive value, they may not be sufficient to overcome the inherent challenges of NFL prediction, particularly in more recent seasons.</p>
+<h2 id="api-development">API Development</h2>
+<p>To make the model easily accessible for generating 2025 predictions, I created a simple Flask API server. This provided a convenient way to run the model without needing to load Jupyter notebooks or manage the data pipeline manually.</p>
+<p>The Flask API accepts POST requests to the <code>/games</code> endpoint with an array of game objects. Each game object contains the following parameters:</p>
+<ul>
+<li><code>Game</code>: The matchup (e.g., &ldquo;Cowboys @ Eagles&rdquo;)</li>
+<li><code>Spread</code>: The point spread for the game</li>
+<li><code>Total</code>: The over/under total points line</li>
+<li><code>AfterBye</code>: Whether the team is coming off a bye week (0 or 1)</li>
+<li><code>Dome</code>: Whether the game is played in a dome stadium (0 or 1)</li>
+</ul>
+<p><strong>Request Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="s2">&#34;http://localhost:7200/games&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Content-Type: application/json&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s1">&#39;{
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;games&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="s1">      {
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;AfterBye&#34;: 0,
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;Dome&#34;: 0,
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;Game&#34;: &#34;Cowboys @ Eagles&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;Spread&#34;: -8.5,
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;Total&#34;: 48.5
+</span></span></span><span class="line"><span class="cl"><span class="s1">      }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    ]
+</span></span></span><span class="line"><span class="cl"><span class="s1">  }&#39;</span>
+</span></span></code></pre></div><p><strong>Response Example</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;games&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Game&#34;</span><span class="p">:</span> <span class="s2">&#34;Cowboys @ Eagles&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;Prediction&#34;</span><span class="p">:</span> <span class="s2">&#34;Under&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This API design allows for easy integration with other applications or manual testing of specific game scenarios. The JSON format makes it simple to build frontend interfaces or integrate with other systems for automated prediction workflows.</p>
+<h2 id="2025-week-1-predictions">2025 Week 1 Predictions</h2>
+<p>Based on my adjusted ML model, below are my predictions for games under the Vegas lines. The betting lines were pulled from FanDuel and represent the current spreads and totals for Week 1 of the 2025 NFL season.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Game</th>
+          <th>Spread</th>
+          <th>Total</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Cowboys @ Eagles</td>
+          <td>-8.5</td>
+          <td>48.5</td>
+      </tr>
+      <tr>
+          <td>Chiefs @ Chargers</td>
+          <td>3.0</td>
+          <td>46.5</td>
+      </tr>
+      <tr>
+          <td>Giants @ Commanders</td>
+          <td>-5.5</td>
+          <td>45.5</td>
+      </tr>
+      <tr>
+          <td>Cardinals @ Saints</td>
+          <td>6.5</td>
+          <td>42.5</td>
+      </tr>
+      <tr>
+          <td>Bengals @ Browns</td>
+          <td>5.5</td>
+          <td>47.5</td>
+      </tr>
+      <tr>
+          <td>Titans @ Broncos</td>
+          <td>-8.5</td>
+          <td>42.5</td>
+      </tr>
+      <tr>
+          <td>Texans @ Rams</td>
+          <td>-3</td>
+          <td>43.5</td>
+      </tr>
+      <tr>
+          <td>Ravens @ Bills</td>
+          <td>1.5</td>
+          <td>50.5</td>
+      </tr>
+      <tr>
+          <td>Vikings @ Bears</td>
+          <td>1.5</td>
+          <td>43.5</td>
+      </tr>
+  </tbody>
+</table>
+<p>These predictions represent 9 out of the 16 total Week 1 games. The remaining 7 games did not meet the model&rsquo;s confidence threshold for making predictions. As with any sports prediction model, these should be used for informational purposes and not as guaranteed betting advice.</p>
+<h2 id="acknowledgment">Acknowledgment</h2>
+<p>I&rsquo;d like to acknowledge <a href="https://www.youtube.com/@KerrySportsAnalyst">Kerry Sports Analyst</a> for his excellent YouTube tutorials on building predictive models. His videos have been incredibly useful for learning the fundamentals of sports data analysis and machine learning implementation. For anyone interested in this field, I highly recommend not only checking out his predictive model videos but also exploring his content on identifying trends and patterns in sports data. His approach to breaking down complex concepts into digestible tutorials made this project much more accessible.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.youtube.com/@KerrySportsAnalyst">https://www.youtube.com/@KerrySportsAnalyst</a></li>
+<li><a href="https://www.youtube.com/watch?v=03D-1HXcoIM&amp;list=WL&amp;index=18">https://www.youtube.com/watch?v=03D-1HXcoIM&amp;list=WL&amp;index=18</a></li>
+<li><a href="https://www.pro-football-reference.com/">https://www.pro-football-reference.com/</a></li>
+<li><a href="https://nflweather.com/">https://nflweather.com/</a></li>
+</ul>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/lum8rjack" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://x.com/lum8rjack" target="_blank" rel="noopener noreferrer me"
+    title="X">
+    <svg viewBox="0 0 1200 1227" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/muellerclint" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Lum8rjack.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://blog.lum8rjack.com/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

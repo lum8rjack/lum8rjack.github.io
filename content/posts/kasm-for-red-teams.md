@@ -60,5 +60,5 @@ During the setup, you can also install any browser extensions that you would nor
 
 ## References
 
-- [Kasm](https://kasmweb.com/)
-- [Kasm Workspace Images](https://github.com/kasmtech/workspaces-images)
+- https://kasmweb.com/
+- https://github.com/kasmtech/workspaces-images

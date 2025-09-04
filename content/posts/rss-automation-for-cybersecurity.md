@@ -111,5 +111,5 @@ Whether you’re using a full-fledged automation tool like n8n or a lightweight 
 
 ## References
 
-- [n8n](https://n8n.io/)
-- [rss-monitor](https://github.com/lum8rjack/rss-monitor)
+- https://n8n.io/
+- https://github.com/lum8rjack/rss-monitor

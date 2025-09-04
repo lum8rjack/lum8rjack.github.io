@@ -6,7 +6,29 @@
     <description>Recent content in Categories on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Dec 2024 07:20:28 -0600</lastBuildDate><atom:link href="https://blog.lum8rjack.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Sep 2025 18:25:59 -0500</lastBuildDate><atom:link href="https://blog.lum8rjack.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Science</title>
+      <link>https://blog.lum8rjack.com/categories/data-science/</link>
+      <pubDate>Thu, 04 Sep 2025 18:25:59 -0500</pubDate>
+      
+      <guid>https://blog.lum8rjack.com/categories/data-science/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://blog.lum8rjack.com/categories/machine-learning/</link>
+      <pubDate>Thu, 04 Sep 2025 18:25:59 -0500</pubDate>
+      
+      <guid>https://blog.lum8rjack.com/categories/machine-learning/</guid>
+      
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>News</title>
       <link>https://blog.lum8rjack.com/categories/news/</link>
@@ -63,7 +85,7 @@
     </item>
     
     <item>
-      <title>Function-Hooking</title>
+      <title>Function Hooking</title>
       <link>https://blog.lum8rjack.com/categories/function-hooking/</link>
       <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
       

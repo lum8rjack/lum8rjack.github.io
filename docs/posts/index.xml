@@ -6,7 +6,19 @@
     <description>Recent content in Posts on Lum8rjack</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Dec 2024 07:20:28 -0600</lastBuildDate><atom:link href="https://blog.lum8rjack.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Sep 2025 18:25:59 -0500</lastBuildDate><atom:link href="https://blog.lum8rjack.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building an NFL Over/Under Prediction Model with Machine Learning</title>
+      <link>https://blog.lum8rjack.com/posts/nfl-ml-model/</link>
+      <pubDate>Thu, 04 Sep 2025 18:25:59 -0500</pubDate>
+      
+      <guid>https://blog.lum8rjack.com/posts/nfl-ml-model/</guid>
+      
+      <description>&lt;p&gt;The NFL betting market is massive, with billions of dollars wagered annually on everything from game outcomes to point spreads. While professional sportsbooks employ teams of analysts and sophisticated models, the challenge of accurately predicting NFL spreads remains notoriously difficult.&lt;/p&gt;
+&lt;p&gt;In this project, I set out to build my own machine learning model for predicting NFL point spreads, following along with a &lt;a href=&#34;https://www.youtube.com/watch?v=03D-1HXcoIM&amp;amp;list=WL&amp;amp;index=18&#34;&gt;Kerry Sports Analyst YouTube tutorial&lt;/a&gt; as my starting point. What began as a simple replication exercise quickly evolved into a comprehensive data science project that involved web scraping, model generation, and API development.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>RSS Automation for Cybersecurity</title>
       <link>https://blog.lum8rjack.com/posts/rss-automation-for-cybersecurity/</link>

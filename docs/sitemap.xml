@@ -2,13 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.lum8rjack.com/tags/automation/</loc>
-    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
+    <loc>https://blog.lum8rjack.com/posts/nfl-ml-model/</loc>
+    <lastmod>2025-09-04T18:25:59-05:00</lastmod>
   </url><url>
     <loc>https://blog.lum8rjack.com/categories/</loc>
-    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
+    <lastmod>2025-09-04T18:25:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/categories/data-science/</loc>
+    <lastmod>2025-09-04T18:25:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/tags/data-scraping/</loc>
+    <lastmod>2025-09-04T18:25:59-05:00</lastmod>
   </url><url>
     <loc>https://blog.lum8rjack.com/</loc>
+    <lastmod>2025-09-04T18:25:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/categories/machine-learning/</loc>
+    <lastmod>2025-09-04T18:25:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/tags/nfl/</loc>
+    <lastmod>2025-09-04T18:25:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/posts/</loc>
+    <lastmod>2025-09-04T18:25:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/tags/predictive-modeling/</loc>
+    <lastmod>2025-09-04T18:25:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/tags/python/</loc>
+    <lastmod>2025-09-04T18:25:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/tags/</loc>
+    <lastmod>2025-09-04T18:25:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.lum8rjack.com/tags/automation/</loc>
     <lastmod>2024-12-23T07:20:28-06:00</lastmod>
   </url><url>
     <loc>https://blog.lum8rjack.com/tags/n8n/</loc>
@@ -17,16 +44,10 @@
     <loc>https://blog.lum8rjack.com/categories/news/</loc>
     <lastmod>2024-12-23T07:20:28-06:00</lastmod>
   </url><url>
-    <loc>https://blog.lum8rjack.com/posts/</loc>
-    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
-  </url><url>
     <loc>https://blog.lum8rjack.com/tags/rss/</loc>
     <lastmod>2024-12-23T07:20:28-06:00</lastmod>
   </url><url>
     <loc>https://blog.lum8rjack.com/posts/rss-automation-for-cybersecurity/</loc>
-    <lastmod>2024-12-23T07:20:28-06:00</lastmod>
-  </url><url>
-    <loc>https://blog.lum8rjack.com/tags/</loc>
     <lastmod>2024-12-23T07:20:28-06:00</lastmod>
   </url><url>
     <loc>https://blog.lum8rjack.com/tags/fedramp/</loc>
@@ -92,19 +113,19 @@
     <loc>https://blog.lum8rjack.com/posts/entropy-analysis/</loc>
     <lastmod>2022-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.lum8rjack.com/tags/payloads/</loc>
+    <loc>https://blog.lum8rjack.com/categories/payloads/</loc>
     <lastmod>2022-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.lum8rjack.com/categories/payloads/</loc>
+    <loc>https://blog.lum8rjack.com/tags/payloads/</loc>
     <lastmod>2022-10-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.lum8rjack.com/tags/frida/</loc>
     <lastmod>2022-02-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.lum8rjack.com/posts/function-hooking-part-3/</loc>
+    <loc>https://blog.lum8rjack.com/categories/function-hooking/</loc>
     <lastmod>2022-02-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.lum8rjack.com/categories/function-hooking/</loc>
+    <loc>https://blog.lum8rjack.com/posts/function-hooking-part-3/</loc>
     <lastmod>2022-02-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.lum8rjack.com/tags/password-manager/</loc>
