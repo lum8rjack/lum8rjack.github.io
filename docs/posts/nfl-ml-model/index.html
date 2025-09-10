@@ -53,7 +53,7 @@
         },
         "datePublished": "2025-09-04",
         "description": "",
-        "wordCount":  2403 ,
+        "wordCount":  2500 ,
         "mainEntityOfPage": "True",
         "dateModified": "2025-09-04",
         "image": {
@@ -211,6 +211,7 @@ stroke-linejoin="round" class="feather feather-home">
     </li>
     <li><a href="#api-development">API Development</a></li>
     <li><a href="#2025-week-1-predictions">2025 Week 1 Predictions</a></li>
+    <li><a href="#prediction-results">Prediction Results</a></li>
     <li><a href="#acknowledgment">Acknowledgment</a></li>
     <li><a href="#references">References</a></li>
   </ul>
@@ -221,6 +222,7 @@ stroke-linejoin="round" class="feather feather-home">
 <p>In this project, I set out to build my own machine learning model for predicting NFL point spreads, following along with a <a href="https://www.youtube.com/watch?v=03D-1HXcoIM&amp;list=WL&amp;index=18">Kerry Sports Analyst YouTube tutorial</a> as my starting point. What began as a simple replication exercise quickly evolved into a comprehensive data science project that involved web scraping, model generation, and API development.</p>
 <p>The goal wasn&rsquo;t just to build another prediction model, but to understand the entire pipeline from raw data collection to deployable predictions. Over the course of this project, I scraped 15 years of NFL game data (2009-2024), enhanced it with stadium-specific information, and created a simple API to make predictions accessible.</p>
 <p>While the model&rsquo;s accuracy is still being tweaked and adjusted, the process taught me valuable lessons about data science workflows, machine learning, and the challenges of sports prediction.</p>
+<p><em>Updated 9/9/25: Added <a href="#prediction-results">Week 1 prediction results</a> below.</em></p>
 <h2 id="data-collection">Data Collection</h2>
 <p>The first challenge in building any machine learning model is obtaining quality data. For NFL spread prediction, I needed historical game data including scores, point spreads, and other relevant statistics. Following the <a href="https://www.youtube.com/watch?v=03D-1HXcoIM&amp;list=WL&amp;index=18">Kerry Sports Analyst tutorial</a>, I began by scraping NFL scores and spread data from <a href="https://www.pro-football-reference.com/">Pro-Football-Reference.com</a>. The site provides detailed game logs for every NFL season going back to 2009, including:</p>
 <ul>
@@ -523,6 +525,74 @@ stroke-linejoin="round" class="feather feather-home">
   </tbody>
 </table>
 <p>These predictions represent 9 out of the 16 total Week 1 games. The remaining 7 games did not meet the model&rsquo;s confidence threshold for making predictions. As with any sports prediction model, these should be used for informational purposes and not as guaranteed betting advice.</p>
+<h2 id="prediction-results">Prediction Results</h2>
+<p>The model&rsquo;s Week 1 predictions achieved a 67% accuracy rate, correctly predicting 6 out of 9 games.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Game</th>
+          <th>Pre-Game Total</th>
+          <th>Final Score (Total)</th>
+          <th>W/L</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Cowboys @ Eagles</td>
+          <td>48.5</td>
+          <td>20-24 (44)</td>
+          <td>W</td>
+      </tr>
+      <tr>
+          <td>Chiefs @ Chargers</td>
+          <td>46.5</td>
+          <td>21-27 (48)</td>
+          <td>L</td>
+      </tr>
+      <tr>
+          <td>Giants @ Commanders</td>
+          <td>45.5</td>
+          <td>6-21 (27)</td>
+          <td>W</td>
+      </tr>
+      <tr>
+          <td>Cardinals @ Saints</td>
+          <td>42.5</td>
+          <td>20-13 (33)</td>
+          <td>W</td>
+      </tr>
+      <tr>
+          <td>Bengals @ Browns</td>
+          <td>47.5</td>
+          <td>17-16 (33)</td>
+          <td>W</td>
+      </tr>
+      <tr>
+          <td>Titans @ Broncos</td>
+          <td>42.5</td>
+          <td>12-20 (32)</td>
+          <td>W</td>
+      </tr>
+      <tr>
+          <td>Texans @ Rams</td>
+          <td>43.5</td>
+          <td>9-14 (23)</td>
+          <td>W</td>
+      </tr>
+      <tr>
+          <td>Ravens @ Bills</td>
+          <td>50.5</td>
+          <td>40-41 (81)</td>
+          <td>L</td>
+      </tr>
+      <tr>
+          <td>Vikings @ Bears</td>
+          <td>43.5</td>
+          <td>27-24 (51)</td>
+          <td>L</td>
+      </tr>
+  </tbody>
+</table>
 <h2 id="acknowledgment">Acknowledgment</h2>
 <p>I&rsquo;d like to acknowledge <a href="https://www.youtube.com/@KerrySportsAnalyst">Kerry Sports Analyst</a> for his excellent YouTube tutorials on building predictive models. His videos have been incredibly useful for learning the fundamentals of sports data analysis and machine learning implementation. For anyone interested in this field, I highly recommend not only checking out his predictive model videos but also exploring his content on identifying trends and patterns in sports data. His approach to breaking down complex concepts into digestible tutorials made this project much more accessible.</p>
 <h2 id="references">References</h2>

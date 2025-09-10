@@ -14,6 +14,9 @@ The goal wasn't just to build another prediction model, but to understand the en
 
 While the model's accuracy is still being tweaked and adjusted, the process taught me valuable lessons about data science workflows, machine learning, and the challenges of sports prediction.
 
+*Updated 9/9/25: Added [Week 1 prediction results](#prediction-results) below.*
+
+
 ## Data Collection
 
 The first challenge in building any machine learning model is obtaining quality data. For NFL spread prediction, I needed historical game data including scores, point spreads, and other relevant statistics. Following the [Kerry Sports Analyst tutorial](https://www.youtube.com/watch?v=03D-1HXcoIM&list=WL&index=18), I began by scraping NFL scores and spread data from [Pro-Football-Reference.com](https://www.pro-football-reference.com/). The site provides detailed game logs for every NFL season going back to 2009, including:
@@ -307,6 +310,22 @@ Based on my adjusted ML model, below are my predictions for games under the Vega
 
 
 These predictions represent 9 out of the 16 total Week 1 games. The remaining 7 games did not meet the model's confidence threshold for making predictions. As with any sports prediction model, these should be used for informational purposes and not as guaranteed betting advice.
+
+## Prediction Results
+
+The model's Week 1 predictions achieved a 67% accuracy rate, correctly predicting 6 out of 9 games.
+
+| Game | Pre-Game Total | Final Score (Total) | W/L |
+|------|--------|-------|-------|
+| Cowboys @ Eagles | 48.5 | 20-24 (44) | W |
+| Chiefs @ Chargers | 46.5 | 21-27 (48) | L |
+| Giants @ Commanders | 45.5 | 6-21 (27) | W |
+| Cardinals @ Saints | 42.5 | 20-13 (33) | W |
+| Bengals @ Browns | 47.5 | 17-16 (33) | W |
+| Titans @ Broncos | 42.5 | 12-20 (32) | W |
+| Texans @ Rams | 43.5 | 9-14 (23) | W |
+| Ravens @ Bills | 50.5 | 40-41 (81) | L |
+| Vikings @ Bears | 43.5 | 27-24 (51) | L |
 
 
 ## Acknowledgment
